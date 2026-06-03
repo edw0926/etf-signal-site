@@ -53,7 +53,7 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
   }[typeTag]
 
   return (
-    <main className="max-w-[1020px] mx-auto px-6 pb-16">
+    <main style={{ width: '100%', maxWidth: '1020px', paddingLeft: '24px', paddingRight: '24px', paddingBottom: '64px' }}>
       {/* Back nav */}
       <div className="pt-6 mb-6">
         <Link href="/" className="font-mono text-[11px] tracking-widest uppercase transition-colors" style={{ color: 'var(--muted)' }}>

@@ -13,16 +13,16 @@ export default function Home() {
   const inv1 = etfs.filter(e => e.type === 'inv1')
 
   return (
-    <main className="max-w-[1020px] mx-auto px-6 pb-16">
+    <main style={{ width: '100%', maxWidth: '1020px', paddingLeft: '24px', paddingRight: '24px', paddingBottom: '64px' }}>
       {/* Header */}
       <header className="pt-8">
-        <div className="flex items-end justify-between pb-6 flex-wrap gap-3">
+        <div className="flex items-end justify-between pb-7 flex-wrap gap-3">
           <div>
             <div className="font-mono text-[10px] tracking-[4px] uppercase mb-2 flex items-center gap-2" style={{ color: 'var(--green)' }}>
               <span className="inline-block w-5 h-px" style={{ background: 'var(--green)' }} />
               Taiwan ETF Signal Lab
             </div>
-            <h1 className="text-[28px] font-black tracking-tight leading-none">
+            <h1 className="text-[34px] font-black tracking-tight leading-none">
               台股<span style={{ color: 'var(--green)' }}>市值型 ETF</span> 訊號站
             </h1>
           </div>
@@ -37,35 +37,25 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Nav hint */}
+        {/* Nav */}
         <nav className="flex gap-0.5 flex-wrap" style={{ borderBottom: '1px solid var(--border)', paddingBottom: '0', marginBottom: '44px' }}>
-          {[
-            { label: '市場溫度儀表板', active: true },
-            { label: '策略方法論' },
-          ].map(item => (
-            <div
-              key={item.label}
-              className="font-mono text-[11px] tracking-widest uppercase px-4 py-2.5 cursor-pointer transition-all duration-200"
-              style={{
-                color: item.active ? 'var(--green)' : 'var(--muted)',
-                borderBottom: item.active ? '2px solid var(--green)' : '2px solid transparent',
-                marginBottom: '-1px',
-              }}
-            >
-              {item.label}
-            </div>
-          ))}
+          <div
+            className="font-mono text-[11px] tracking-widest uppercase px-4 py-2.5"
+            style={{ color: 'var(--green)', borderBottom: '2px solid var(--green)', marginBottom: '-1px' }}
+          >
+            市場溫度儀表板
+          </div>
         </nav>
       </header>
 
       {/* 基礎市值型 */}
       <Section tag="base" tagLabel="基礎市值型" desc="追蹤台灣50指數 · 適合長期定期定額">
-        <ETFGrid etfs={base} startDelay={40} />
+        <ETFGrid etfs={base} startDelay={40} maxCols={2} />
       </Section>
 
-      {/* 正2 槓桿型 */}
+      {/* 正2 槓桿型 — 4 張，固定最多 2 欄讓排版整齊 */}
       <Section tag="lev" tagLabel="正2 槓桿型" desc="單日放大2倍報酬 · 有波動耗損 · 適合短中線 · 需要開立信用帳戶">
-        <ETFGrid etfs={lev2} startDelay={40} />
+        <ETFGrid etfs={lev2} startDelay={40} maxCols={2} />
       </Section>
 
       {/* 反1 反向型 */}
@@ -109,8 +99,8 @@ function Section({
   }[tag]
 
   return (
-    <div className="mb-10">
-      <div className="flex items-center gap-3.5 mb-4">
+    <div className="mb-14">
+      <div className="flex items-center gap-3.5 mb-5">
         <div className="font-mono text-[10px] tracking-[3px] uppercase px-3 py-1 rounded font-semibold" style={tagStyle}>
           {tagLabel}
         </div>
@@ -121,9 +111,12 @@ function Section({
   )
 }
 
-function ETFGrid({ etfs, startDelay }: { etfs: ETFData[]; startDelay: number }) {
+function ETFGrid({ etfs, startDelay, maxCols = 3 }: { etfs: ETFData[]; startDelay: number; maxCols?: number }) {
+  const gridClass = maxCols === 2
+    ? 'grid grid-cols-1 md:grid-cols-2 gap-6 mb-10'
+    : 'grid grid-cols-1 md:grid-cols-3 gap-6 mb-10'
   return (
-    <div className="grid gap-3.5 mb-10" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(290px, 1fr))' }}>
+    <div className={gridClass}>
       {etfs.map((etf, i) => (
         <ETFCard key={etf.ticker} etf={etf} delay={startDelay + i * 40} />
       ))}

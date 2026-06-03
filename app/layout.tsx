@@ -41,7 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
         </div>
 
-        <div className="relative z-10">{children}</div>
+        <div className="relative z-10 w-full flex flex-col items-center">{children}</div>
       </body>
     </html>
   )
