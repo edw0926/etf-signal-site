@@ -1,0 +1,1229 @@
+{
+  "updated_at": "2026/06/03",
+  "etfs": {
+    "0050": {
+      "ticker": "0050",
+      "name": "元大台灣50",
+      "type": "base",
+      "index": "台灣50",
+      "data_range": "2005/01 — 2026/06",
+      "sample_months": 258,
+      "current": {
+        "signal": "red",
+        "label": "偏高估",
+        "bias": 8.84,
+        "latest_price": 107.6,
+        "ma20": 98.86
+      },
+      "winrates": {
+        "30d": {
+          "count": 218,
+          "win_count": 121,
+          "win_rate": 55.5,
+          "median_ret": 1.14,
+          "mean_ret": -0.54,
+          "max_ret": 21.66,
+          "min_ret": -37.77
+        },
+        "60d": {
+          "count": 218,
+          "win_count": 113,
+          "win_rate": 51.8,
+          "median_ret": 0.82,
+          "mean_ret": -0.59,
+          "max_ret": 32.79,
+          "min_ret": -39.56
+        },
+        "90d": {
+          "count": 218,
+          "win_count": 118,
+          "win_rate": 54.1,
+          "median_ret": 1.54,
+          "mean_ret": 0.21,
+          "max_ret": 54.16,
+          "min_ret": -43.72
+        },
+        "180d": {
+          "count": 218,
+          "win_count": 139,
+          "win_rate": 63.8,
+          "median_ret": 7.74,
+          "mean_ret": 9.78,
+          "max_ret": 78.2,
+          "min_ret": -42.77
+        },
+        "365d": {
+          "count": 218,
+          "win_count": 155,
+          "win_rate": 71.1,
+          "median_ret": 15.18,
+          "mean_ret": 17.38,
+          "max_ret": 107.08,
+          "min_ret": -60.41
+        }
+      },
+      "seasonal": {
+        "1": {
+          "win_rate": 65.6,
+          "median_ret": 3.87,
+          "mean_ret": 4.73,
+          "sample": 404
+        },
+        "2": {
+          "win_rate": 54.5,
+          "median_ret": 0.94,
+          "mean_ret": 0.37,
+          "sample": 321
+        },
+        "3": {
+          "win_rate": 65.9,
+          "median_ret": 3.34,
+          "mean_ret": 2.41,
+          "sample": 466
+        },
+        "4": {
+          "win_rate": 58.8,
+          "median_ret": 1.39,
+          "mean_ret": 0.08,
+          "sample": 413
+        },
+        "5": {
+          "win_rate": 68.5,
+          "median_ret": 5.56,
+          "mean_ret": 0.46,
+          "sample": 441
+        },
+        "6": {
+          "win_rate": 60.8,
+          "median_ret": 3.23,
+          "mean_ret": 1.34,
+          "sample": 431
+        },
+        "7": {
+          "win_rate": 60.0,
+          "median_ret": 1.59,
+          "mean_ret": 0.81,
+          "sample": 457
+        },
+        "8": {
+          "win_rate": 62.0,
+          "median_ret": 3.42,
+          "mean_ret": 2.23,
+          "sample": 460
+        },
+        "9": {
+          "win_rate": 70.6,
+          "median_ret": 4.04,
+          "mean_ret": 3.4,
+          "sample": 429
+        },
+        "10": {
+          "win_rate": 62.2,
+          "median_ret": 2.52,
+          "mean_ret": 3.77,
+          "sample": 434
+        },
+        "11": {
+          "win_rate": 76.7,
+          "median_ret": 4.94,
+          "mean_ret": 5.82,
+          "sample": 450
+        },
+        "12": {
+          "win_rate": 76.5,
+          "median_ret": 5.17,
+          "mean_ret": 7.08,
+          "sample": 463
+        }
+      }
+    },
+    "006208": {
+      "ticker": "006208",
+      "name": "富邦台50",
+      "type": "base",
+      "index": "台灣50",
+      "data_range": "2012/07 — 2026/06",
+      "sample_months": 168,
+      "current": {
+        "signal": "red",
+        "label": "偏高估",
+        "bias": 8.77,
+        "latest_price": 248.8,
+        "ma20": 228.75
+      },
+      "winrates": {
+        "30d": {
+          "count": 144,
+          "win_count": 118,
+          "win_rate": 81.9,
+          "median_ret": Infinity,
+          "mean_ret": Infinity,
+          "max_ret": Infinity,
+          "min_ret": -12.22
+        },
+        "60d": {
+          "count": 144,
+          "win_count": 119,
+          "win_rate": 82.6,
+          "median_ret": Infinity,
+          "mean_ret": Infinity,
+          "max_ret": Infinity,
+          "min_ret": -11.46
+        },
+        "90d": {
+          "count": 144,
+          "win_count": 122,
+          "win_rate": 84.7,
+          "median_ret": Infinity,
+          "mean_ret": Infinity,
+          "max_ret": Infinity,
+          "min_ret": -16.0
+        },
+        "180d": {
+          "count": 144,
+          "win_count": 133,
+          "win_rate": 92.4,
+          "median_ret": Infinity,
+          "mean_ret": Infinity,
+          "max_ret": Infinity,
+          "min_ret": -13.97
+        },
+        "365d": {
+          "count": 144,
+          "win_count": 135,
+          "win_rate": 93.8,
+          "median_ret": Infinity,
+          "mean_ret": Infinity,
+          "max_ret": Infinity,
+          "min_ret": -100.0
+        }
+      },
+      "seasonal": {
+        "1": {
+          "win_rate": 66.8,
+          "median_ret": 4.39,
+          "mean_ret": Infinity,
+          "sample": 247
+        },
+        "2": {
+          "win_rate": 60.4,
+          "median_ret": 1.94,
+          "mean_ret": Infinity,
+          "sample": 197
+        },
+        "3": {
+          "win_rate": 79.8,
+          "median_ret": 7.09,
+          "mean_ret": Infinity,
+          "sample": 282
+        },
+        "4": {
+          "win_rate": 66.9,
+          "median_ret": 5.08,
+          "mean_ret": Infinity,
+          "sample": 251
+        },
+        "5": {
+          "win_rate": 73.0,
+          "median_ret": 6.09,
+          "mean_ret": Infinity,
+          "sample": 270
+        },
+        "6": {
+          "win_rate": 60.5,
+          "median_ret": 3.44,
+          "mean_ret": Infinity,
+          "sample": 258
+        },
+        "7": {
+          "win_rate": 52.2,
+          "median_ret": 0.22,
+          "mean_ret": Infinity,
+          "sample": 291
+        },
+        "8": {
+          "win_rate": 59.7,
+          "median_ret": 2.46,
+          "mean_ret": Infinity,
+          "sample": 303
+        },
+        "9": {
+          "win_rate": 69.1,
+          "median_ret": 3.93,
+          "mean_ret": Infinity,
+          "sample": 282
+        },
+        "10": {
+          "win_rate": 65.7,
+          "median_ret": 3.47,
+          "mean_ret": Infinity,
+          "sample": 286
+        },
+        "11": {
+          "win_rate": 65.1,
+          "median_ret": 5.15,
+          "mean_ret": Infinity,
+          "sample": 295
+        },
+        "12": {
+          "win_rate": 70.7,
+          "median_ret": 7.07,
+          "mean_ret": Infinity,
+          "sample": 304
+        }
+      }
+    },
+    "00631L": {
+      "ticker": "00631L",
+      "name": "元大台灣50正2",
+      "type": "lev2",
+      "index": "台灣50×2",
+      "data_range": "2014/10 — 2026/06",
+      "sample_months": 141,
+      "current": {
+        "signal": "red",
+        "label": "偏高估",
+        "bias": 16.85,
+        "latest_price": 39.22,
+        "ma20": 33.56
+      },
+      "winrates": {
+        "30d": {
+          "count": 154,
+          "win_count": 113,
+          "win_rate": 73.4,
+          "median_ret": 10.68,
+          "mean_ret": 11.04,
+          "max_ret": 61.89,
+          "min_ret": -31.37
+        },
+        "60d": {
+          "count": 154,
+          "win_count": 112,
+          "win_rate": 72.7,
+          "median_ret": 13.42,
+          "mean_ret": 14.96,
+          "max_ret": 87.58,
+          "min_ret": -16.98
+        },
+        "90d": {
+          "count": 154,
+          "win_count": 128,
+          "win_rate": 83.1,
+          "median_ret": 17.57,
+          "mean_ret": 21.32,
+          "max_ret": 142.23,
+          "min_ret": -30.91
+        },
+        "180d": {
+          "count": 154,
+          "win_count": 117,
+          "win_rate": 76.0,
+          "median_ret": 30.68,
+          "mean_ret": 37.54,
+          "max_ret": 222.16,
+          "min_ret": -33.01
+        },
+        "365d": {
+          "count": 154,
+          "win_count": 141,
+          "win_rate": 91.6,
+          "median_ret": 89.07,
+          "mean_ret": 95.63,
+          "max_ret": 407.77,
+          "min_ret": -33.26
+        }
+      },
+      "seasonal": {
+        "1": {
+          "win_rate": 66.2,
+          "median_ret": 14.35,
+          "mean_ret": 9.33,
+          "sample": 207
+        },
+        "2": {
+          "win_rate": 65.9,
+          "median_ret": 12.54,
+          "mean_ret": 8.51,
+          "sample": 167
+        },
+        "3": {
+          "win_rate": 79.4,
+          "median_ret": 14.89,
+          "mean_ret": 14.94,
+          "sample": 243
+        },
+        "4": {
+          "win_rate": 73.3,
+          "median_ret": 12.4,
+          "mean_ret": 15.5,
+          "sample": 210
+        },
+        "5": {
+          "win_rate": 81.4,
+          "median_ret": 13.33,
+          "mean_ret": 15.32,
+          "sample": 231
+        },
+        "6": {
+          "win_rate": 58.4,
+          "median_ret": 5.04,
+          "mean_ret": 10.77,
+          "sample": 226
+        },
+        "7": {
+          "win_rate": 66.9,
+          "median_ret": 4.21,
+          "mean_ret": 8.74,
+          "sample": 239
+        },
+        "8": {
+          "win_rate": 72.3,
+          "median_ret": 7.42,
+          "mean_ret": 10.94,
+          "sample": 242
+        },
+        "9": {
+          "win_rate": 82.1,
+          "median_ret": 12.34,
+          "mean_ret": 17.51,
+          "sample": 223
+        },
+        "10": {
+          "win_rate": 73.9,
+          "median_ret": 10.24,
+          "mean_ret": 18.65,
+          "sample": 222
+        },
+        "11": {
+          "win_rate": 68.8,
+          "median_ret": 8.61,
+          "mean_ret": 4.64,
+          "sample": 256
+        },
+        "12": {
+          "win_rate": 61.5,
+          "median_ret": 7.13,
+          "mean_ret": 0.04,
+          "sample": 265
+        }
+      }
+    },
+    "00675L": {
+      "ticker": "00675L",
+      "name": "富邦臺灣加權正2",
+      "type": "lev2",
+      "index": "加權×2",
+      "data_range": "2016/10 — 2026/06",
+      "sample_months": 117,
+      "current": {
+        "signal": "red",
+        "label": "偏高估",
+        "bias": 18.02,
+        "latest_price": 346.65,
+        "ma20": 293.72
+      },
+      "winrates": {
+        "30d": {
+          "count": 122,
+          "win_count": 88,
+          "win_rate": 72.1,
+          "median_ret": 9.55,
+          "mean_ret": 10.87,
+          "max_ret": 63.15,
+          "min_ret": -31.28
+        },
+        "60d": {
+          "count": 122,
+          "win_count": 85,
+          "win_rate": 69.7,
+          "median_ret": 10.28,
+          "mean_ret": 14.41,
+          "max_ret": 89.44,
+          "min_ret": -16.98
+        },
+        "90d": {
+          "count": 122,
+          "win_count": 100,
+          "win_rate": 82.0,
+          "median_ret": 17.03,
+          "mean_ret": 22.09,
+          "max_ret": 138.12,
+          "min_ret": -29.08
+        },
+        "180d": {
+          "count": 122,
+          "win_count": 86,
+          "win_rate": 70.5,
+          "median_ret": 28.48,
+          "mean_ret": 37.46,
+          "max_ret": 218.57,
+          "min_ret": -33.4
+        },
+        "365d": {
+          "count": 122,
+          "win_count": 112,
+          "win_rate": 91.8,
+          "median_ret": 76.77,
+          "mean_ret": 95.47,
+          "max_ret": 407.82,
+          "min_ret": -30.46
+        }
+      },
+      "seasonal": {
+        "1": {
+          "win_rate": 67.6,
+          "median_ret": 15.77,
+          "mean_ret": 15.76,
+          "sample": 170
+        },
+        "2": {
+          "win_rate": 70.2,
+          "median_ret": 12.94,
+          "mean_ret": 9.39,
+          "sample": 141
+        },
+        "3": {
+          "win_rate": 85.9,
+          "median_ret": 16.04,
+          "mean_ret": 17.43,
+          "sample": 198
+        },
+        "4": {
+          "win_rate": 80.7,
+          "median_ret": 12.11,
+          "mean_ret": 19.16,
+          "sample": 171
+        },
+        "5": {
+          "win_rate": 87.9,
+          "median_ret": 12.76,
+          "mean_ret": 16.39,
+          "sample": 190
+        },
+        "6": {
+          "win_rate": 62.0,
+          "median_ret": 5.33,
+          "mean_ret": 10.63,
+          "sample": 184
+        },
+        "7": {
+          "win_rate": 72.6,
+          "median_ret": 5.54,
+          "mean_ret": 10.35,
+          "sample": 197
+        },
+        "8": {
+          "win_rate": 75.8,
+          "median_ret": 9.81,
+          "mean_ret": 12.6,
+          "sample": 198
+        },
+        "9": {
+          "win_rate": 89.1,
+          "median_ret": 14.08,
+          "mean_ret": 20.74,
+          "sample": 184
+        },
+        "10": {
+          "win_rate": 81.3,
+          "median_ret": 13.21,
+          "mean_ret": 21.09,
+          "sample": 198
+        },
+        "11": {
+          "win_rate": 74.0,
+          "median_ret": 16.91,
+          "mean_ret": 16.62,
+          "sample": 215
+        },
+        "12": {
+          "win_rate": 69.7,
+          "median_ret": 15.43,
+          "mean_ret": 17.41,
+          "sample": 218
+        }
+      }
+    },
+    "00685L": {
+      "ticker": "00685L",
+      "name": "群益臺灣加權正2",
+      "type": "lev2",
+      "index": "加權×2",
+      "data_range": "2017/03 — 2026/06",
+      "sample_months": 112,
+      "current": {
+        "signal": "red",
+        "label": "偏高估",
+        "bias": 17.97,
+        "latest_price": 313.1,
+        "ma20": 265.41
+      },
+      "winrates": {
+        "30d": {
+          "count": 123,
+          "win_count": 101,
+          "win_rate": 82.1,
+          "median_ret": 20.16,
+          "mean_ret": Infinity,
+          "max_ret": Infinity,
+          "min_ret": -31.62
+        },
+        "60d": {
+          "count": 123,
+          "win_count": 106,
+          "win_rate": 86.2,
+          "median_ret": 24.72,
+          "mean_ret": Infinity,
+          "max_ret": Infinity,
+          "min_ret": -15.32
+        },
+        "90d": {
+          "count": 123,
+          "win_count": 121,
+          "win_rate": 98.4,
+          "median_ret": 30.63,
+          "mean_ret": Infinity,
+          "max_ret": Infinity,
+          "min_ret": -7.66
+        },
+        "180d": {
+          "count": 123,
+          "win_count": 100,
+          "win_rate": 81.3,
+          "median_ret": 59.17,
+          "mean_ret": Infinity,
+          "max_ret": Infinity,
+          "min_ret": -100.0
+        },
+        "365d": {
+          "count": 123,
+          "win_count": 119,
+          "win_rate": 96.7,
+          "median_ret": 137.64,
+          "mean_ret": Infinity,
+          "max_ret": Infinity,
+          "min_ret": -21.68
+        }
+      },
+      "seasonal": {
+        "1": {
+          "win_rate": 61.7,
+          "median_ret": 14.07,
+          "mean_ret": 7.85,
+          "sample": 154
+        },
+        "2": {
+          "win_rate": 61.8,
+          "median_ret": 9.44,
+          "mean_ret": Infinity,
+          "sample": 123
+        },
+        "3": {
+          "win_rate": 88.7,
+          "median_ret": 16.15,
+          "mean_ret": Infinity,
+          "sample": 177
+        },
+        "4": {
+          "win_rate": 83.6,
+          "median_ret": 13.63,
+          "mean_ret": Infinity,
+          "sample": 171
+        },
+        "5": {
+          "win_rate": 92.6,
+          "median_ret": 14.84,
+          "mean_ret": Infinity,
+          "sample": 190
+        },
+        "6": {
+          "win_rate": 64.7,
+          "median_ret": 12.82,
+          "mean_ret": Infinity,
+          "sample": 184
+        },
+        "7": {
+          "win_rate": 73.1,
+          "median_ret": 5.58,
+          "mean_ret": Infinity,
+          "sample": 197
+        },
+        "8": {
+          "win_rate": 74.2,
+          "median_ret": 9.93,
+          "mean_ret": Infinity,
+          "sample": 198
+        },
+        "9": {
+          "win_rate": 88.6,
+          "median_ret": 13.92,
+          "mean_ret": 20.04,
+          "sample": 184
+        },
+        "10": {
+          "win_rate": 77.2,
+          "median_ret": 17.8,
+          "mean_ret": 19.73,
+          "sample": 180
+        },
+        "11": {
+          "win_rate": 68.9,
+          "median_ret": 18.45,
+          "mean_ret": Infinity,
+          "sample": 193
+        },
+        "12": {
+          "win_rate": 66.5,
+          "median_ret": 16.72,
+          "mean_ret": Infinity,
+          "sample": 194
+        }
+      }
+    },
+    "00663L": {
+      "ticker": "00663L",
+      "name": "國泰臺灣加權正2",
+      "type": "lev2",
+      "index": "加權×2",
+      "data_range": "2016/07 — 2026/06",
+      "sample_months": 120,
+      "current": {
+        "signal": "red",
+        "label": "偏高估",
+        "bias": 17.93,
+        "latest_price": 114.45,
+        "ma20": 97.05
+      },
+      "winrates": {
+        "30d": {
+          "count": 125,
+          "win_count": 93,
+          "win_rate": 74.4,
+          "median_ret": 11.28,
+          "mean_ret": Infinity,
+          "max_ret": Infinity,
+          "min_ret": -100.0
+        },
+        "60d": {
+          "count": 125,
+          "win_count": 91,
+          "win_rate": 72.8,
+          "median_ret": 13.54,
+          "mean_ret": Infinity,
+          "max_ret": Infinity,
+          "min_ret": -17.31
+        },
+        "90d": {
+          "count": 125,
+          "win_count": 102,
+          "win_rate": 81.6,
+          "median_ret": 20.59,
+          "mean_ret": Infinity,
+          "max_ret": Infinity,
+          "min_ret": -29.71
+        },
+        "180d": {
+          "count": 125,
+          "win_count": 88,
+          "win_rate": 70.4,
+          "median_ret": 31.88,
+          "mean_ret": Infinity,
+          "max_ret": Infinity,
+          "min_ret": -100.0
+        },
+        "365d": {
+          "count": 125,
+          "win_count": 98,
+          "win_rate": 78.4,
+          "median_ret": 44.15,
+          "mean_ret": Infinity,
+          "max_ret": Infinity,
+          "min_ret": -73.93
+        }
+      },
+      "seasonal": {
+        "1": {
+          "win_rate": 67.6,
+          "median_ret": 15.76,
+          "mean_ret": 11.71,
+          "sample": 170
+        },
+        "2": {
+          "win_rate": 71.6,
+          "median_ret": 13.8,
+          "mean_ret": Infinity,
+          "sample": 141
+        },
+        "3": {
+          "win_rate": 77.3,
+          "median_ret": 16.14,
+          "mean_ret": Infinity,
+          "sample": 198
+        },
+        "4": {
+          "win_rate": 68.4,
+          "median_ret": 6.79,
+          "mean_ret": 2.77,
+          "sample": 171
+        },
+        "5": {
+          "win_rate": 77.4,
+          "median_ret": 9.38,
+          "mean_ret": Infinity,
+          "sample": 190
+        },
+        "6": {
+          "win_rate": 59.2,
+          "median_ret": 2.19,
+          "mean_ret": Infinity,
+          "sample": 179
+        },
+        "7": {
+          "win_rate": 72.7,
+          "median_ret": 5.8,
+          "mean_ret": 8.77,
+          "sample": 209
+        },
+        "8": {
+          "win_rate": 77.8,
+          "median_ret": 8.8,
+          "mean_ret": Infinity,
+          "sample": 221
+        },
+        "9": {
+          "win_rate": 90.1,
+          "median_ret": 13.17,
+          "mean_ret": 19.77,
+          "sample": 203
+        },
+        "10": {
+          "win_rate": 80.0,
+          "median_ret": 13.05,
+          "mean_ret": 19.34,
+          "sample": 200
+        },
+        "11": {
+          "win_rate": 74.0,
+          "median_ret": 16.9,
+          "mean_ret": Infinity,
+          "sample": 215
+        },
+        "12": {
+          "win_rate": 69.3,
+          "median_ret": 14.64,
+          "mean_ret": Infinity,
+          "sample": 218
+        }
+      }
+    },
+    "00632R": {
+      "ticker": "00632R",
+      "name": "元大台灣50反1",
+      "type": "inv1",
+      "index": "台灣50×(-1)",
+      "data_range": "2014/10 — 2026/06",
+      "sample_months": 141,
+      "current": {
+        "signal": "red",
+        "label": "不建議",
+        "bias": -8.65,
+        "latest_price": 10.02,
+        "ma20": 10.97
+      },
+      "winrates": {
+        "30d": {
+          "count": 59,
+          "win_count": 8,
+          "win_rate": 13.6,
+          "median_ret": -7.23,
+          "mean_ret": -7.37,
+          "max_ret": 3.15,
+          "min_ret": -23.99
+        },
+        "60d": {
+          "count": 59,
+          "win_count": 10,
+          "win_rate": 16.9,
+          "median_ret": -8.5,
+          "mean_ret": -8.76,
+          "max_ret": 2.99,
+          "min_ret": -30.14
+        },
+        "90d": {
+          "count": 59,
+          "win_count": 13,
+          "win_rate": 22.0,
+          "median_ret": -8.46,
+          "mean_ret": 42.49,
+          "max_ret": 553.85,
+          "min_ret": -38.26
+        },
+        "180d": {
+          "count": 59,
+          "win_count": 7,
+          "win_rate": 11.9,
+          "median_ret": -16.22,
+          "mean_ret": 35.79,
+          "max_ret": 600.57,
+          "min_ret": -47.61
+        },
+        "365d": {
+          "count": 59,
+          "win_count": 10,
+          "win_rate": 16.9,
+          "median_ret": -27.58,
+          "mean_ret": 2.87,
+          "max_ret": 318.99,
+          "min_ret": -60.65
+        }
+      },
+      "seasonal": {
+        "1": {
+          "win_rate": 19.9,
+          "median_ret": -8.23,
+          "mean_ret": -7.58,
+          "sample": 211
+        },
+        "2": {
+          "win_rate": 16.2,
+          "median_ret": -7.04,
+          "mean_ret": -5.63,
+          "sample": 167
+        },
+        "3": {
+          "win_rate": 18.5,
+          "median_ret": -8.69,
+          "mean_ret": -7.4,
+          "sample": 243
+        },
+        "4": {
+          "win_rate": 21.0,
+          "median_ret": -7.63,
+          "mean_ret": -6.73,
+          "sample": 210
+        },
+        "5": {
+          "win_rate": 17.7,
+          "median_ret": -7.96,
+          "mean_ret": -7.17,
+          "sample": 231
+        },
+        "6": {
+          "win_rate": 31.4,
+          "median_ret": -6.26,
+          "mean_ret": -4.91,
+          "sample": 226
+        },
+        "7": {
+          "win_rate": 24.7,
+          "median_ret": -3.91,
+          "mean_ret": 9.05,
+          "sample": 239
+        },
+        "8": {
+          "win_rate": 26.4,
+          "median_ret": -4.65,
+          "mean_ret": 44.72,
+          "sample": 242
+        },
+        "9": {
+          "win_rate": 22.9,
+          "median_ret": -6.7,
+          "mean_ret": 41.76,
+          "sample": 223
+        },
+        "10": {
+          "win_rate": 14.4,
+          "median_ret": -6.83,
+          "mean_ret": 44.15,
+          "sample": 222
+        },
+        "11": {
+          "win_rate": 18.8,
+          "median_ret": -7.4,
+          "mean_ret": 48.22,
+          "sample": 256
+        },
+        "12": {
+          "win_rate": 23.8,
+          "median_ret": -6.72,
+          "mean_ret": -2.88,
+          "sample": 260
+        }
+      }
+    },
+    "00686R": {
+      "ticker": "00686R",
+      "name": "群益臺灣加權反1",
+      "type": "inv1",
+      "index": "加權×(-1)",
+      "data_range": "2017/03 — 2026/06",
+      "sample_months": 112,
+      "current": {
+        "signal": "red",
+        "label": "不建議",
+        "bias": -8.92,
+        "latest_price": 0.99,
+        "ma20": 1.09
+      },
+      "winrates": {
+        "30d": {
+          "count": 70,
+          "win_count": 16,
+          "win_rate": 22.9,
+          "median_ret": -3.8,
+          "mean_ret": -4.62,
+          "max_ret": 19.55,
+          "min_ret": -24.95
+        },
+        "60d": {
+          "count": 70,
+          "win_count": 17,
+          "win_rate": 24.3,
+          "median_ret": -6.42,
+          "mean_ret": -6.74,
+          "max_ret": 12.43,
+          "min_ret": -30.73
+        },
+        "90d": {
+          "count": 70,
+          "win_count": 11,
+          "win_rate": 15.7,
+          "median_ret": -9.81,
+          "mean_ret": -11.03,
+          "max_ret": 11.34,
+          "min_ret": -38.76
+        },
+        "180d": {
+          "count": 70,
+          "win_count": 2,
+          "win_rate": 2.9,
+          "median_ret": -18.6,
+          "mean_ret": -21.31,
+          "max_ret": 4.86,
+          "min_ret": -47.86
+        },
+        "365d": {
+          "count": 70,
+          "win_count": 4,
+          "win_rate": 5.7,
+          "median_ret": -27.64,
+          "mean_ret": -31.54,
+          "max_ret": 3.55,
+          "min_ret": -60.71
+        }
+      },
+      "seasonal": {
+        "1": {
+          "win_rate": 22.1,
+          "median_ret": -7.86,
+          "mean_ret": -7.84,
+          "sample": 154
+        },
+        "2": {
+          "win_rate": 15.4,
+          "median_ret": -6.81,
+          "mean_ret": -5.86,
+          "sample": 123
+        },
+        "3": {
+          "win_rate": 13.6,
+          "median_ret": -9.3,
+          "mean_ret": -8.66,
+          "sample": 177
+        },
+        "4": {
+          "win_rate": 14.0,
+          "median_ret": -7.33,
+          "mean_ret": -8.8,
+          "sample": 171
+        },
+        "5": {
+          "win_rate": 11.1,
+          "median_ret": -7.83,
+          "mean_ret": -8.43,
+          "sample": 190
+        },
+        "6": {
+          "win_rate": 28.3,
+          "median_ret": -5.49,
+          "mean_ret": -4.63,
+          "sample": 184
+        },
+        "7": {
+          "win_rate": 18.8,
+          "median_ret": -4.77,
+          "mean_ret": -5.66,
+          "sample": 197
+        },
+        "8": {
+          "win_rate": 19.2,
+          "median_ret": -6.37,
+          "mean_ret": -6.61,
+          "sample": 198
+        },
+        "9": {
+          "win_rate": 10.9,
+          "median_ret": -7.58,
+          "mean_ret": Infinity,
+          "sample": 184
+        },
+        "10": {
+          "win_rate": 13.9,
+          "median_ret": -9.01,
+          "mean_ret": -9.66,
+          "sample": 180
+        },
+        "11": {
+          "win_rate": 24.9,
+          "median_ret": -8.68,
+          "mean_ret": -7.32,
+          "sample": 193
+        },
+        "12": {
+          "win_rate": 33.2,
+          "median_ret": -8.7,
+          "mean_ret": Infinity,
+          "sample": 196
+        }
+      }
+    },
+    "00664R": {
+      "ticker": "00664R",
+      "name": "國泰臺灣加權反1",
+      "type": "inv1",
+      "index": "加權×(-1)",
+      "data_range": "2016/07 — 2026/06",
+      "sample_months": 120,
+      "current": {
+        "signal": "red",
+        "label": "不建議",
+        "bias": -8.63,
+        "latest_price": 1.62,
+        "ma20": 1.77
+      },
+      "winrates": {
+        "30d": {
+          "count": 50,
+          "win_count": 7,
+          "win_rate": 14.0,
+          "median_ret": -6.66,
+          "mean_ret": -7.14,
+          "max_ret": 3.53,
+          "min_ret": -24.4
+        },
+        "60d": {
+          "count": 50,
+          "win_count": 11,
+          "win_rate": 22.0,
+          "median_ret": -7.19,
+          "mean_ret": -8.43,
+          "max_ret": 3.26,
+          "min_ret": -30.5
+        },
+        "90d": {
+          "count": 50,
+          "win_count": 7,
+          "win_rate": 14.0,
+          "median_ret": -10.89,
+          "mean_ret": -12.4,
+          "max_ret": 12.91,
+          "min_ret": -38.5
+        },
+        "180d": {
+          "count": 50,
+          "win_count": 2,
+          "win_rate": 4.0,
+          "median_ret": -16.91,
+          "mean_ret": -19.89,
+          "max_ret": 4.48,
+          "min_ret": -47.78
+        },
+        "365d": {
+          "count": 50,
+          "win_count": 4,
+          "win_rate": 8.0,
+          "median_ret": -28.04,
+          "mean_ret": -31.06,
+          "max_ret": 3.5,
+          "min_ret": -60.86
+        }
+      },
+      "seasonal": {
+        "1": {
+          "win_rate": 20.0,
+          "median_ret": -8.17,
+          "mean_ret": -7.95,
+          "sample": 170
+        },
+        "2": {
+          "win_rate": 12.1,
+          "median_ret": -7.41,
+          "mean_ret": -6.2,
+          "sample": 141
+        },
+        "3": {
+          "win_rate": 12.1,
+          "median_ret": -9.31,
+          "mean_ret": -8.82,
+          "sample": 198
+        },
+        "4": {
+          "win_rate": 14.0,
+          "median_ret": -7.53,
+          "mean_ret": -9.1,
+          "sample": 171
+        },
+        "5": {
+          "win_rate": 11.1,
+          "median_ret": -8.02,
+          "mean_ret": -8.22,
+          "sample": 190
+        },
+        "6": {
+          "win_rate": 28.8,
+          "median_ret": -6.68,
+          "mean_ret": -4.92,
+          "sample": 184
+        },
+        "7": {
+          "win_rate": 17.2,
+          "median_ret": -4.93,
+          "mean_ret": -5.81,
+          "sample": 209
+        },
+        "8": {
+          "win_rate": 17.2,
+          "median_ret": -5.65,
+          "mean_ret": -6.09,
+          "sample": 221
+        },
+        "9": {
+          "win_rate": 9.4,
+          "median_ret": -7.38,
+          "mean_ret": -8.95,
+          "sample": 203
+        },
+        "10": {
+          "win_rate": 12.0,
+          "median_ret": -7.51,
+          "mean_ret": -9.39,
+          "sample": 200
+        },
+        "11": {
+          "win_rate": 22.3,
+          "median_ret": -8.85,
+          "mean_ret": -7.48,
+          "sample": 215
+        },
+        "12": {
+          "win_rate": 29.8,
+          "median_ret": -7.9,
+          "mean_ret": -8.13,
+          "sample": 218
+        }
+      }
+    }
+  }
+}
