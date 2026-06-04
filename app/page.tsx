@@ -48,6 +48,9 @@ export default function Home() {
         </nav>
       </header>
 
+      {/* G5：市場溫度儀表板 */}
+      <MarketTemperature etfs={etfs} />
+
       {/* 基礎市值型 */}
       <Section tag="base" tagLabel="基礎市值型" desc="追蹤台灣50指數 · 適合長期定期定額">
         <ETFGrid etfs={base} startDelay={40} maxCols={2} />
@@ -106,6 +109,72 @@ function Section({
         {desc}
       </div>
       {children}
+    </div>
+  )
+}
+
+// G5：市場溫度儀表板
+function MarketTemperature({ etfs }: { etfs: ETFData[] }) {
+  // 以基礎型 + 正2型判斷溫度（反1不納入，因邏輯相反）
+  const relevant = etfs.filter(e => e.type === 'base' || e.type === 'lev2')
+  const greenCount  = relevant.filter(e => e.current.signal === 'green').length
+  const yellowCount = relevant.filter(e => e.current.signal === 'yellow').length
+  const redCount    = relevant.filter(e => e.current.signal === 'red').length
+  const total = relevant.length
+
+  const greenETFs = relevant.filter(e => e.current.signal === 'green').map(e => e.ticker)
+
+  let tempColor: string
+  let tempIcon: string
+  let tempTitle: string
+  let tempDesc: string
+
+  if (greenCount > 0) {
+    tempColor = 'var(--green)'
+    tempIcon = '🟢'
+    tempTitle = '偏冷 — 有標的進入偏低估'
+    tempDesc = `出現偏低估訊號，歷史上為相對好的進場時機，建議關注以下標的：${greenETFs.join('、')}`
+  } else if (redCount === total) {
+    tempColor = 'var(--red)'
+    tempIcon = '🔴'
+    tempTitle = '偏熱 — 全面偏高估'
+    tempDesc = '目前台股市值型 ETF 全面偏高估，整體建議觀望為主，維持定期定額但暫停額外加碼。'
+  } else {
+    tempColor = 'var(--yellow)'
+    tempIcon = '🟡'
+    tempTitle = '中性 — 混合訊號'
+    tempDesc = '部分標的偏高估，部分回落至中性，可選擇性針對已回落的標的考慮加碼。'
+  }
+
+  return (
+    <div
+      className="rounded-xl p-5 mb-2"
+      style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderLeft: `4px solid ${tempColor}` }}
+    >
+      <div className="font-mono text-[10px] tracking-[2px] uppercase mb-3" style={{ color: 'var(--muted)' }}>
+        🌡 市場溫度計
+      </div>
+
+      <div className="text-[20px] font-black mb-2" style={{ color: tempColor }}>
+        {tempIcon} {tempTitle}
+      </div>
+
+      {/* 溫度進度條 */}
+      <div className="flex h-2 rounded-full overflow-hidden mb-4" style={{ background: 'var(--border)' }}>
+        {total > 0 && <>
+          <div style={{ width: `${(greenCount / total) * 100}%`,  background: '#00d98b', transition: 'width .3s' }} />
+          <div style={{ width: `${(yellowCount / total) * 100}%`, background: '#f0b429', transition: 'width .3s' }} />
+          <div style={{ width: `${(redCount / total) * 100}%`,    background: '#f0455a', transition: 'width .3s' }} />
+        </>}
+      </div>
+
+      <div className="text-[12px] mb-3" style={{ color: '#b8c8e0' }}>{tempDesc}</div>
+
+      <div className="flex flex-wrap gap-3">
+        {greenCount  > 0 && <span className="font-mono text-[10px]" style={{ color: 'var(--green)'  }}>🟢 偏低估 {greenCount} 檔</span>}
+        {yellowCount > 0 && <span className="font-mono text-[10px]" style={{ color: 'var(--yellow)' }}>🟡 中性 {yellowCount} 檔</span>}
+        {redCount    > 0 && <span className="font-mono text-[10px]" style={{ color: 'var(--red)'    }}>🔴 偏高估 {redCount} 檔</span>}
+      </div>
     </div>
   )
 }

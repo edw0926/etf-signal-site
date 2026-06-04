@@ -23,6 +23,17 @@ export interface ETFCurrent {
   ma20: number
 }
 
+export interface ConditionalZone {
+  count: number
+  win_rate: number | null
+  median_ret: number | null
+}
+
+export interface BiasPoint {
+  month: string
+  bias: number
+}
+
 export interface ETFData {
   ticker: string
   name: string
@@ -33,6 +44,12 @@ export interface ETFData {
   current: ETFCurrent
   winrates: Record<string, WinrateEntry>
   seasonal: Record<string, SeasonalEntry>
+  conditional_winrates?: {
+    green: ConditionalZone
+    yellow: ConditionalZone
+    red: ConditionalZone
+  }
+  bias_history?: BiasPoint[]
 }
 
 export interface SignalsData {
