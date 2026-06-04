@@ -33,7 +33,6 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
 
   const sig = etf.current.signal
   const sigColor = sig === 'green' ? 'var(--green)' : sig === 'yellow' ? 'var(--yellow)' : 'var(--red)'
-  const sigIcon = sig === 'green' ? '↓↓' : sig === 'yellow' ? '→' : '↑↑'
 
   const seasonal = etf.seasonal
   const seasonalVals = Object.values(seasonal) as SeasonalEntry[]
@@ -52,14 +51,15 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
     inv: { color: 'var(--red)', background: 'rgba(240,69,90,.08)', border: '1px solid rgba(240,69,90,.2)' },
   }[typeTag]
 
-  // G2: Target price calculation
   const threshold = etf.type === 'lev2' ? 7 : 5
+
+  // G2: Target price
   const neutralTarget = Math.round(etf.current.ma20 * (1 - threshold / 100) * 100) / 100
   const deepTarget = Math.round(neutralTarget * 0.9 * 100) / 100
   const pctToNeutral = ((etf.current.latest_price - neutralTarget) / etf.current.latest_price * 100)
   const pctToDeep = ((etf.current.latest_price - deepTarget) / etf.current.latest_price * 100)
 
-  // G4: Last undervalued time from bias_history
+  // G4: Last undervalued
   const bh = etf.bias_history ?? []
   const lowThresh = etf.type === 'lev2' ? -7 : -5
   const lastUnderIdx = (() => {
@@ -70,6 +70,17 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
   })()
   const lastUnderMonth = lastUnderIdx >= 0 ? bh[lastUnderIdx].month : null
   const monthsAgo = lastUnderIdx >= 0 ? bh.length - 1 - lastUnderIdx : null
+
+  // H7: inv1 win rate for warning
+  const inv1WR365 = etf.winrates['365d']?.win_rate ?? null
+
+  // H5: current DCA row
+  const dcaRows = [
+    { zone: 'green',  label: '🟢 偏低估', ratio: '150%', desc: '相對便宜，可考慮加碼',    active: sig === 'green',  color: 'var(--green)',  bg: 'rgba(0,217,139,.08)' },
+    { zone: 'yellow', label: '🟡 中性',   ratio: '100%', desc: '照常執行定期定額',        active: sig === 'yellow', color: 'var(--yellow)', bg: 'rgba(240,180,41,.06)' },
+    { zone: 'red',    label: '🔴 偏高估', ratio: '50%',  desc: '偏貴，建議縮減單次金額', active: sig === 'red',    color: 'var(--red)',    bg: 'rgba(240,69,90,.08)' },
+  ]
+  const currentDCA = dcaRows.find(r => r.active) ?? dcaRows[1]
 
   return (
     <main style={{ width: '100%', maxWidth: '1020px', paddingLeft: '24px', paddingRight: '24px', paddingBottom: '64px' }}>
@@ -90,7 +101,7 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
       {/* 主要資訊面板 */}
       <div className="animate-fadeUp rounded-[18px] mb-11" style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '36px 36px 32px' }}>
 
-        {/* 標題列 + 當前訊號 */}
+        {/* H4：標題列 + 訊號（移除 chips，在右側補收盤/MA20 小字） */}
         <div className="flex justify-between items-start mb-9 flex-wrap gap-4">
           <div>
             <h2 className="text-2xl font-black">{etf.name}（{etf.ticker}）</h2>
@@ -103,29 +114,61 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
           </div>
           <div className="text-right">
             <div className="font-mono text-[10px] tracking-wider mb-1.5" style={{ color: 'var(--muted)' }}>當前訊號</div>
-            <div className="font-mono text-xl font-bold" style={{ color: sigColor }}>
-              {etf.current.label} {etf.type !== 'inv1' ? sigIcon : '✕'}
-            </div>
-            <div className="font-mono text-[11px] mt-1" style={{ color: 'var(--muted)' }}>
-              月線乖離 {formatBias(etf.current.bias)}
-              <Tooltip text="現在股價距離近 20 日平均成本的差距百分比。正值代表比均價貴，負值代表比均價便宜。" />
-            </div>
+            {etf.type === 'inv1' ? (
+              /* H7：反1 顯示警示而非偏高估/偏低估 */
+              <div>
+                <div className="font-mono text-[17px] font-bold" style={{ color: '#e07b39' }}>
+                  ⚠ 反向 ETF
+                </div>
+                <div className="font-mono text-[11px] mt-1 leading-relaxed" style={{ color: 'var(--muted)' }}>
+                  乖離率 {formatBias(etf.current.bias)}<br />
+                  <span style={{ color: 'rgba(224,123,57,.8)' }}>
+                    {inv1WR365 != null ? `365日勝率僅 ${inv1WR365}%` : '長期持有損耗極大'}
+                  </span>
+                </div>
+              </div>
+            ) : (
+              <div>
+                <div className="font-mono text-xl font-bold" style={{ color: sigColor }}>
+                  {etf.current.label} {sig === 'green' ? '↓↓' : sig === 'yellow' ? '→' : '↑↑'}
+                </div>
+                <div className="font-mono text-[11px] mt-1" style={{ color: 'var(--muted)' }}>
+                  月線乖離 {formatBias(etf.current.bias)}
+                  <Tooltip text="現在股價距離近 20 日平均成本的差距百分比。正值代表比均價貴，負值代表比均價便宜。" />
+                </div>
+                <div className="font-mono text-[10px] mt-0.5" style={{ color: 'var(--muted2)' }}>
+                  收盤 ${etf.current.latest_price} · MA20 ${etf.current.ma20}
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
-        {/* Chips */}
-        <div className="flex flex-wrap gap-2 mb-7">
-          <Chip type={sig === 'red' ? 'r' : sig === 'green' ? 'g' : 'y'}>
-            {sig === 'red' ? '✕' : sig === 'green' ? '✓' : '△'} 月線乖離 {formatBias(etf.current.bias)}（{sig === 'red' ? `超過 +${threshold}% 高估門檻` : sig === 'green' ? `低於 −${threshold}% 低估區間` : '中性區間'}）
-          </Chip>
-          <Chip type={sig === 'red' ? 'r' : sig === 'green' ? 'g' : 'y'}>
-            {sig === 'red' ? '✕' : sig === 'green' ? '✓' : '△'} 當前收盤 {etf.current.latest_price} · MA20 = {etf.current.ma20}
-          </Chip>
-        </div>
+        {/* H7：反1 警示大框 */}
+        {etf.type === 'inv1' && (
+          <div className="rounded-xl p-6 mb-9" style={{ background: 'rgba(224,123,57,.07)', border: '1px solid rgba(224,123,57,.3)' }}>
+            <div className="font-mono text-[10px] tracking-[2px] uppercase mb-3" style={{ color: '#e07b39' }}>
+              ⚠ 本標的使用警示
+            </div>
+            <div className="text-[13px] leading-relaxed" style={{ color: '#b8c8e0' }}>
+              {inv1WR365 != null && (
+                <div className="mb-2">
+                  本標的歷史 <strong style={{ color: '#e07b39' }}>365 日勝率僅 {inv1WR365}%</strong>，長期持有損耗極大，
+                  <strong style={{ color: '#e07b39' }}> 不建議作為主要投資標的</strong>，僅適合短線空頭避險使用。
+                </div>
+              )}
+              <div style={{ color: 'var(--muted)' }}>
+                反1 ETF 追蹤的是每日反向指數，乖離率與大盤方向相反，
+                <strong>不適用偏高估/偏低估進場邏輯</strong>。
+                當大盤上漲、乖離率為負，僅代表台股上漲趨勢強勁，並非此 ETF 的進場機會。
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* G2：目標股價（僅偏高估且非反1時顯示） */}
         {sig === 'red' && etf.type !== 'inv1' && (
-          <div className="rounded-xl p-6 mb-8" style={{ background: 'rgba(240,69,90,.06)', border: '1px solid rgba(240,69,90,.2)' }}>
+          <div className="rounded-xl p-6 mb-9" style={{ background: 'rgba(240,69,90,.06)', border: '1px solid rgba(240,69,90,.2)' }}>
             <div className="font-mono text-[10px] tracking-[2px] uppercase mb-3" style={{ color: 'var(--red)' }}>
               🎯 回落參考目標價
             </div>
@@ -159,87 +202,62 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
           </div>
         )}
 
-        {/* G3：定期定額加碼比例建議 */}
+        {/* H5：定期定額 — 預設只顯示當前狀態，展開查看完整表 */}
         {etf.type !== 'inv1' && (
-          <div className="rounded-xl p-6 mb-8" style={{ background: 'var(--surface2)', border: '1px solid var(--border)' }}>
+          <div className="rounded-xl p-6 mb-9" style={{ background: 'var(--surface2)', border: '1px solid var(--border)' }}>
             <div className="font-mono text-[10px] tracking-[2px] uppercase mb-3" style={{ color: 'var(--muted)' }}>
-              💰 定期定額投資人的參考做法
+              💰 定期定額參考做法
             </div>
-            <div className="rounded-lg overflow-hidden mb-2" style={{ border: '1px solid var(--border)' }}>
-              {[
-                {
-                  zone: 'green',
-                  label: '🟢 偏低估',
-                  ratio: '150%',
-                  desc: '相對便宜，可考慮加碼',
-                  active: sig === 'green',
-                  color: 'var(--green)',
-                  bg: 'rgba(0,217,139,.08)',
-                },
-                {
-                  zone: 'yellow',
-                  label: '🟡 中性',
-                  ratio: '100%',
-                  desc: '照常執行定期定額',
-                  active: sig === 'yellow',
-                  color: 'var(--yellow)',
-                  bg: 'rgba(240,180,41,.06)',
-                },
-                {
-                  zone: 'red',
-                  label: '🔴 偏高估',
-                  ratio: '50%',
-                  desc: '偏貴，建議縮減單次金額',
-                  active: sig === 'red',
-                  color: 'var(--red)',
-                  bg: 'rgba(240,69,90,.08)',
-                },
-              ].map((row, i) => (
-                <div
-                  key={row.zone}
-                  className="flex items-center gap-3 px-4 py-2.5"
-                  style={{
-                    background: row.active ? row.bg : 'transparent',
-                    borderBottom: i < 2 ? '1px solid var(--border)' : 'none',
-                  }}
-                >
-                  <div className="font-mono text-[11px] w-20 flex-shrink-0" style={{ color: row.active ? row.color : 'var(--muted)' }}>
-                    {row.label}
-                  </div>
-                  <div className="font-mono text-[13px] font-bold w-14 flex-shrink-0" style={{ color: row.active ? row.color : 'var(--muted)' }}>
-                    {row.ratio}
-                  </div>
-                  <div className="text-[11px]" style={{ color: row.active ? 'var(--text)' : 'var(--muted2)' }}>
-                    {row.desc}
-                  </div>
-                  {row.active && (
-                    <div className="ml-auto font-mono text-[9px] px-2 py-0.5 rounded-full" style={{ background: row.bg, color: row.color, border: `1px solid ${row.color}` }}>
-                      目前狀態
+            {/* 當前建議摘要 */}
+            <div
+              className="flex items-center gap-3 px-4 py-3 rounded-lg mb-3"
+              style={{ background: currentDCA.bg, border: `1px solid ${currentDCA.color}30` }}
+            >
+              <div className="font-mono text-[11px]" style={{ color: currentDCA.color }}>💡 目前建議</div>
+              <div className="font-mono text-[15px] font-black" style={{ color: currentDCA.color }}>{currentDCA.ratio}</div>
+              <div className="text-[12px]" style={{ color: 'var(--text)' }}>{currentDCA.label} · {currentDCA.desc}</div>
+            </div>
+            {/* 展開完整對照表 */}
+            <details>
+              <summary
+                className="font-mono text-[10px] cursor-pointer select-none"
+                style={{ color: 'var(--muted2)', listStyle: 'none' }}
+              >
+                查看完整對照表 ▾
+              </summary>
+              <div className="rounded-lg overflow-hidden mt-2" style={{ border: '1px solid var(--border)' }}>
+                {dcaRows.map((row, i) => (
+                  <div
+                    key={row.zone}
+                    className="flex items-center gap-3 px-4 py-2.5"
+                    style={{
+                      background: row.active ? row.bg : 'transparent',
+                      borderBottom: i < 2 ? '1px solid var(--border)' : 'none',
+                    }}
+                  >
+                    <div className="font-mono text-[11px] w-20 flex-shrink-0" style={{ color: row.active ? row.color : 'var(--muted)' }}>
+                      {row.label}
                     </div>
-                  )}
-                </div>
-              ))}
-            </div>
-            <div className="font-mono text-[9px]" style={{ color: 'var(--muted2)' }}>
+                    <div className="font-mono text-[13px] font-bold w-14 flex-shrink-0" style={{ color: row.active ? row.color : 'var(--muted)' }}>
+                      {row.ratio}
+                    </div>
+                    <div className="text-[11px]" style={{ color: row.active ? 'var(--text)' : 'var(--muted2)' }}>
+                      {row.desc}
+                    </div>
+                    {row.active && (
+                      <div className="ml-auto font-mono text-[9px] px-2 py-0.5 rounded-full" style={{ background: row.bg, color: row.color, border: `1px solid ${row.color}` }}>
+                        目前狀態
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </details>
+            <div className="font-mono text-[9px] mt-2" style={{ color: 'var(--muted2)' }}>
               ⚠ 此為基於歷史統計的參考建議，非投資建議，請依個人財務狀況自行判斷。
             </div>
           </div>
         )}
-
-        {/* 推導邏輯 */}
-        <div className="rounded-[10px] p-6 mb-9" style={{ background: 'var(--surface2)', border: '1px solid var(--border)', borderLeft: '3px solid var(--green)' }}>
-          <div className="font-mono text-[10px] tracking-[2px] uppercase mb-3" style={{ color: 'var(--green)' }}>
-            📐 推導邏輯 — 月線乖離率
-            <Tooltip text="現在股價距離近 20 日平均成本的差距百分比。正值代表比均價貴，負值代表比均價便宜。偏高估（≥+5%）建議減少加碼；偏低估（≤−5%）歷史勝率較高。" />
-          </div>
-          <div className="text-sm leading-loose" style={{ color: '#b8c8e0' }}>
-            本站以 <strong style={{ color: 'var(--green)' }}>月線乖離率（20日均線）</strong> 作為核心判斷指標：<br /><br />
-            ✅ <strong style={{ color: 'var(--green)' }}>偏低估（乖離 ≤ −{threshold}%）</strong>：歷史上為相對好的進場時機，長期勝率偏高<br />
-            🟡 <strong style={{ color: 'var(--yellow)' }}>中性區間（−{threshold}% ~ +{threshold}%）</strong>：普通定期定額繼續執行即可<br />
-            🔴 <strong style={{ color: 'var(--red)' }}>偏高估（乖離 ≥ +{threshold}%）</strong>：短期回調風險偏高，建議減少單次加碼金額<br /><br />
-            ⚠️ 本統計為歷史數據，不代表未來結果，不構成投資建議。
-          </div>
-        </div>
 
         {/* 所有持有期勝率 */}
         <div className="mb-9">
@@ -281,7 +299,6 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
               本站核心策略：等乖離率偏低時才加碼。以下是歷史上在三種時機進場、<strong style={{ color: 'var(--text)' }}>持有 12 個月後</strong>的實際差異。
             </div>
             <div className="rounded-lg overflow-hidden" style={{ border: '1px solid var(--border)' }}>
-              {/* Header */}
               <div className="grid grid-cols-4 px-4 py-2 font-mono text-[9px] tracking-widest uppercase" style={{ background: 'var(--border)', color: 'var(--muted)' }}>
                 <div>進場時機</div>
                 <div className="text-center">樣本數</div>
@@ -289,39 +306,19 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
                 <div className="text-center">中位報酬</div>
               </div>
               {[
-                {
-                  key: 'green' as const,
-                  label: `🟢 偏低估（≤ −${threshold}%）`,
-                  color: 'var(--green)',
-                  bg: 'rgba(0,217,139,.07)',
-                },
-                {
-                  key: 'yellow' as const,
-                  label: `🟡 中性（−${threshold}% ～ +${threshold}%）`,
-                  color: 'var(--yellow)',
-                  bg: 'transparent',
-                },
-                {
-                  key: 'red' as const,
-                  label: `🔴 偏高估（≥ +${threshold}%）`,
-                  color: 'var(--red)',
-                  bg: 'rgba(240,69,90,.05)',
-                },
+                { key: 'green'  as const, label: `🟢 偏低估（≤ −${threshold}%）`,              color: 'var(--green)',  bg: 'rgba(0,217,139,.07)' },
+                { key: 'yellow' as const, label: `🟡 中性（−${threshold}% ～ +${threshold}%）`, color: 'var(--yellow)', bg: 'transparent' },
+                { key: 'red'    as const, label: `🔴 偏高估（≥ +${threshold}%）`,              color: 'var(--red)',    bg: 'rgba(240,69,90,.05)' },
               ].map((row, i) => {
                 const zone = etf.conditional_winrates![row.key]
                 return (
                   <div
                     key={row.key}
                     className="grid grid-cols-4 items-center px-4 py-3"
-                    style={{
-                      background: row.bg,
-                      borderBottom: i < 2 ? '1px solid var(--border)' : 'none',
-                    }}
+                    style={{ background: row.bg, borderBottom: i < 2 ? '1px solid var(--border)' : 'none' }}
                   >
                     <div className="font-mono text-[10px]" style={{ color: row.color }}>{row.label}</div>
-                    <div className="font-mono text-[12px] font-semibold text-center" style={{ color: 'var(--muted)' }}>
-                      {zone.count}
-                    </div>
+                    <div className="font-mono text-[12px] font-semibold text-center" style={{ color: 'var(--muted)' }}>{zone.count}</div>
                     <div className="font-mono text-[14px] font-bold text-center" style={{ color: zone.win_rate != null ? row.color : 'var(--muted2)' }}>
                       {zone.win_rate != null ? `${zone.win_rate}%` : 'N/A'}
                     </div>
@@ -450,7 +447,7 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
           </div>
         )}
 
-        {/* 反1 說明 */}
+        {/* 反1 說明（H7：移到最前面的警示已處理，此處保留文字補充） */}
         {etf.type === 'inv1' && (
           <div className="rounded-[10px] p-6 mb-9" style={{ background: 'var(--surface2)', border: '1px solid var(--border)', borderLeft: '3px solid var(--red)' }}>
             <div className="font-mono text-[10px] tracking-[2px] uppercase mb-2.5" style={{ color: 'var(--red)' }}>⚠ 反1 使用重要說明</div>
@@ -461,8 +458,6 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
           </div>
         )}
       </div>
-
-      {/* 廣告位（暫時隱藏）*/}
 
       {/* 其他 ETF */}
       <div className="mb-10">
@@ -498,19 +493,6 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
 
 // ── 子元件 ─────────────────────────────────────────────────────────────────
 
-function Chip({ type, children }: { type: 'g' | 'y' | 'r'; children: React.ReactNode }) {
-  const styles = {
-    g: { color: 'var(--green)', background: 'rgba(0,217,139,.08)', border: '1px solid rgba(0,217,139,.3)' },
-    y: { color: 'var(--yellow)', background: 'rgba(240,180,41,.08)', border: '1px solid rgba(240,180,41,.3)' },
-    r: { color: 'var(--red)', background: 'rgba(240,69,90,.08)', border: '1px solid rgba(240,69,90,.3)' },
-  }[type]
-  return (
-    <div className="font-mono text-[11px] px-3.5 py-1.5 rounded-full" style={styles}>
-      {children}
-    </div>
-  )
-}
-
 // G1：乖離率走勢 SVG 折線圖（純 server-side，無需 client JS）
 function BiasHistoryChart({
   history,
@@ -531,15 +513,14 @@ function BiasHistoryChart({
   const yMin = -20, yMax = 20
   const thr = etfType === 'lev2' ? 7 : 5
 
-  // clamp + map bias value to SVG y coordinate
   const bToY = (b: number) =>
     padT + cH * (yMax - Math.max(yMin, Math.min(yMax, b))) / (yMax - yMin)
   const iToX = (i: number) =>
     padL + (history.length < 2 ? 0 : (cW * i) / (history.length - 1))
 
-  const yTop = bToY(thr)   // e.g. +5% line
+  const yTop = bToY(thr)
   const y0   = bToY(0)
-  const yBot = bToY(-thr)  // e.g. -5% line
+  const yBot = bToY(-thr)
 
   const pts = history
     .map((p, i) => `${iToX(i).toFixed(1)},${bToY(p.bias).toFixed(1)}`)
@@ -551,7 +532,6 @@ function BiasHistoryChart({
   const dotColor =
     lastBias <= -thr ? '#00d98b' : lastBias >= thr ? '#f0455a' : '#f0b429'
 
-  // Show label every 6 months + first + last
   const labelIdxs = [...new Set([
     0,
     ...Array.from({ length: history.length }, (_, i) => i).filter(i => i % 6 === 0),
@@ -563,25 +543,18 @@ function BiasHistoryChart({
       viewBox={`0 0 ${W} ${H}`}
       style={{ width: '100%', height: 'auto', display: 'block', overflow: 'visible' }}
     >
-      {/* 背景色區 */}
-      <rect x={padL} y={padT}    width={cW} height={yTop - padT}           fill="rgba(240,69,90,.08)" />
-      <rect x={padL} y={yTop}    width={cW} height={yBot - yTop}            fill="rgba(240,180,41,.05)" />
-      <rect x={padL} y={yBot}    width={cW} height={padT + cH - yBot}       fill="rgba(0,217,139,.08)" />
+      <rect x={padL} y={padT}  width={cW} height={yTop - padT}     fill="rgba(240,69,90,.08)" />
+      <rect x={padL} y={yTop}  width={cW} height={yBot - yTop}      fill="rgba(240,180,41,.05)" />
+      <rect x={padL} y={yBot}  width={cW} height={padT + cH - yBot} fill="rgba(0,217,139,.08)" />
 
-      {/* 分隔虛線 */}
-      <line x1={padL} y1={yTop} x2={padL + cW} y2={yTop}
-        stroke="rgba(240,69,90,.3)" strokeWidth="1" strokeDasharray="3,2" />
-      <line x1={padL} y1={y0}   x2={padL + cW} y2={y0}
-        stroke="rgba(255,255,255,.08)" strokeWidth="1" />
-      <line x1={padL} y1={yBot} x2={padL + cW} y2={yBot}
-        stroke="rgba(0,217,139,.3)" strokeWidth="1" strokeDasharray="3,2" />
+      <line x1={padL} y1={yTop} x2={padL + cW} y2={yTop} stroke="rgba(240,69,90,.3)"   strokeWidth="1" strokeDasharray="3,2" />
+      <line x1={padL} y1={y0}   x2={padL + cW} y2={y0}   stroke="rgba(255,255,255,.08)" strokeWidth="1" />
+      <line x1={padL} y1={yBot} x2={padL + cW} y2={yBot} stroke="rgba(0,217,139,.3)"   strokeWidth="1" strokeDasharray="3,2" />
 
-      {/* Y 軸標籤 */}
-      <text x={padL - 3} y={yTop + 3.5}  textAnchor="end" fontSize="8.5" fill="rgba(240,69,90,.55)"  fontFamily="monospace">+{thr}%</text>
-      <text x={padL - 3} y={y0 + 3.5}    textAnchor="end" fontSize="8.5" fill="rgba(255,255,255,.22)" fontFamily="monospace">0%</text>
-      <text x={padL - 3} y={yBot + 3.5}  textAnchor="end" fontSize="8.5" fill="rgba(0,217,139,.55)"  fontFamily="monospace">-{thr}%</text>
+      <text x={padL - 3} y={yTop + 3.5} textAnchor="end" fontSize="8.5" fill="rgba(240,69,90,.55)"  fontFamily="monospace">+{thr}%</text>
+      <text x={padL - 3} y={y0 + 3.5}   textAnchor="end" fontSize="8.5" fill="rgba(255,255,255,.22)" fontFamily="monospace">0%</text>
+      <text x={padL - 3} y={yBot + 3.5} textAnchor="end" fontSize="8.5" fill="rgba(0,217,139,.55)"  fontFamily="monospace">-{thr}%</text>
 
-      {/* 折線 */}
       <polyline
         points={pts}
         fill="none"
@@ -591,22 +564,12 @@ function BiasHistoryChart({
         strokeLinecap="round"
       />
 
-      {/* 目前位置圓點 */}
       <circle cx={lastX} cy={lastY} r="6"   fill="none"     stroke={dotColor} strokeWidth="1" opacity="0.45" />
       <circle cx={lastX} cy={lastY} r="3.5" fill={dotColor} />
 
-      {/* X 軸月份標籤 */}
       {labelIdxs.map(i =>
         i < history.length ? (
-          <text
-            key={i}
-            x={iToX(i)}
-            y={H - 5}
-            textAnchor="middle"
-            fontSize="8.5"
-            fill="rgba(255,255,255,.28)"
-            fontFamily="monospace"
-          >
+          <text key={i} x={iToX(i)} y={H - 5} textAnchor="middle" fontSize="8.5" fill="rgba(255,255,255,.28)" fontFamily="monospace">
             {history[i].month}
           </text>
         ) : null

@@ -18,15 +18,16 @@ const signalColors = {
 }
 
 const badgeStyle = {
-  green: { background: 'rgba(0,217,139,.18)', color: '#00d98b', border: '1px solid rgba(0,217,139,.35)' },
+  green:  { background: 'rgba(0,217,139,.18)',  color: '#00d98b', border: '1px solid rgba(0,217,139,.35)' },
   yellow: { background: 'rgba(240,180,41,.18)', color: '#f0b429', border: '1px solid rgba(240,180,41,.35)' },
-  red: { background: 'rgba(240,69,90,.18)', color: '#f0455a', border: '1px solid rgba(240,69,90,.35)' },
+  red:    { background: 'rgba(240,69,90,.18)',  color: '#f0455a', border: '1px solid rgba(240,69,90,.35)' },
+  inv:    { background: 'rgba(224,123,57,.18)', color: '#e07b39', border: '1px solid rgba(224,123,57,.35)' },
 }
 
 const badgeLabel = {
-  green: '🟢 偏低估',
+  green:  '🟢 偏低估',
   yellow: '🟡 中性',
-  red: '🔴 偏高估',
+  red:    '🔴 偏高估',
 }
 
 function getWarnText(etf: ETFData): { text: string; type: 'y' | 'r' | 'g' } | null {
@@ -79,9 +80,10 @@ function getCardStats(etf: ETFData) {
 
 export default function ETFCard({ etf, delay = 0 }: { etf: ETFData; delay?: number }) {
   const sig = etf.current.signal
-  const col = signalColors[sig] ?? signalColors.red
-  const badge = badgeStyle[sig] ?? badgeStyle.red
-  const label = badgeLabel[sig] ?? badgeLabel.red
+  const isInv = etf.type === 'inv1'
+  const col = isInv ? { card: '#e07b39', text: '#e07b39', bg: 'rgba(224,123,57,.08)', shadow: 'rgba(224,123,57,.15)' } : (signalColors[sig] ?? signalColors.red)
+  const badge = isInv ? badgeStyle.inv : (badgeStyle[sig] ?? badgeStyle.red)
+  const label = isInv ? '⚠ 不建議' : (badgeLabel[sig] ?? badgeLabel.red)
   const warn = getWarnText(etf)
   const stats = getCardStats(etf)
   const biasNum = etf.current.bias
@@ -133,6 +135,11 @@ export default function ETFCard({ etf, delay = 0 }: { etf: ETFData; delay?: numb
             <div className="font-mono text-[32px] font-black leading-none" style={{ color: biasColor }}>
               {biasStr}
             </div>
+            {isInv && (
+              <div className="font-mono text-[9px] mt-1 leading-relaxed" style={{ color: 'var(--muted2)', maxWidth: '160px' }}>
+                反向 ETF · 乖離率方向與大盤相反，不作為進場依據
+              </div>
+            )}
           </div>
           <div className="text-right flex-shrink-0 ml-3">
             <div className="font-mono text-[10px] tracking-widest uppercase mb-1" style={{ color: 'var(--muted)' }}>

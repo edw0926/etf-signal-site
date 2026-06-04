@@ -54,11 +54,8 @@ export default function Home() {
         </nav>
       </header>
 
-      {/* G5：市場溫度儀表板 */}
-      <MarketTemperature etfs={etfs} />
-
-      {/* E2：操作建議橫幅 */}
-      <ActionBanner etfs={etfs} />
+      {/* H1+H2：市場訊號總覽（合併溫度計 + 操作建議） */}
+      <MarketOverview etfs={etfs} />
 
       {/* 基礎市值型 */}
       <Section tag="base" tagLabel="基礎市值型" desc="追蹤台灣50指數 · 適合長期定期定額">
@@ -125,110 +122,76 @@ function Section({
   )
 }
 
-// G5：市場溫度儀表板
-function MarketTemperature({ etfs }: { etfs: ETFData[] }) {
-  // 以基礎型 + 正2型判斷溫度（反1不納入，因邏輯相反）
+// H1+H2：市場訊號總覽（合併溫度計 + 操作建議為單一卡片）
+function MarketOverview({ etfs }: { etfs: ETFData[] }) {
   const relevant = etfs.filter(e => e.type === 'base' || e.type === 'lev2')
-  const greenCount  = relevant.filter(e => e.current.signal === 'green').length
-  const yellowCount = relevant.filter(e => e.current.signal === 'yellow').length
-  const redCount    = relevant.filter(e => e.current.signal === 'red').length
+  const greenETFs  = relevant.filter(e => e.current.signal === 'green')
+  const yellowETFs = relevant.filter(e => e.current.signal === 'yellow')
+  const redCount   = relevant.filter(e => e.current.signal === 'red').length
+  const greenCount = greenETFs.length
+  const yellowCount = yellowETFs.length
   const total = relevant.length
 
-  const greenETFs = relevant.filter(e => e.current.signal === 'green').map(e => e.ticker)
-
-  let tempColor: string
-  let tempIcon: string
-  let tempTitle: string
-  let tempDesc: string
+  let accentColor: string
+  let statusTag: string
+  let summaryLine: string
+  let actionLines: string[]
 
   if (greenCount > 0) {
-    tempColor = 'var(--green)'
-    tempIcon = '🟢'
-    tempTitle = '偏冷 — 有標的進入偏低估'
-    tempDesc = `出現偏低估訊號，歷史上為相對好的進場時機，建議關注以下標的：${greenETFs.join('、')}`
+    accentColor = 'var(--green)'
+    statusTag = `🟢 偏冷 · 有標的進入偏低估`
+    summaryLine = `目前台股市值型 ETF 有 ${greenCount} 檔進入偏低估區間`
+    actionLines = greenETFs.map(e => `${e.ticker}（${e.name}）已進入偏低估，歷史上為相對好的進場時機，可考慮加碼。`)
   } else if (redCount === total) {
-    tempColor = 'var(--red)'
-    tempIcon = '🔴'
-    tempTitle = '偏熱 — 全面偏高估'
-    tempDesc = '目前台股市值型 ETF 全面偏高估，整體建議觀望為主，維持定期定額但暫停額外加碼。'
+    accentColor = 'var(--red)'
+    statusTag = `🔴 偏熱 · 全面偏高估`
+    summaryLine = `目前台股市值型 ETF 全面偏高估（${redCount} 檔）`
+    actionLines = ['建議：維持既有定期定額，暫停額外加碼，等待乖離率回落至 −5% 以下再考慮擴大買入。']
   } else {
-    tempColor = 'var(--yellow)'
-    tempIcon = '🟡'
-    tempTitle = '中性 — 混合訊號'
-    tempDesc = '部分標的偏高估，部分回落至中性，可選擇性針對已回落的標的考慮加碼。'
+    accentColor = 'var(--yellow)'
+    statusTag = `🟡 中性 · 混合訊號`
+    summaryLine = `目前有 ${yellowCount} 檔中性、${redCount} 檔偏高估`
+    actionLines = yellowETFs.length > 0
+      ? yellowETFs.map(e => `${e.ticker}（${e.name}）回落至中性區間，可選擇性考慮定期定額繼續執行。`)
+      : ['部分標的偏高估，可維持原有定期定額計畫，暫不擴大加碼。']
   }
 
   return (
     <div
       className="rounded-xl mb-2"
-      style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderLeft: `4px solid ${tempColor}`, padding: '22px 24px 20px' }}
+      style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderLeft: `4px solid ${accentColor}`, padding: '22px 24px 20px' }}
     >
-      <div className="font-mono text-[10px] tracking-[2px] uppercase mb-4" style={{ color: 'var(--muted)' }}>
-        🌡 市場溫度計
+      {/* H2：訊號標籤縮小，輔助資訊層級 */}
+      <div className="font-mono text-[11px] font-bold mb-1.5" style={{ color: accentColor }}>
+        {statusTag}
       </div>
 
-      <div className="text-[20px] font-black mb-3" style={{ color: tempColor }}>
-        {tempIcon} {tempTitle}
+      <div className="text-[12px] mb-3" style={{ color: 'var(--muted)' }}>
+        {summaryLine}
       </div>
 
-      {/* 溫度進度條 */}
-      <div className="flex h-2 rounded-full overflow-hidden mb-5" style={{ background: 'var(--border)' }}>
+      {/* 進度條 */}
+      <div className="flex h-1.5 rounded-full overflow-hidden mb-4" style={{ background: 'var(--border)' }}>
         {total > 0 && <>
-          <div style={{ width: `${(greenCount / total) * 100}%`,  background: '#00d98b', transition: 'width .3s' }} />
+          <div style={{ width: `${(greenCount  / total) * 100}%`, background: '#00d98b', transition: 'width .3s' }} />
           <div style={{ width: `${(yellowCount / total) * 100}%`, background: '#f0b429', transition: 'width .3s' }} />
-          <div style={{ width: `${(redCount / total) * 100}%`,    background: '#f0455a', transition: 'width .3s' }} />
+          <div style={{ width: `${(redCount    / total) * 100}%`, background: '#f0455a', transition: 'width .3s' }} />
         </>}
       </div>
 
-      <div className="text-[13px] mb-4 leading-relaxed" style={{ color: '#b8c8e0' }}>{tempDesc}</div>
-
-      <div className="flex flex-wrap gap-3">
-        {greenCount  > 0 && <span className="font-mono text-[11px]" style={{ color: 'var(--green)'  }}>🟢 偏低估 {greenCount} 檔</span>}
-        {yellowCount > 0 && <span className="font-mono text-[11px]" style={{ color: 'var(--yellow)' }}>🟡 中性 {yellowCount} 檔</span>}
-        {redCount    > 0 && <span className="font-mono text-[11px]" style={{ color: 'var(--red)'    }}>🔴 偏高估 {redCount} 檔</span>}
+      {/* 操作建議 */}
+      <div className="font-mono text-[10px] tracking-[2px] uppercase mb-2" style={{ color: 'var(--muted2)' }}>
+        📋 操作建議
       </div>
-    </div>
-  )
-}
-
-// E2：操作建議橫幅
-function ActionBanner({ etfs }: { etfs: ETFData[] }) {
-  const relevant = etfs.filter(e => e.type === 'base' || e.type === 'lev2')
-  const greenETFs  = relevant.filter(e => e.current.signal === 'green')
-  const yellowETFs = relevant.filter(e => e.current.signal === 'yellow')
-  const redCount   = relevant.filter(e => e.current.signal === 'red').length
-  const total      = relevant.length
-
-  const actionable = [...greenETFs, ...yellowETFs]
-
-  let lines: string[]
-  if (redCount === total) {
-    lines = [
-      '目前所有標的均處於偏高估區間。',
-      '建議：維持既有定期定額，暫停額外加碼，等待乖離率回落至 −5% 以下再考慮擴大買入。',
-    ]
-  } else {
-    lines = actionable.map(e => {
-      const zone = e.current.signal === 'green' ? '偏低估' : '中性'
-      return `${e.ticker}（${e.name}）已回落至${zone}區間，歷史上為相對好的進場時機，可考慮加碼。`
-    })
-  }
-
-  return (
-    <div
-      className="rounded-xl mt-8 mb-2"
-      style={{
-        background: 'var(--surface)',
-        border: '1px solid var(--border)',
-        borderLeft: '4px solid #e07b39',
-        padding: '22px 24px 20px',
-      }}
-    >
-      <div className="font-mono text-[10px] tracking-[2px] uppercase mb-4" style={{ color: '#e07b39' }}>
-        📋 現在的操作建議
+      <div className="text-[12px] leading-relaxed" style={{ color: '#b8c8e0' }}>
+        {actionLines.map((l, i) => <div key={i} className={i > 0 ? 'mt-1.5' : ''}>{l}</div>)}
       </div>
-      <div className="text-[13px] leading-relaxed" style={{ color: '#b8c8e0' }}>
-        {lines.map((l, i) => <div key={i} className={i > 0 ? 'mt-2' : ''}>{l}</div>)}
+
+      {/* 各訊號計數 */}
+      <div className="flex flex-wrap gap-3 mt-4">
+        {greenCount  > 0 && <span className="font-mono text-[10px]" style={{ color: 'var(--green)'  }}>🟢 偏低估 {greenCount} 檔</span>}
+        {yellowCount > 0 && <span className="font-mono text-[10px]" style={{ color: 'var(--yellow)' }}>🟡 中性 {yellowCount} 檔</span>}
+        {redCount    > 0 && <span className="font-mono text-[10px]" style={{ color: 'var(--red)'    }}>🔴 偏高估 {redCount} 檔</span>}
       </div>
     </div>
   )
