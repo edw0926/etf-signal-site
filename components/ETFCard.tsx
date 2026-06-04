@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { ETFData } from '@/types/etf'
+import Tooltip from '@/components/Tooltip'
 
 function formatBias(bias: number) {
   return (bias >= 0 ? '+' : '') + bias.toFixed(2) + '%'
@@ -125,8 +126,9 @@ export default function ETFCard({ etf, delay = 0 }: { etf: ETFData; delay?: numb
         {/* Layer 2: Price + Bias */}
         <div className="flex items-end justify-between mb-4">
           <div>
-            <div className="font-mono text-[10px] tracking-widest uppercase mb-1" style={{ color: 'var(--muted)' }}>
+            <div className="font-mono text-[10px] tracking-widest uppercase mb-1 flex items-center gap-0.5" style={{ color: 'var(--muted)' }}>
               月線乖離率
+              <Tooltip text="現在股價距離近 20 日平均成本的差距百分比。正值代表比均價貴，負值代表比均價便宜。" />
             </div>
             <div className="font-mono text-[32px] font-black leading-none" style={{ color: biasColor }}>
               {biasStr}
@@ -152,8 +154,14 @@ export default function ETFCard({ etf, delay = 0 }: { etf: ETFData; delay?: numb
         >
           {stats.map((s, i) => (
             <div key={i}>
-              <div className="font-mono text-[9px] tracking-widest uppercase mb-1" style={{ color: 'var(--muted)' }}>
+              <div className="font-mono text-[9px] tracking-widest uppercase mb-1 flex items-center gap-0.5" style={{ color: 'var(--muted)' }}>
                 {s.label}
+                {s.label.includes('勝率') && (
+                  <Tooltip text="歷史上在同樣時間點買進，持有滿指定天數後仍有獲利的比例。" />
+                )}
+                {s.label.includes('中位') && (
+                  <Tooltip text="歷史持有報酬排在中間的數字。比平均值更穩定，不會被少數極端值拉偏。" />
+                )}
               </div>
               <div className="font-mono text-[16px] font-bold" style={{ color: s.color }}>
                 {s.val}

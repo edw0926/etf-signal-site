@@ -1,6 +1,7 @@
 import { getAllETFs, getSignalsData } from '@/lib/data'
 import { ETFData } from '@/types/etf'
 import ETFCard from '@/components/ETFCard'
+import Glossary from '@/components/Glossary'
 
 export const dynamic = 'force-static'
 
@@ -25,6 +26,11 @@ export default function Home() {
             <h1 className="text-[34px] font-black tracking-tight leading-none">
               台股<span style={{ color: 'var(--green)' }}>市值型 ETF</span> 訊號站
             </h1>
+            {/* E1：一句話價值說明 */}
+            <p className="text-[11px] mt-2.5 leading-relaxed" style={{ color: 'var(--muted)', maxWidth: '420px' }}>
+              每日更新 · 以 20 日均線乖離率判斷現在買進是偏貴還是偏便宜<br />
+              偏低估區間（≤ −5%）進場，歷史勝率較高；偏高估區間（≥ +5%）建議減少加碼，靜待回調
+            </p>
           </div>
           <div className="flex flex-col items-end gap-1.5">
             <div className="font-mono text-[11px] px-3.5 py-1.5 rounded-full flex items-center gap-1.5" style={{ border: '1px solid var(--border2)', background: 'var(--surface)', color: 'var(--muted)' }}>
@@ -51,6 +57,9 @@ export default function Home() {
       {/* G5：市場溫度儀表板 */}
       <MarketTemperature etfs={etfs} />
 
+      {/* E2：操作建議橫幅 */}
+      <ActionBanner etfs={etfs} />
+
       {/* 基礎市值型 */}
       <Section tag="base" tagLabel="基礎市值型" desc="追蹤台灣50指數 · 適合長期定期定額">
         <ETFGrid etfs={base} startDelay={40} maxCols={2} />
@@ -65,6 +74,9 @@ export default function Home() {
       <Section tag="inv" tagLabel="反1 反向型" desc="單日反向1倍 · 長期持有損耗嚴重 · 僅適合短線空頭避險">
         <ETFGrid etfs={inv1} startDelay={40} />
       </Section>
+
+      {/* F2：名詞說明摺疊區塊 */}
+      <Glossary />
 
       <footer className="pt-7" style={{ borderTop: '1px solid var(--border)' }}>
         <p className="text-[11px] leading-loose text-center" style={{ color: 'var(--muted)' }}>
@@ -174,6 +186,48 @@ function MarketTemperature({ etfs }: { etfs: ETFData[] }) {
         {greenCount  > 0 && <span className="font-mono text-[10px]" style={{ color: 'var(--green)'  }}>🟢 偏低估 {greenCount} 檔</span>}
         {yellowCount > 0 && <span className="font-mono text-[10px]" style={{ color: 'var(--yellow)' }}>🟡 中性 {yellowCount} 檔</span>}
         {redCount    > 0 && <span className="font-mono text-[10px]" style={{ color: 'var(--red)'    }}>🔴 偏高估 {redCount} 檔</span>}
+      </div>
+    </div>
+  )
+}
+
+// E2：操作建議橫幅
+function ActionBanner({ etfs }: { etfs: ETFData[] }) {
+  const relevant = etfs.filter(e => e.type === 'base' || e.type === 'lev2')
+  const greenETFs  = relevant.filter(e => e.current.signal === 'green')
+  const yellowETFs = relevant.filter(e => e.current.signal === 'yellow')
+  const redCount   = relevant.filter(e => e.current.signal === 'red').length
+  const total      = relevant.length
+
+  const actionable = [...greenETFs, ...yellowETFs]
+
+  let lines: string[]
+  if (redCount === total) {
+    lines = [
+      '目前所有標的均處於偏高估區間。',
+      '建議：維持既有定期定額，暫停額外加碼，等待乖離率回落至 −5% 以下再考慮擴大買入。',
+    ]
+  } else {
+    lines = actionable.map(e => {
+      const zone = e.current.signal === 'green' ? '偏低估' : '中性'
+      return `${e.ticker}（${e.name}）已回落至${zone}區間，歷史上為相對好的進場時機，可考慮加碼。`
+    })
+  }
+
+  return (
+    <div
+      className="rounded-xl px-5 py-4 mt-8 mb-2"
+      style={{
+        background: 'var(--surface)',
+        border: '1px solid var(--border)',
+        borderLeft: '4px solid #e07b39',
+      }}
+    >
+      <div className="font-mono text-[10px] tracking-[2px] uppercase mb-2.5" style={{ color: '#e07b39' }}>
+        📋 現在的操作建議
+      </div>
+      <div className="text-[12px] leading-loose" style={{ color: '#b8c8e0' }}>
+        {lines.map((l, i) => <div key={i}>{l}</div>)}
       </div>
     </div>
   )

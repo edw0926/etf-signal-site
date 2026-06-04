@@ -3,6 +3,8 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { getETFByTicker, getAllTickers, getSignalsData, formatBias, formatRet } from '@/lib/data'
 import { ETFData, SeasonalEntry, BiasPoint } from '@/types/etf'
+import Tooltip from '@/components/Tooltip'
+import Glossary from '@/components/Glossary'
 
 export const dynamic = 'force-static'
 
@@ -94,7 +96,9 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
             <h2 className="text-2xl font-black">{etf.name}（{etf.ticker}）</h2>
             <div className="font-mono text-[11px] mt-1.5 leading-loose" style={{ color: 'var(--muted)' }}>
               追蹤指數：{etf.index}<br />
-              回測區間：{etf.data_range} · 有效樣本 {etf.sample_months} 個月
+              回測
+              <Tooltip text="使用歷史真實股價數據，模擬不同時間點買進的損益結果。歷史統計不代表未來績效保證。" />
+              區間：{etf.data_range} · 有效樣本 {etf.sample_months} 個月
             </div>
           </div>
           <div className="text-right">
@@ -104,6 +108,7 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
             </div>
             <div className="font-mono text-[11px] mt-1" style={{ color: 'var(--muted)' }}>
               月線乖離 {formatBias(etf.current.bias)}
+              <Tooltip text="現在股價距離近 20 日平均成本的差距百分比。正值代表比均價貴，負值代表比均價便宜。" />
             </div>
           </div>
         </div>
@@ -223,7 +228,10 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
 
         {/* 推導邏輯 */}
         <div className="rounded-[10px] p-5 mb-7" style={{ background: 'var(--surface2)', border: '1px solid var(--border)', borderLeft: '3px solid var(--green)' }}>
-          <div className="font-mono text-[10px] tracking-[2px] uppercase mb-3" style={{ color: 'var(--green)' }}>📐 推導邏輯</div>
+          <div className="font-mono text-[10px] tracking-[2px] uppercase mb-3" style={{ color: 'var(--green)' }}>
+            📐 推導邏輯 — 月線乖離率
+            <Tooltip text="現在股價距離近 20 日平均成本的差距百分比。正值代表比均價貴，負值代表比均價便宜。偏高估（≥+5%）建議減少加碼；偏低估（≤−5%）歷史勝率較高。" />
+          </div>
           <div className="text-sm leading-loose" style={{ color: '#b8c8e0' }}>
             本站以 <strong style={{ color: 'var(--green)' }}>月線乖離率（20日均線）</strong> 作為核心判斷指標：<br /><br />
             ✅ <strong style={{ color: 'var(--green)' }}>偏低估（乖離 ≤ −{threshold}%）</strong>：歷史上為相對好的進場時機，長期勝率偏高<br />
@@ -236,9 +244,11 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
         {/* 所有持有期勝率 */}
         <div className="mb-7">
           <div className="font-mono text-[10px] tracking-[2px] uppercase mb-3.5" style={{ color: 'var(--muted)' }}>
-            ▸ 所有持有期勝率（全時段，不限觸發條件）
+            ▸ 所有持有期<span style={{ letterSpacing: 0 }}>勝率</span>
+            <Tooltip text="歷史上在同樣時間點買進，持有滿指定天數後仍有獲利的比例。例如 365日勝率 71% = 過去持有一年，有 71% 的時間是賺錢的。" />
+            （全時段，不限觸發條件）
           </div>
-          {(['30d','60d','90d','180d','365d'] as const).map(period => {
+          {(['30d','60d','90d','180d','365d'] as const).map((period, i) => {
             const wr = etf.winrates[period]
             if (!wr) return null
             const label = { '30d':'持有 30 天', '60d':'持有 60 天', '90d':'持有 90 天', '180d':'持有 180 天', '365d':'持有 365 天' }[period]
@@ -252,7 +262,10 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
                 <div className="font-mono text-[13px] font-semibold w-[40px] text-right" style={{ color: 'var(--green)' }}>
                   {wr.win_rate}%
                 </div>
-                <div className="font-mono text-[11px] ml-1" style={{ color: 'var(--muted)' }}>中位 {med}</div>
+                <div className="font-mono text-[11px] ml-1" style={{ color: 'var(--muted)' }}>
+                  中位 {med}
+                  {i === 0 && <Tooltip text="歷史持有報酬排在中間的數字。比平均值更穩定，不會被少數極端值拉偏。" />}
+                </div>
               </div>
             )
           })}
@@ -467,6 +480,9 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
           ))}
         </div>
       </div>
+
+      {/* F2：名詞說明摺疊區塊 */}
+      <Glossary />
 
       <footer className="pt-7" style={{ borderTop: '1px solid var(--border)' }}>
         <p className="text-[11px] leading-loose text-center" style={{ color: 'var(--muted)' }}>
