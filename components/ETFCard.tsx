@@ -16,6 +16,18 @@ const signalColors = {
   red: { card: '#f0455a', text: 'var(--red)', bg: 'rgba(240,69,90,.08)', shadow: 'rgba(240,69,90,.15)' },
 }
 
+const badgeStyle = {
+  green: { background: 'rgba(0,217,139,.18)', color: '#00d98b', border: '1px solid rgba(0,217,139,.35)' },
+  yellow: { background: 'rgba(240,180,41,.18)', color: '#f0b429', border: '1px solid rgba(240,180,41,.35)' },
+  red: { background: 'rgba(240,69,90,.18)', color: '#f0455a', border: '1px solid rgba(240,69,90,.35)' },
+}
+
+const badgeLabel = {
+  green: '🟢 偏低估',
+  yellow: '🟡 中性',
+  red: '🔴 偏高估',
+}
+
 function getWarnText(etf: ETFData): { text: string; type: 'y' | 'r' | 'g' } | null {
   const { signal } = etf.current
   if (etf.type === 'inv1') {
@@ -35,8 +47,6 @@ function getWarnText(etf: ETFData): { text: string; type: 'y' | 'r' | 'g' } | nu
 }
 
 function getCardStats(etf: ETFData) {
-  const bias = formatBias(etf.current.bias)
-  const biasColor = etf.current.bias > 0 ? 'var(--red)' : 'var(--green)'
   const wr365 = etf.winrates['365d']?.win_rate
   const med365 = etf.winrates['365d']?.median_ret ?? null
   const wr90 = etf.winrates['90d']?.win_rate
@@ -44,28 +54,23 @@ function getCardStats(etf: ETFData) {
 
   if (etf.type === 'inv1') {
     return [
-      { label: '月線乖離', val: bias, color: biasColor },
       { label: '365日勝率', val: wr365 != null ? wr365 + '%' : 'N/A', color: 'var(--red)' },
       { label: '365日中位', val: formatRet(med365), color: 'var(--red)' },
     ]
   }
   if (etf.type === 'lev2') {
     return [
-      { label: '月線乖離', val: bias, color: biasColor },
       { label: '90日勝率', val: wr90 != null ? wr90 + '%' : 'N/A', color: 'var(--green)' },
       { label: '90日中位', val: formatRet(med90), color: 'var(--green)' },
     ]
   }
-  // Fall back to 90d win rate when 365d median is unavailable (Infinity in source data)
   if (med365 === null) {
     return [
-      { label: '月線乖離', val: bias, color: biasColor },
       { label: '365日勝率', val: wr365 != null ? wr365 + '%' : 'N/A', color: 'var(--green)' },
       { label: '90日勝率', val: wr90 != null ? wr90 + '%' : 'N/A', color: 'var(--green)' },
     ]
   }
   return [
-    { label: '月線乖離', val: bias, color: biasColor },
     { label: '365日勝率', val: wr365 != null ? wr365 + '%' : 'N/A', color: 'var(--green)' },
     { label: '365日中位', val: formatRet(med365), color: 'var(--green)' },
   ]
@@ -74,19 +79,24 @@ function getCardStats(etf: ETFData) {
 export default function ETFCard({ etf, delay = 0 }: { etf: ETFData; delay?: number }) {
   const sig = etf.current.signal
   const col = signalColors[sig] ?? signalColors.red
+  const badge = badgeStyle[sig] ?? badgeStyle.red
+  const label = badgeLabel[sig] ?? badgeLabel.red
   const warn = getWarnText(etf)
   const stats = getCardStats(etf)
-  const sigIcon = etf.type === 'inv1' ? '✕' : sig === 'green' ? '↓↓' : sig === 'yellow' ? '→' : '↑↑'
+  const biasNum = etf.current.bias
+  const biasStr = formatBias(biasNum)
+  const biasColor = biasNum > 0 ? 'var(--red)' : 'var(--green)'
 
   return (
     <Link href={`/etf/${etf.ticker}`} className="block no-underline group">
       <div
-        className="animate-fadeUp rounded-2xl pt-6 px-6 pb-5 cursor-pointer relative transition-all duration-200 group-hover:-translate-y-1"
+        className="animate-fadeUp cursor-pointer relative transition-all duration-200 group-hover:-translate-y-1"
         style={{
           background: 'var(--surface)',
           border: '1px solid var(--border)',
           borderTop: `3px solid ${col.card}`,
           borderRadius: '14px',
+          padding: '22px 24px 20px',
           animationDelay: `${delay}ms`,
           minWidth: '280px',
         }}
@@ -94,49 +104,63 @@ export default function ETFCard({ etf, delay = 0 }: { etf: ETFData; delay?: numb
         onMouseLeave={e => (e.currentTarget.style.boxShadow = '')}
       >
 
-        {/* Card head */}
-        <div className="flex justify-between items-start mb-4">
-          <div>
+        {/* Layer 1: Ticker + Name + Signal Badge */}
+        <div className="flex justify-between items-start mb-3">
+          <div className="flex-1 min-w-0 pr-3">
             <div className="font-mono text-[11px] tracking-widest mb-1" style={{ color: 'var(--muted)' }}>
               {etf.ticker}.TW
             </div>
-            <div className="text-[17px] font-bold leading-tight">{etf.name}</div>
+            <div className="text-[18px] font-black leading-tight">{etf.name}</div>
             <div className="text-[11px] mt-1" style={{ color: 'var(--muted)' }}>{etf.index}</div>
-            <div className="font-mono text-[9px] mt-1 tracking-tight" style={{ color: 'var(--muted2)' }}>
-              回測 {etf.data_range} · {etf.sample_months}個月
-            </div>
           </div>
-          <div className="flex flex-col items-center gap-1 flex-shrink-0 ml-3">
-            <div
-              className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold font-mono"
-              style={{ background: col.bg, color: col.text, boxShadow: `0 0 20px ${col.shadow}` }}
-            >
-              {sigIcon}
-            </div>
-            <div className="font-mono text-[9px] tracking-wide" style={{ color: col.text }}>
-              {etf.current.label}
-            </div>
+          {/* Signal badge — colored block label */}
+          <div
+            className="flex-shrink-0 text-[11px] font-bold font-mono px-2.5 py-1 rounded-md whitespace-nowrap"
+            style={badge}
+          >
+            {label}
           </div>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-3 gap-4 pt-5" style={{ borderTop: '1px solid var(--border)' }}>
+        {/* Layer 2: Bias number — large and prominent */}
+        <div className="mb-4">
+          <div className="font-mono text-[10px] tracking-widest uppercase mb-1" style={{ color: 'var(--muted)' }}>
+            月線乖離率
+          </div>
+          <div className="font-mono text-[32px] font-black leading-none" style={{ color: biasColor }}>
+            {biasStr}
+          </div>
+        </div>
+
+        {/* Layer 3: Win rate + median return */}
+        <div
+          className="grid gap-4 pt-4"
+          style={{
+            borderTop: '1px solid var(--border)',
+            gridTemplateColumns: `repeat(${stats.length}, 1fr)`,
+          }}
+        >
           {stats.map((s, i) => (
             <div key={i}>
-              <div className="font-mono text-[9px] tracking-widest uppercase mb-1.5" style={{ color: 'var(--muted)' }}>
+              <div className="font-mono text-[9px] tracking-widest uppercase mb-1" style={{ color: 'var(--muted)' }}>
                 {s.label}
               </div>
-              <div className="font-mono text-[15px] font-semibold" style={{ color: s.color }}>
+              <div className="font-mono text-[16px] font-bold" style={{ color: s.color }}>
                 {s.val}
               </div>
             </div>
           ))}
         </div>
 
+        {/* Layer 4: Backtest range — small, muted */}
+        <div className="font-mono text-[9px] mt-3 tracking-tight" style={{ color: 'var(--muted2)' }}>
+          回測 {etf.data_range} · {etf.sample_months} 個月
+        </div>
+
         {/* Warning */}
         {warn && (
           <div
-            className="mt-4 text-[11px] rounded-md font-mono tracking-tight"
+            className="mt-3 text-[11px] rounded-md font-mono tracking-tight"
             style={{
               padding: '10px 14px',
               lineHeight: '1.6',

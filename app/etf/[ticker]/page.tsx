@@ -225,13 +225,7 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
         )}
       </div>
 
-      {/* AdSense — Article Bottom */}
-      <div className="flex justify-center my-10">
-        <div className="w-full max-w-[728px] h-[90px] flex items-center justify-center text-xs font-mono rounded border border-dashed" style={{ color: 'var(--muted2)', borderColor: 'var(--border2)' }}>
-          {/* Replace with Google AdSense ins tag — 728×90 */}
-          AD SLOT · ARTICLE BOTTOM 728×90
-        </div>
-      </div>
+      {/* AdSense — Article Bottom (hidden until ad account is ready) */}
 
       {/* Other ETFs */}
       <div className="mb-10">

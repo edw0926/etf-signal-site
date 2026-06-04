@@ -63,14 +63,6 @@ export default function Home() {
         <ETFGrid etfs={inv1} startDelay={40} />
       </Section>
 
-      {/* AdSense — Article Bottom */}
-      <div className="flex justify-center my-10">
-        <div className="w-full max-w-[728px] h-[90px] flex items-center justify-center text-xs font-mono rounded border border-dashed" style={{ color: 'var(--muted2)', borderColor: 'var(--border2)' }}>
-          {/* Replace with Google AdSense ins tag — 728×90 */}
-          AD SLOT · ARTICLE BOTTOM 728×90
-        </div>
-      </div>
-
       <footer className="pt-7" style={{ borderTop: '1px solid var(--border)' }}>
         <p className="text-[11px] leading-loose text-center" style={{ color: 'var(--muted)' }}>
           <strong style={{ color: 'var(--red)' }}>⚠ 免責聲明：</strong>
@@ -92,19 +84,26 @@ function Section({
   desc: string
   children: React.ReactNode
 }) {
-  const tagStyle = {
-    base: { color: 'var(--blue)', background: 'rgba(74,158,255,.08)', border: '1px solid rgba(74,158,255,.2)' },
-    lev: { color: 'var(--green)', background: 'rgba(0,217,139,.08)', border: '1px solid rgba(0,217,139,.2)' },
-    inv: { color: 'var(--red)', background: 'rgba(240,69,90,.08)', border: '1px solid rgba(240,69,90,.2)' },
+  const accentColor = {
+    base: 'var(--blue)',
+    lev: 'var(--green)',
+    inv: 'var(--red)',
   }[tag]
 
   return (
-    <div className="mb-14">
-      <div className="flex items-center gap-3.5 mb-5">
-        <div className="font-mono text-[10px] tracking-[3px] uppercase px-3 py-1 rounded font-semibold" style={tagStyle}>
+    <div style={{ marginTop: '48px', marginBottom: '8px' }}>
+      {/* Section title with left accent border */}
+      <div style={{ borderLeft: `4px solid ${accentColor}`, paddingLeft: '14px', marginBottom: '8px' }}>
+        <h2
+          className="font-black leading-tight"
+          style={{ fontSize: '1.4rem', color: 'var(--text)' }}
+        >
           {tagLabel}
-        </div>
-        <div className="text-xs" style={{ color: 'var(--muted)' }}>{desc}</div>
+        </h2>
+      </div>
+      {/* Description */}
+      <div className="text-[12px] mb-5" style={{ color: 'var(--muted)', paddingLeft: '18px' }}>
+        {desc}
       </div>
       {children}
     </div>
@@ -113,8 +112,8 @@ function Section({
 
 function ETFGrid({ etfs, startDelay, maxCols = 3 }: { etfs: ETFData[]; startDelay: number; maxCols?: number }) {
   const gridClass = maxCols === 2
-    ? 'grid grid-cols-1 md:grid-cols-2 gap-6 mb-10'
-    : 'grid grid-cols-1 md:grid-cols-3 gap-6 mb-10'
+    ? 'grid grid-cols-1 md:grid-cols-2 gap-5 mb-10'
+    : 'grid grid-cols-1 md:grid-cols-3 gap-5 mb-10'
   return (
     <div className={gridClass}>
       {etfs.map((etf, i) => (
