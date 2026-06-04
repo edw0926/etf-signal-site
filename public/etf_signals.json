@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026/06/03",
+  "updated_at": "2026/06/04",
   "etfs": {
     "0050": {
       "ticker": "0050",
@@ -11,9 +11,9 @@
       "current": {
         "signal": "red",
         "label": "偏高估",
-        "bias": 8.84,
-        "latest_price": 107.6,
-        "ma20": 98.86
+        "bias": 6.87,
+        "latest_price": 106.1,
+        "ma20": 99.28
       },
       "winrates": {
         "30d": {
@@ -147,9 +147,9 @@
       "current": {
         "signal": "red",
         "label": "偏高估",
-        "bias": 8.77,
-        "latest_price": 248.8,
-        "ma20": 228.75
+        "bias": 7.07,
+        "latest_price": 245.95,
+        "ma20": 229.7
       },
       "winrates": {
         "30d": {
@@ -283,9 +283,9 @@
       "current": {
         "signal": "red",
         "label": "偏高估",
-        "bias": 16.85,
-        "latest_price": 39.22,
-        "ma20": 33.56
+        "bias": 13.23,
+        "latest_price": 38.3,
+        "ma20": 33.83
       },
       "winrates": {
         "30d": {
@@ -419,9 +419,9 @@
       "current": {
         "signal": "red",
         "label": "偏高估",
-        "bias": 18.02,
-        "latest_price": 346.65,
-        "ma20": 293.72
+        "bias": 14.28,
+        "latest_price": 338.6,
+        "ma20": 296.28
       },
       "winrates": {
         "30d": {
@@ -555,9 +555,9 @@
       "current": {
         "signal": "red",
         "label": "偏高估",
-        "bias": 17.97,
-        "latest_price": 313.1,
-        "ma20": 265.41
+        "bias": 14.26,
+        "latest_price": 305.9,
+        "ma20": 267.73
       },
       "winrates": {
         "30d": {
@@ -691,9 +691,9 @@
       "current": {
         "signal": "red",
         "label": "偏高估",
-        "bias": 17.93,
-        "latest_price": 114.45,
-        "ma20": 97.05
+        "bias": 14.3,
+        "latest_price": 111.9,
+        "ma20": 97.9
       },
       "winrates": {
         "30d": {
@@ -827,9 +827,9 @@
       "current": {
         "signal": "red",
         "label": "不建議",
-        "bias": -8.65,
-        "latest_price": 10.02,
-        "ma20": 10.97
+        "bias": -7.16,
+        "latest_price": 10.14,
+        "ma20": 10.92
       },
       "winrates": {
         "30d": {
@@ -963,9 +963,9 @@
       "current": {
         "signal": "red",
         "label": "不建議",
-        "bias": -8.92,
-        "latest_price": 0.99,
-        "ma20": 1.09
+        "bias": -6.74,
+        "latest_price": 1.01,
+        "ma20": 1.08
       },
       "winrates": {
         "30d": {
@@ -1099,9 +1099,9 @@
       "current": {
         "signal": "red",
         "label": "不建議",
-        "bias": -8.63,
-        "latest_price": 1.62,
-        "ma20": 1.77
+        "bias": -7.65,
+        "latest_price": 1.63,
+        "ma20": 1.76
       },
       "winrates": {
         "30d": {
