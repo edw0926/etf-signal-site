@@ -33,12 +33,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-screen" style={{ background: 'var(--bg)', color: 'var(--text)', fontFamily: 'var(--font-noto-serif, serif)' }}>
         <div className="grid-bg fixed inset-0 pointer-events-none z-0" />
 
-        {/* AdSense — Header Banner */}
-        <div className="relative z-10 flex justify-center py-2 border-b" style={{ borderColor: 'var(--border)', background: 'var(--surface)' }}>
-          <div className="w-full max-w-[728px] h-[90px] flex items-center justify-center text-xs font-mono rounded border border-dashed" style={{ color: 'var(--muted2)', borderColor: 'var(--border2)' }}>
-            {/* Replace with Google AdSense ins tag — 728×90 leaderboard */}
-            AD SLOT · HEADER 728×90
-          </div>
+        {/* AdSense — Header Banner (hidden until ad account is ready) */}
+        <div style={{ display: 'none' }}>
+          {/* Replace with Google AdSense ins tag — 728×90 leaderboard */}
         </div>
 
         <div className="relative z-10 w-full flex flex-col items-center">{children}</div>
