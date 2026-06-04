@@ -160,19 +160,19 @@ function MarketTemperature({ etfs }: { etfs: ETFData[] }) {
 
   return (
     <div
-      className="rounded-xl p-5 mb-2"
-      style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderLeft: `4px solid ${tempColor}` }}
+      className="rounded-xl mb-2"
+      style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderLeft: `4px solid ${tempColor}`, padding: '22px 24px 20px' }}
     >
-      <div className="font-mono text-[10px] tracking-[2px] uppercase mb-3" style={{ color: 'var(--muted)' }}>
+      <div className="font-mono text-[10px] tracking-[2px] uppercase mb-4" style={{ color: 'var(--muted)' }}>
         🌡 市場溫度計
       </div>
 
-      <div className="text-[20px] font-black mb-2" style={{ color: tempColor }}>
+      <div className="text-[20px] font-black mb-3" style={{ color: tempColor }}>
         {tempIcon} {tempTitle}
       </div>
 
       {/* 溫度進度條 */}
-      <div className="flex h-2 rounded-full overflow-hidden mb-4" style={{ background: 'var(--border)' }}>
+      <div className="flex h-2 rounded-full overflow-hidden mb-5" style={{ background: 'var(--border)' }}>
         {total > 0 && <>
           <div style={{ width: `${(greenCount / total) * 100}%`,  background: '#00d98b', transition: 'width .3s' }} />
           <div style={{ width: `${(yellowCount / total) * 100}%`, background: '#f0b429', transition: 'width .3s' }} />
@@ -180,12 +180,12 @@ function MarketTemperature({ etfs }: { etfs: ETFData[] }) {
         </>}
       </div>
 
-      <div className="text-[12px] mb-3" style={{ color: '#b8c8e0' }}>{tempDesc}</div>
+      <div className="text-[13px] mb-4 leading-relaxed" style={{ color: '#b8c8e0' }}>{tempDesc}</div>
 
       <div className="flex flex-wrap gap-3">
-        {greenCount  > 0 && <span className="font-mono text-[10px]" style={{ color: 'var(--green)'  }}>🟢 偏低估 {greenCount} 檔</span>}
-        {yellowCount > 0 && <span className="font-mono text-[10px]" style={{ color: 'var(--yellow)' }}>🟡 中性 {yellowCount} 檔</span>}
-        {redCount    > 0 && <span className="font-mono text-[10px]" style={{ color: 'var(--red)'    }}>🔴 偏高估 {redCount} 檔</span>}
+        {greenCount  > 0 && <span className="font-mono text-[11px]" style={{ color: 'var(--green)'  }}>🟢 偏低估 {greenCount} 檔</span>}
+        {yellowCount > 0 && <span className="font-mono text-[11px]" style={{ color: 'var(--yellow)' }}>🟡 中性 {yellowCount} 檔</span>}
+        {redCount    > 0 && <span className="font-mono text-[11px]" style={{ color: 'var(--red)'    }}>🔴 偏高估 {redCount} 檔</span>}
       </div>
     </div>
   )
@@ -216,18 +216,19 @@ function ActionBanner({ etfs }: { etfs: ETFData[] }) {
 
   return (
     <div
-      className="rounded-xl px-5 py-4 mt-8 mb-2"
+      className="rounded-xl mt-8 mb-2"
       style={{
         background: 'var(--surface)',
         border: '1px solid var(--border)',
         borderLeft: '4px solid #e07b39',
+        padding: '22px 24px 20px',
       }}
     >
-      <div className="font-mono text-[10px] tracking-[2px] uppercase mb-2.5" style={{ color: '#e07b39' }}>
+      <div className="font-mono text-[10px] tracking-[2px] uppercase mb-4" style={{ color: '#e07b39' }}>
         📋 現在的操作建議
       </div>
-      <div className="text-[12px] leading-loose" style={{ color: '#b8c8e0' }}>
-        {lines.map((l, i) => <div key={i}>{l}</div>)}
+      <div className="text-[13px] leading-relaxed" style={{ color: '#b8c8e0' }}>
+        {lines.map((l, i) => <div key={i} className={i > 0 ? 'mt-2' : ''}>{l}</div>)}
       </div>
     </div>
   )

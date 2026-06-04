@@ -88,10 +88,10 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
       </div>
 
       {/* 主要資訊面板 */}
-      <div className="animate-fadeUp rounded-[18px] p-8 mb-11" style={{ background: 'var(--surface)', border: '1px solid var(--border)' }}>
+      <div className="animate-fadeUp rounded-[18px] mb-11" style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '36px 36px 32px' }}>
 
         {/* 標題列 + 當前訊號 */}
-        <div className="flex justify-between items-start mb-7 flex-wrap gap-4">
+        <div className="flex justify-between items-start mb-9 flex-wrap gap-4">
           <div>
             <h2 className="text-2xl font-black">{etf.name}（{etf.ticker}）</h2>
             <div className="font-mono text-[11px] mt-1.5 leading-loose" style={{ color: 'var(--muted)' }}>
@@ -114,7 +114,7 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
         </div>
 
         {/* Chips */}
-        <div className="flex flex-wrap gap-2 mb-5">
+        <div className="flex flex-wrap gap-2 mb-7">
           <Chip type={sig === 'red' ? 'r' : sig === 'green' ? 'g' : 'y'}>
             {sig === 'red' ? '✕' : sig === 'green' ? '✓' : '△'} 月線乖離 {formatBias(etf.current.bias)}（{sig === 'red' ? `超過 +${threshold}% 高估門檻` : sig === 'green' ? `低於 −${threshold}% 低估區間` : '中性區間'}）
           </Chip>
@@ -125,7 +125,7 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
 
         {/* G2：目標股價（僅偏高估且非反1時顯示） */}
         {sig === 'red' && etf.type !== 'inv1' && (
-          <div className="rounded-xl p-4 mb-6" style={{ background: 'rgba(240,69,90,.06)', border: '1px solid rgba(240,69,90,.2)' }}>
+          <div className="rounded-xl p-6 mb-8" style={{ background: 'rgba(240,69,90,.06)', border: '1px solid rgba(240,69,90,.2)' }}>
             <div className="font-mono text-[10px] tracking-[2px] uppercase mb-3" style={{ color: 'var(--red)' }}>
               🎯 回落參考目標價
             </div>
@@ -161,7 +161,7 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
 
         {/* G3：定期定額加碼比例建議 */}
         {etf.type !== 'inv1' && (
-          <div className="rounded-xl p-4 mb-6" style={{ background: 'var(--surface2)', border: '1px solid var(--border)' }}>
+          <div className="rounded-xl p-6 mb-8" style={{ background: 'var(--surface2)', border: '1px solid var(--border)' }}>
             <div className="font-mono text-[10px] tracking-[2px] uppercase mb-3" style={{ color: 'var(--muted)' }}>
               💰 定期定額投資人的參考做法
             </div>
@@ -227,7 +227,7 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
         )}
 
         {/* 推導邏輯 */}
-        <div className="rounded-[10px] p-5 mb-7" style={{ background: 'var(--surface2)', border: '1px solid var(--border)', borderLeft: '3px solid var(--green)' }}>
+        <div className="rounded-[10px] p-6 mb-9" style={{ background: 'var(--surface2)', border: '1px solid var(--border)', borderLeft: '3px solid var(--green)' }}>
           <div className="font-mono text-[10px] tracking-[2px] uppercase mb-3" style={{ color: 'var(--green)' }}>
             📐 推導邏輯 — 月線乖離率
             <Tooltip text="現在股價距離近 20 日平均成本的差距百分比。正值代表比均價貴，負值代表比均價便宜。偏高估（≥+5%）建議減少加碼；偏低估（≤−5%）歷史勝率較高。" />
@@ -242,7 +242,7 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
         </div>
 
         {/* 所有持有期勝率 */}
-        <div className="mb-7">
+        <div className="mb-9">
           <div className="font-mono text-[10px] tracking-[2px] uppercase mb-3.5" style={{ color: 'var(--muted)' }}>
             ▸ 所有持有期<span style={{ letterSpacing: 0 }}>勝率</span>
             <Tooltip text="歷史上在同樣時間點買進，持有滿指定天數後仍有獲利的比例。例如 365日勝率 71% = 過去持有一年，有 71% 的時間是賺錢的。" />
@@ -254,7 +254,7 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
             const label = { '30d':'持有 30 天', '60d':'持有 60 天', '90d':'持有 90 天', '180d':'持有 180 天', '365d':'持有 365 天' }[period]
             const med = formatRet(wr.median_ret)
             return (
-              <div key={period} className="flex items-center gap-3.5 mb-2.5">
+              <div key={period} className="flex items-center gap-3.5 mb-3.5">
                 <div className="font-mono text-[11px] w-[76px] flex-shrink-0" style={{ color: 'var(--muted)' }}>{label}</div>
                 <div className="flex-1 h-[7px] rounded overflow-hidden" style={{ background: 'var(--border)' }}>
                   <div className="h-full rounded" style={{ width: `${wr.win_rate}%`, background: 'var(--green)' }} />
@@ -273,7 +273,7 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
 
         {/* E3：依進場乖離率分區的條件勝率對照表 */}
         {etf.conditional_winrates && etf.type !== 'inv1' && (
-          <div className="rounded-xl p-5 mb-7" style={{ background: 'var(--surface2)', border: '1px solid var(--border)' }}>
+          <div className="rounded-xl p-6 mb-9" style={{ background: 'var(--surface2)', border: '1px solid var(--border)' }}>
             <div className="font-mono text-[10px] tracking-[2px] uppercase mb-1" style={{ color: 'var(--muted)' }}>
               ▸ 不同時機進場，結果差多少？
             </div>
@@ -340,7 +340,7 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
 
         {/* G1：近 24 個月乖離率走勢圖 */}
         {bh.length >= 3 && (
-          <div className="rounded-xl p-5 mb-4" style={{ background: 'var(--surface2)', border: '1px solid var(--border)' }}>
+          <div className="rounded-xl p-6 mb-9" style={{ background: 'var(--surface2)', border: '1px solid var(--border)' }}>
             <div className="font-mono text-[10px] tracking-[2px] uppercase mb-1" style={{ color: 'var(--muted)' }}>
               ▸ 近 24 個月乖離率走勢
             </div>
@@ -357,7 +357,7 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
         )}
 
         {/* G4：上次進入偏低估的時間點 */}
-        <div className="rounded-xl px-5 py-4 mb-7" style={{ background: 'var(--surface2)', border: '1px solid var(--border)' }}>
+        <div className="rounded-xl px-6 py-5 mb-9" style={{ background: 'var(--surface2)', border: '1px solid var(--border)' }}>
           <div className="font-mono text-[10px] tracking-[2px] uppercase mb-2" style={{ color: 'var(--muted)' }}>
             ▸ 上次進入偏低估區間
           </div>
@@ -374,7 +374,7 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
         </div>
 
         {/* 各月份中位報酬柱狀圖 */}
-        <div className="rounded-xl p-5 mb-4" style={{ background: 'var(--surface2)', border: '1px solid var(--border)' }}>
+        <div className="rounded-xl p-6 mb-8" style={{ background: 'var(--surface2)', border: '1px solid var(--border)' }}>
           <div className="font-mono text-[10px] tracking-[2px] uppercase mb-4" style={{ color: 'var(--muted)' }}>
             ▸ 各月份進場 · 持有90天中位報酬（{etf.ticker} · {etf.data_range} 真實回測）
           </div>
@@ -401,7 +401,7 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
         </div>
 
         {/* 月份效應熱度圖 */}
-        <div className="rounded-xl p-5 mb-7" style={{ background: 'var(--surface2)', border: '1px solid var(--border)' }}>
+        <div className="rounded-xl p-6 mb-9" style={{ background: 'var(--surface2)', border: '1px solid var(--border)' }}>
           <div className="font-mono text-[10px] tracking-[2px] uppercase mb-4" style={{ color: 'var(--muted)' }}>
             ▸ 月份效應熱度圖（持有90天 · 勝率）
           </div>
@@ -440,7 +440,7 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
 
         {/* 正2 提醒 */}
         {etf.type === 'lev2' && (
-          <div className="rounded-[10px] p-4.5 mb-7" style={{ background: 'var(--surface2)', border: '1px solid var(--border)', borderLeft: '3px solid var(--yellow)' }}>
+          <div className="rounded-[10px] p-6 mb-9" style={{ background: 'var(--surface2)', border: '1px solid var(--border)', borderLeft: '3px solid var(--yellow)' }}>
             <div className="font-mono text-[10px] tracking-[2px] uppercase mb-2.5" style={{ color: 'var(--yellow)' }}>⚡ 正2 持有期重要提醒</div>
             <div className="text-sm leading-loose" style={{ color: '#b8c8e0' }}>
               正2 ETF 追蹤的是<strong style={{ color: 'var(--yellow)' }}>單日報酬的兩倍</strong>，長期持有會因
@@ -452,7 +452,7 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
 
         {/* 反1 說明 */}
         {etf.type === 'inv1' && (
-          <div className="rounded-[10px] p-4.5 mb-7" style={{ background: 'var(--surface2)', border: '1px solid var(--border)', borderLeft: '3px solid var(--red)' }}>
+          <div className="rounded-[10px] p-6 mb-9" style={{ background: 'var(--surface2)', border: '1px solid var(--border)', borderLeft: '3px solid var(--red)' }}>
             <div className="font-mono text-[10px] tracking-[2px] uppercase mb-2.5" style={{ color: 'var(--red)' }}>⚠ 反1 使用重要說明</div>
             <div className="text-sm leading-loose" style={{ color: '#b8c8e0' }}>
               反1 ETF 每日反向追蹤指數，長期持有因<strong style={{ color: 'var(--red)' }}>波動耗損</strong>損失極大。

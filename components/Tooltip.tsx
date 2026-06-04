@@ -1,7 +1,8 @@
 // Pure CSS tooltip — works in server components, no client JS needed
+// Uses Tailwind v4 named group (group/tip) to avoid leaking into parent group context
 export default function Tooltip({ text }: { text: string }) {
   return (
-    <span className="group relative inline-block align-middle" tabIndex={0} style={{ outline: 'none' }}>
+    <span className="group/tip relative inline-block align-middle" tabIndex={0} style={{ outline: 'none' }}>
       <span
         className="cursor-help ml-0.5 select-none"
         style={{ color: 'var(--muted2)', fontSize: '10px', lineHeight: 1 }}
@@ -10,7 +11,7 @@ export default function Tooltip({ text }: { text: string }) {
       </span>
       <span
         className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-52 z-20
-                   opacity-0 group-hover:opacity-100 group-focus:opacity-100
+                   opacity-0 group-hover/tip:opacity-100 group-focus/tip:opacity-100
                    transition-opacity duration-150"
         style={{
           background: '#131e2e',
@@ -25,7 +26,6 @@ export default function Tooltip({ text }: { text: string }) {
         }}
       >
         {text}
-        {/* 小三角箭頭 */}
         <span
           className="absolute left-1/2 -translate-x-1/2 top-full"
           style={{
