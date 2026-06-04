@@ -122,13 +122,23 @@ export default function ETFCard({ etf, delay = 0 }: { etf: ETFData; delay?: numb
           </div>
         </div>
 
-        {/* Layer 2: Bias number — large and prominent */}
-        <div className="mb-4">
-          <div className="font-mono text-[10px] tracking-widest uppercase mb-1" style={{ color: 'var(--muted)' }}>
-            月線乖離率
+        {/* Layer 2: Price + Bias */}
+        <div className="flex items-end justify-between mb-4">
+          <div>
+            <div className="font-mono text-[10px] tracking-widest uppercase mb-1" style={{ color: 'var(--muted)' }}>
+              月線乖離率
+            </div>
+            <div className="font-mono text-[32px] font-black leading-none" style={{ color: biasColor }}>
+              {biasStr}
+            </div>
           </div>
-          <div className="font-mono text-[32px] font-black leading-none" style={{ color: biasColor }}>
-            {biasStr}
+          <div className="text-right flex-shrink-0 ml-3">
+            <div className="font-mono text-[10px] tracking-widest uppercase mb-1" style={{ color: 'var(--muted)' }}>
+              最新股價
+            </div>
+            <div className="font-mono text-[22px] font-bold leading-none" style={{ color: 'var(--text)' }}>
+              {etf.current.latest_price != null ? `$${etf.current.latest_price}` : '—'}
+            </div>
           </div>
         </div>
 
