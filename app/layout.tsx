@@ -1,9 +1,16 @@
 import type { Metadata } from 'next'
-import { Noto_Serif_TC, IBM_Plex_Mono } from 'next/font/google'
+import { Noto_Sans_TC, Noto_Serif_TC, IBM_Plex_Mono } from 'next/font/google'
 import './globals.css'
 
+const notoSansTC = Noto_Sans_TC({
+  weight: ['400', '500', '700'],
+  subsets: ['latin'],
+  variable: '--font-noto-sans',
+  display: 'swap',
+})
+
 const notoSerifTC = Noto_Serif_TC({
-  weight: ['300', '400', '600', '900'],
+  weight: ['600', '900'],
   subsets: ['latin'],
   variable: '--font-noto-serif',
   display: 'swap',
@@ -29,16 +36,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="zh-TW" className={`${notoSerifTC.variable} ${ibmPlexMono.variable}`}>
-      <body className="min-h-screen" style={{ background: 'var(--bg)', color: 'var(--text)', fontFamily: 'var(--font-noto-serif, serif)' }}>
-        <div className="grid-bg fixed inset-0 pointer-events-none z-0" />
-
+    <html lang="zh-TW" className={`${notoSansTC.variable} ${notoSerifTC.variable} ${ibmPlexMono.variable}`}>
+      <body className="min-h-screen" style={{ background: 'var(--bg)', color: 'var(--text)' }}>
         {/* AdSense — Header Banner (hidden until ad account is ready) */}
         <div style={{ display: 'none' }}>
           {/* Replace with Google AdSense ins tag — 728×90 leaderboard */}
         </div>
 
-        <div className="relative z-10 w-full flex flex-col items-center">{children}</div>
+        <div className="relative w-full flex flex-col items-center">{children}</div>
       </body>
     </html>
   )

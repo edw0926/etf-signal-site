@@ -1,4 +1,4 @@
-// F2：名詞說明摺疊區塊 — <details>/<summary> 原生 HTML，不需要 client JS
+// 名詞說明摺疊區塊 — <details>/<summary> 原生 HTML，不需要 client JS
 const terms = [
   {
     term: '月線乖離率（MA20 Deviation）',
@@ -25,26 +25,24 @@ const terms = [
 export default function Glossary() {
   return (
     <details
-      className="rounded-xl mb-6"
-      style={{
-        background: 'var(--surface)',
-        border: '1px solid var(--border)',
-      }}
+      className="chevron rounded-xl mt-12 mb-8"
+      style={{ background: 'var(--surface)', border: '1px solid var(--border)' }}
     >
       <summary
-        className="font-mono text-[11px] tracking-widest uppercase px-5 py-3.5 cursor-pointer select-none"
-        style={{ color: 'var(--muted)', listStyle: 'none' }}
+        className="text-[13px] font-medium px-6 py-4 cursor-pointer select-none flex items-center justify-between"
+        style={{ color: 'var(--text2)' }}
       >
-        📖 名詞說明 <span style={{ color: 'var(--muted2)' }}>（點擊展開）</span>
+        名詞說明
+        <span className="chev text-[11px]" style={{ color: 'var(--muted)' }}>▾</span>
       </summary>
-      <div className="px-5 pb-5 pt-1" style={{ borderTop: '1px solid var(--border)' }}>
+      <div className="px-6 pb-6 pt-1" style={{ borderTop: '1px solid var(--border)' }}>
         {terms.map((t, i) => (
-          <div key={i} className="mt-4">
-            <div className="font-mono text-[11px] font-semibold mb-1" style={{ color: 'var(--text)' }}>
+          <div key={i} className="mt-5">
+            <div className="text-[13px] font-medium mb-1.5" style={{ color: 'var(--text2)' }}>
               {t.term}
             </div>
-            <div className="text-[11px] leading-relaxed" style={{ color: 'var(--muted)', paddingLeft: '10px' }}>
-              → {t.def}
+            <div className="text-[12px] leading-relaxed" style={{ color: 'var(--muted)' }}>
+              {t.def}
             </div>
           </div>
         ))}

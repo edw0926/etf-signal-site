@@ -11,39 +11,27 @@ function formatRet(val: number | null) {
   return (val >= 0 ? '+' : '') + val.toFixed(1) + '%'
 }
 
-const signalColors = {
-  green: { card: '#00d98b', text: 'var(--green)', bg: 'rgba(0,217,139,.08)', shadow: 'rgba(0,217,139,.15)' },
-  yellow: { card: '#f0b429', text: 'var(--yellow)', bg: 'rgba(240,180,41,.08)', shadow: 'rgba(240,180,41,.15)' },
-  red: { card: '#f0455a', text: 'var(--red)', bg: 'rgba(240,69,90,.08)', shadow: 'rgba(240,69,90,.15)' },
+const signalTheme = {
+  green:  { accent: 'var(--green)',  badgeBg: 'rgba(63,214,143,.12)',  badgeBorder: 'rgba(63,214,143,.3)',  shadow: 'rgba(63,214,143,.12)',  label: '偏低估' },
+  yellow: { accent: 'var(--yellow)', badgeBg: 'rgba(227,176,75,.12)',  badgeBorder: 'rgba(227,176,75,.3)',  shadow: 'rgba(227,176,75,.12)',  label: '中性' },
+  red:    { accent: 'var(--red)',    badgeBg: 'rgba(239,111,129,.12)', badgeBorder: 'rgba(239,111,129,.3)', shadow: 'rgba(239,111,129,.12)', label: '偏高估' },
+  inv:    { accent: 'var(--orange)', badgeBg: 'rgba(217,138,79,.12)',  badgeBorder: 'rgba(217,138,79,.3)',  shadow: 'rgba(217,138,79,.12)',  label: '不建議' },
 }
 
-const badgeStyle = {
-  green:  { background: 'rgba(0,217,139,.18)',  color: '#00d98b', border: '1px solid rgba(0,217,139,.35)' },
-  yellow: { background: 'rgba(240,180,41,.18)', color: '#f0b429', border: '1px solid rgba(240,180,41,.35)' },
-  red:    { background: 'rgba(240,69,90,.18)',  color: '#f0455a', border: '1px solid rgba(240,69,90,.35)' },
-  inv:    { background: 'rgba(224,123,57,.18)', color: '#e07b39', border: '1px solid rgba(224,123,57,.35)' },
-}
-
-const badgeLabel = {
-  green:  '🟢 偏低估',
-  yellow: '🟡 中性',
-  red:    '🔴 偏高估',
-}
-
-function getWarnText(etf: ETFData): { text: string; type: 'y' | 'r' | 'g' } | null {
+function getWarnText(etf: ETFData): { text: string; color: string } | null {
   const { signal } = etf.current
   if (etf.type === 'inv1') {
     const wr365 = etf.winrates['365d']?.win_rate ?? 0
-    return { text: `🔴 歷史365天持有勝率僅${wr365}%，長期持有損耗極大，非多頭環境下慎用`, type: 'r' }
+    return { text: `歷史 365 天持有勝率僅 ${wr365}%，長期持有損耗極大，僅適合短線空頭避險`, color: 'var(--orange)' }
   }
   if (signal === 'red' && etf.type === 'lev2') {
-    return { text: `⚡ 目前乖離率過高，進場風險放大。等待回測至 −7% 以下再考慮`, type: 'y' }
+    return { text: '乖離率過高，槓桿放大進場風險，建議等回落至 −7% 以下再考慮', color: 'var(--yellow)' }
   }
   if (signal === 'red') {
-    return { text: `🔴 現在位置偏高估，短期波動風險較高，長期持有仍具優勢`, type: 'r' }
+    return { text: '目前位置偏高估，短期波動風險較高；長期持有仍具優勢', color: 'var(--red)' }
   }
   if (signal === 'green') {
-    return { text: `✅ 月線偏低估，歷史上為相對好的進場時機`, type: 'g' }
+    return { text: '月線偏低估，歷史上為相對好的進場時機', color: 'var(--green)' }
   }
   return null
 }
@@ -57,33 +45,31 @@ function getCardStats(etf: ETFData) {
   if (etf.type === 'inv1') {
     return [
       { label: '365日勝率', val: wr365 != null ? wr365 + '%' : 'N/A', color: 'var(--red)' },
-      { label: '365日中位', val: formatRet(med365), color: 'var(--red)' },
+      { label: '365日中位報酬', val: formatRet(med365), color: 'var(--red)' },
     ]
   }
   if (etf.type === 'lev2') {
     return [
-      { label: '90日勝率', val: wr90 != null ? wr90 + '%' : 'N/A', color: 'var(--green)' },
-      { label: '90日中位', val: formatRet(med90), color: 'var(--green)' },
+      { label: '90日勝率', val: wr90 != null ? wr90 + '%' : 'N/A', color: 'var(--text)' },
+      { label: '90日中位報酬', val: formatRet(med90), color: med90 != null && med90 < 0 ? 'var(--red)' : 'var(--green)' },
     ]
   }
   if (med365 === null) {
     return [
-      { label: '365日勝率', val: wr365 != null ? wr365 + '%' : 'N/A', color: 'var(--green)' },
-      { label: '90日勝率', val: wr90 != null ? wr90 + '%' : 'N/A', color: 'var(--green)' },
+      { label: '365日勝率', val: wr365 != null ? wr365 + '%' : 'N/A', color: 'var(--text)' },
+      { label: '90日勝率', val: wr90 != null ? wr90 + '%' : 'N/A', color: 'var(--text)' },
     ]
   }
   return [
-    { label: '365日勝率', val: wr365 != null ? wr365 + '%' : 'N/A', color: 'var(--green)' },
-    { label: '365日中位', val: formatRet(med365), color: 'var(--green)' },
+    { label: '365日勝率', val: wr365 != null ? wr365 + '%' : 'N/A', color: 'var(--text)' },
+    { label: '365日中位報酬', val: formatRet(med365), color: med365 < 0 ? 'var(--red)' : 'var(--green)' },
   ]
 }
 
 export default function ETFCard({ etf, delay = 0 }: { etf: ETFData; delay?: number }) {
   const sig = etf.current.signal
   const isInv = etf.type === 'inv1'
-  const col = isInv ? { card: '#e07b39', text: '#e07b39', bg: 'rgba(224,123,57,.08)', shadow: 'rgba(224,123,57,.15)' } : (signalColors[sig] ?? signalColors.red)
-  const badge = isInv ? badgeStyle.inv : (badgeStyle[sig] ?? badgeStyle.red)
-  const label = isInv ? '⚠ 不建議' : (badgeLabel[sig] ?? badgeLabel.red)
+  const theme = isInv ? signalTheme.inv : (signalTheme[sig] ?? signalTheme.red)
   const warn = getWarnText(etf)
   const stats = getCardStats(etf)
   const biasNum = etf.current.bias
@@ -93,108 +79,101 @@ export default function ETFCard({ etf, delay = 0 }: { etf: ETFData; delay?: numb
   return (
     <Link href={`/etf/${etf.ticker}`} className="block no-underline group">
       <div
-        className="animate-fadeUp cursor-pointer relative transition-all duration-200 group-hover:-translate-y-1"
+        className="animate-fadeUp cursor-pointer relative transition-all duration-200 group-hover:-translate-y-0.5"
         style={{
           background: 'var(--surface)',
           border: '1px solid var(--border)',
-          borderTop: `3px solid ${col.card}`,
-          borderRadius: '14px',
-          padding: '22px 24px 20px',
+          borderRadius: '12px',
+          padding: '24px 26px 22px',
           animationDelay: `${delay}ms`,
           minWidth: '280px',
         }}
-        onMouseEnter={e => (e.currentTarget.style.boxShadow = `0 10px 40px ${col.shadow}`)}
-        onMouseLeave={e => (e.currentTarget.style.boxShadow = '')}
+        onMouseEnter={e => {
+          e.currentTarget.style.boxShadow = `0 8px 32px ${theme.shadow}`
+          e.currentTarget.style.borderColor = 'var(--border2)'
+        }}
+        onMouseLeave={e => {
+          e.currentTarget.style.boxShadow = ''
+          e.currentTarget.style.borderColor = 'var(--border)'
+        }}
       >
-
-        {/* Layer 1: Ticker + Name + Signal Badge */}
-        <div className="flex justify-between items-start mb-3">
+        {/* 第一層：代號 + 名稱 + 訊號 badge */}
+        <div className="flex justify-between items-start mb-4">
           <div className="flex-1 min-w-0 pr-3">
-            <div className="font-mono text-[11px] tracking-widest mb-1" style={{ color: 'var(--muted)' }}>
-              {etf.ticker}.TW
+            <div className="font-mono text-[11px] mb-1" style={{ color: 'var(--muted)' }}>
+              {etf.ticker}
             </div>
-            <div className="text-[18px] font-black leading-tight">{etf.name}</div>
-            <div className="text-[11px] mt-1" style={{ color: 'var(--muted)' }}>{etf.index}</div>
+            <div className="text-[17px] font-bold leading-tight" style={{ fontFamily: 'var(--font-noto-sans)' }}>
+              {etf.name}
+            </div>
           </div>
-          {/* Signal badge — colored block label */}
           <div
-            className="flex-shrink-0 text-[11px] font-bold font-mono px-2.5 py-1 rounded-md whitespace-nowrap"
-            style={badge}
+            className="flex-shrink-0 flex items-center gap-1.5 text-[12px] font-medium px-2.5 py-1 rounded-full whitespace-nowrap"
+            style={{ background: theme.badgeBg, color: theme.accent, border: `1px solid ${theme.badgeBorder}` }}
           >
-            {label}
+            <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: theme.accent }} />
+            {theme.label}
           </div>
         </div>
 
-        {/* Layer 2: Price + Bias */}
-        <div className="flex items-end justify-between mb-4">
+        {/* 第二層：乖離率 + 股價 */}
+        <div className="flex items-end justify-between mb-5">
           <div>
-            <div className="font-mono text-[10px] tracking-widest uppercase mb-1 flex items-center gap-0.5" style={{ color: 'var(--muted)' }}>
+            <div className="text-[11px] mb-1.5 flex items-center gap-0.5" style={{ color: 'var(--muted)' }}>
               月線乖離率
               <Tooltip text="現在股價距離近 20 日平均成本的差距百分比。正值代表比均價貴，負值代表比均價便宜。" />
             </div>
-            <div className="font-mono text-[32px] font-black leading-none" style={{ color: biasColor }}>
+            <div className="font-mono text-[30px] font-semibold leading-none tracking-tight" style={{ color: biasColor }}>
               {biasStr}
             </div>
-            {isInv && (
-              <div className="font-mono text-[9px] mt-1 leading-relaxed" style={{ color: 'var(--muted2)', maxWidth: '160px' }}>
-                反向 ETF · 乖離率方向與大盤相反，不作為進場依據
-              </div>
-            )}
           </div>
           <div className="text-right flex-shrink-0 ml-3">
-            <div className="font-mono text-[10px] tracking-widest uppercase mb-1" style={{ color: 'var(--muted)' }}>
-              最新股價
-            </div>
-            <div className="font-mono text-[22px] font-bold leading-none" style={{ color: 'var(--text)' }}>
+            <div className="text-[11px] mb-1.5" style={{ color: 'var(--muted)' }}>最新股價</div>
+            <div className="font-mono text-[20px] font-semibold leading-none" style={{ color: 'var(--text2)' }}>
               {etf.current.latest_price != null ? `$${etf.current.latest_price}` : '—'}
             </div>
           </div>
         </div>
 
-        {/* Layer 3: Win rate + median return */}
+        {isInv && (
+          <div className="text-[11px] -mt-3 mb-4 leading-relaxed" style={{ color: 'var(--muted2)' }}>
+            反向 ETF 乖離率方向與大盤相反，不作為進場判斷依據
+          </div>
+        )}
+
+        {/* 第三層：勝率統計 */}
         <div
           className="grid gap-4 pt-4"
-          style={{
-            borderTop: '1px solid var(--border)',
-            gridTemplateColumns: `repeat(${stats.length}, 1fr)`,
-          }}
+          style={{ borderTop: '1px solid var(--border)', gridTemplateColumns: `repeat(${stats.length}, 1fr)` }}
         >
           {stats.map((s, i) => (
             <div key={i}>
-              <div className="font-mono text-[9px] tracking-widest uppercase mb-1 flex items-center gap-0.5" style={{ color: 'var(--muted)' }}>
+              <div className="text-[11px] mb-1 flex items-center gap-0.5" style={{ color: 'var(--muted)' }}>
                 {s.label}
-                {s.label.includes('勝率') && (
+                {i === 0 && s.label.includes('勝率') && (
                   <Tooltip text="歷史上在同樣時間點買進，持有滿指定天數後仍有獲利的比例。" />
                 )}
                 {s.label.includes('中位') && (
                   <Tooltip text="歷史持有報酬排在中間的數字。比平均值更穩定，不會被少數極端值拉偏。" />
                 )}
               </div>
-              <div className="font-mono text-[16px] font-bold" style={{ color: s.color }}>
+              <div className="font-mono text-[16px] font-semibold" style={{ color: s.color }}>
                 {s.val}
               </div>
             </div>
           ))}
         </div>
 
-        {/* Layer 4: Backtest range — small, muted */}
-        <div className="font-mono text-[9px] mt-3 tracking-tight" style={{ color: 'var(--muted2)' }}>
+        {/* 第四層：回測範圍 */}
+        <div className="text-[10px] mt-3" style={{ color: 'var(--muted2)' }}>
           回測 {etf.data_range} · {etf.sample_months} 個月
         </div>
 
-        {/* Warning */}
+        {/* 提示文字 */}
         {warn && (
           <div
-            className="mt-3 text-[11px] rounded-md font-mono tracking-tight"
-            style={{
-              padding: '10px 14px',
-              lineHeight: '1.6',
-              ...(warn.type === 'r'
-                ? { color: 'var(--red)', background: 'rgba(240,69,90,.08)', border: '1px solid rgba(240,69,90,.2)' }
-                : warn.type === 'y'
-                ? { color: 'var(--yellow)', background: 'rgba(240,180,41,.08)', border: '1px solid rgba(240,180,41,.2)' }
-                : { color: 'var(--green)', background: 'rgba(0,217,139,.08)', border: '1px solid rgba(0,217,139,.2)' }),
-            }}
+            className="mt-3.5 text-[12px] leading-relaxed pl-3"
+            style={{ color: 'var(--text2)', borderLeft: `2px solid ${warn.color}` }}
           >
             {warn.text}
           </div>
