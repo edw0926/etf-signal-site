@@ -33,7 +33,9 @@ def fetch_price(ticker, years=7):
         df = pd.DataFrame(data['data'])
         df['date'] = pd.to_datetime(df['date'])
         df = df.set_index('date').sort_index()
-        return df['close'].astype(float)
+        close = df['close'].astype(float)
+        # FinMind 對停牌/無成交日可能回傳 0，會汙染均線與報酬計算
+        return close[close > 0]
     return None
 
 def get_signal(bias, etf_type):
@@ -87,6 +89,8 @@ def compute_conditional_winrates(prices, etf_type, horizon_months=12):
         entry_bias = float(df['bias'].iloc[i])
         entry_price = float(df['price'].iloc[i])
         future_price = float(df['price'].iloc[i + horizon_months])
+        if entry_price <= 0 or future_price <= 0:
+            continue
         ret = (future_price - entry_price) / entry_price * 100
 
         if etf_type == 'inv1':
@@ -116,7 +120,11 @@ with open('public/etf_signals.json', 'r', encoding='utf-8') as f:
 
 updated = 0
 for ticker, info in ETF_LIST.items():
-    prices = fetch_price(ticker, years=7)
+    try:
+        prices = fetch_price(ticker, years=7)
+    except Exception as e:
+        print(f'⚠️  {ticker} 抓取失敗（{e}），跳過')
+        continue
     if prices is None or len(prices) < 20:
         print(f'⚠️  {ticker} 資料不足，跳過')
         continue
@@ -135,15 +143,20 @@ for ticker, info in ETF_LIST.items():
             'ma20': round(float(ma20), 2),
         }
 
-        # bias_history: last 24 months of end-of-month bias
-        bh = compute_bias_history(prices, months=24)
-        if bh:
-            data['etfs'][ticker]['bias_history'] = bh
+        # bias_history / conditional_winrates 為輔助統計，失敗不影響主要訊號更新
+        try:
+            bh = compute_bias_history(prices, months=24)
+            if bh:
+                data['etfs'][ticker]['bias_history'] = bh
+        except Exception as e:
+            print(f'⚠️  {ticker} bias_history 計算失敗（{e}）')
 
-        # conditional_winrates: 12-month forward return grouped by entry zone
-        cwr = compute_conditional_winrates(prices, info['type'], horizon_months=12)
-        if cwr:
-            data['etfs'][ticker]['conditional_winrates'] = cwr
+        try:
+            cwr = compute_conditional_winrates(prices, info['type'], horizon_months=12)
+            if cwr:
+                data['etfs'][ticker]['conditional_winrates'] = cwr
+        except Exception as e:
+            print(f'⚠️  {ticker} conditional_winrates 計算失敗（{e}）')
 
         updated += 1
         print(f'✅ {ticker} 乖離率 {bias:+.2f}% → {label}')
