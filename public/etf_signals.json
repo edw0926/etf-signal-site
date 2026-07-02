@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026/06/04",
+  "updated_at": "2026/07/02",
   "etfs": {
     "0050": {
       "ticker": "0050",
@@ -9,11 +9,11 @@
       "data_range": "2005/01 — 2026/06",
       "sample_months": 258,
       "current": {
-        "signal": "red",
-        "label": "偏高估",
-        "bias": 6.87,
-        "latest_price": 106.1,
-        "ma20": 99.28
+        "signal": "yellow",
+        "label": "中性觀望",
+        "bias": 3.11,
+        "latest_price": 108.8,
+        "ma20": 105.52
       },
       "winrates": {
         "30d": {
@@ -135,6 +135,121 @@
           "mean_ret": 7.08,
           "sample": 463
         }
+      },
+      "bias_history": [
+        {
+          "month": "2024/08",
+          "bias": 1.76
+        },
+        {
+          "month": "2024/09",
+          "bias": 2.49
+        },
+        {
+          "month": "2024/10",
+          "bias": -0.17
+        },
+        {
+          "month": "2024/11",
+          "bias": -2.64
+        },
+        {
+          "month": "2024/12",
+          "bias": -0.21
+        },
+        {
+          "month": "2025/01",
+          "bias": 1.62
+        },
+        {
+          "month": "2025/02",
+          "bias": -1.93
+        },
+        {
+          "month": "2025/03",
+          "bias": -5.6
+        },
+        {
+          "month": "2025/04",
+          "bias": 3.53
+        },
+        {
+          "month": "2025/05",
+          "bias": 0.86
+        },
+        {
+          "month": "2025/06",
+          "bias": -60.0
+        },
+        {
+          "month": "2025/07",
+          "bias": 2.73
+        },
+        {
+          "month": "2025/08",
+          "bias": 0.1
+        },
+        {
+          "month": "2025/09",
+          "bias": 3.84
+        },
+        {
+          "month": "2025/10",
+          "bias": 4.23
+        },
+        {
+          "month": "2025/11",
+          "bias": 0.5
+        },
+        {
+          "month": "2025/12",
+          "bias": 3.46
+        },
+        {
+          "month": "2026/01",
+          "bias": 1.46
+        },
+        {
+          "month": "2026/02",
+          "bias": 9.02
+        },
+        {
+          "month": "2026/03",
+          "bias": -4.38
+        },
+        {
+          "month": "2026/04",
+          "bias": 7.72
+        },
+        {
+          "month": "2026/05",
+          "bias": 8.47
+        },
+        {
+          "month": "2026/06",
+          "bias": 2.4
+        },
+        {
+          "month": "2026/07",
+          "bias": 3.11
+        }
+      ],
+      "conditional_winrates": {
+        "green": {
+          "count": 5,
+          "win_rate": 80.0,
+          "median_ret": 18.6
+        },
+        "yellow": {
+          "count": 65,
+          "win_rate": 61.5,
+          "median_ret": 10.4
+        },
+        "red": {
+          "count": 3,
+          "win_rate": 100.0,
+          "median_ret": 31.1
+        }
       }
     },
     "006208": {
@@ -145,11 +260,11 @@
       "data_range": "2012/07 — 2026/06",
       "sample_months": 168,
       "current": {
-        "signal": "red",
-        "label": "偏高估",
-        "bias": 7.07,
-        "latest_price": 245.95,
-        "ma20": 229.7
+        "signal": "yellow",
+        "label": "中性觀望",
+        "bias": 3.19,
+        "latest_price": 252.3,
+        "ma20": 244.49
       },
       "winrates": {
         "30d": {
@@ -271,6 +386,121 @@
           "mean_ret": Infinity,
           "sample": 304
         }
+      },
+      "bias_history": [
+        {
+          "month": "2024/08",
+          "bias": 1.47
+        },
+        {
+          "month": "2024/09",
+          "bias": 2.49
+        },
+        {
+          "month": "2024/10",
+          "bias": -0.31
+        },
+        {
+          "month": "2024/11",
+          "bias": -3.41
+        },
+        {
+          "month": "2024/12",
+          "bias": 0.25
+        },
+        {
+          "month": "2025/01",
+          "bias": 2.79
+        },
+        {
+          "month": "2025/02",
+          "bias": -1.8
+        },
+        {
+          "month": "2025/03",
+          "bias": -5.51
+        },
+        {
+          "month": "2025/04",
+          "bias": 3.36
+        },
+        {
+          "month": "2025/05",
+          "bias": 0.85
+        },
+        {
+          "month": "2025/06",
+          "bias": 2.65
+        },
+        {
+          "month": "2025/07",
+          "bias": 2.87
+        },
+        {
+          "month": "2025/08",
+          "bias": 0.04
+        },
+        {
+          "month": "2025/09",
+          "bias": 3.75
+        },
+        {
+          "month": "2025/10",
+          "bias": 4.54
+        },
+        {
+          "month": "2025/11",
+          "bias": -0.6
+        },
+        {
+          "month": "2025/12",
+          "bias": 3.42
+        },
+        {
+          "month": "2026/01",
+          "bias": 2.49
+        },
+        {
+          "month": "2026/02",
+          "bias": 9.19
+        },
+        {
+          "month": "2026/03",
+          "bias": -4.23
+        },
+        {
+          "month": "2026/04",
+          "bias": 7.69
+        },
+        {
+          "month": "2026/05",
+          "bias": 7.26
+        },
+        {
+          "month": "2026/06",
+          "bias": 2.6
+        },
+        {
+          "month": "2026/07",
+          "bias": 3.19
+        }
+      ],
+      "conditional_winrates": {
+        "green": {
+          "count": 4,
+          "win_rate": 100.0,
+          "median_ret": 16.8
+        },
+        "yellow": {
+          "count": 66,
+          "win_rate": 78.8,
+          "median_ret": 25.3
+        },
+        "red": {
+          "count": 3,
+          "win_rate": 100.0,
+          "median_ret": 32.0
+        }
       }
     },
     "00631L": {
@@ -281,11 +511,11 @@
       "data_range": "2014/10 — 2026/06",
       "sample_months": 141,
       "current": {
-        "signal": "red",
-        "label": "偏高估",
-        "bias": 13.23,
-        "latest_price": 38.3,
-        "ma20": 33.83
+        "signal": "yellow",
+        "label": "中性觀望",
+        "bias": 4.8,
+        "latest_price": 38.88,
+        "ma20": 37.1
       },
       "winrates": {
         "30d": {
@@ -407,6 +637,121 @@
           "mean_ret": 0.04,
           "sample": 265
         }
+      },
+      "bias_history": [
+        {
+          "month": "2024/08",
+          "bias": 4.75
+        },
+        {
+          "month": "2024/09",
+          "bias": 3.63
+        },
+        {
+          "month": "2024/10",
+          "bias": -1.5
+        },
+        {
+          "month": "2024/11",
+          "bias": -4.82
+        },
+        {
+          "month": "2024/12",
+          "bias": -0.57
+        },
+        {
+          "month": "2025/01",
+          "bias": 3.81
+        },
+        {
+          "month": "2025/02",
+          "bias": -1.74
+        },
+        {
+          "month": "2025/03",
+          "bias": -12.37
+        },
+        {
+          "month": "2025/04",
+          "bias": 5.32
+        },
+        {
+          "month": "2025/05",
+          "bias": 1.47
+        },
+        {
+          "month": "2025/06",
+          "bias": 4.24
+        },
+        {
+          "month": "2025/07",
+          "bias": 6.3
+        },
+        {
+          "month": "2025/08",
+          "bias": 1.81
+        },
+        {
+          "month": "2025/09",
+          "bias": 5.43
+        },
+        {
+          "month": "2025/10",
+          "bias": 7.28
+        },
+        {
+          "month": "2025/11",
+          "bias": 1.71
+        },
+        {
+          "month": "2025/12",
+          "bias": 5.2
+        },
+        {
+          "month": "2026/01",
+          "bias": 4.67
+        },
+        {
+          "month": "2026/02",
+          "bias": 16.61
+        },
+        {
+          "month": "2026/03",
+          "bias": -95.77
+        },
+        {
+          "month": "2026/04",
+          "bias": 12.7
+        },
+        {
+          "month": "2026/05",
+          "bias": 13.6
+        },
+        {
+          "month": "2026/06",
+          "bias": 3.73
+        },
+        {
+          "month": "2026/07",
+          "bias": 4.8
+        }
+      ],
+      "conditional_winrates": {
+        "green": {
+          "count": 6,
+          "win_rate": 83.3,
+          "median_ret": 45.6
+        },
+        "yellow": {
+          "count": 61,
+          "win_rate": 65.6,
+          "median_ret": 48.1
+        },
+        "red": {
+          "count": 6,
+          "win_rate": 100.0,
+          "median_ret": 53.0
+        }
       }
     },
     "00675L": {
@@ -417,11 +762,11 @@
       "data_range": "2016/10 — 2026/06",
       "sample_months": 117,
       "current": {
-        "signal": "red",
-        "label": "偏高估",
-        "bias": 14.28,
-        "latest_price": 338.6,
-        "ma20": 296.28
+        "signal": "yellow",
+        "label": "中性觀望",
+        "bias": 4.4,
+        "latest_price": 340.8,
+        "ma20": 326.45
       },
       "winrates": {
         "30d": {
@@ -543,6 +888,121 @@
           "mean_ret": 17.41,
           "sample": 218
         }
+      },
+      "bias_history": [
+        {
+          "month": "2024/08",
+          "bias": 4.64
+        },
+        {
+          "month": "2024/09",
+          "bias": 3.73
+        },
+        {
+          "month": "2024/10",
+          "bias": -1.34
+        },
+        {
+          "month": "2024/11",
+          "bias": -5.1
+        },
+        {
+          "month": "2024/12",
+          "bias": -0.66
+        },
+        {
+          "month": "2025/01",
+          "bias": 3.75
+        },
+        {
+          "month": "2025/02",
+          "bias": -1.48
+        },
+        {
+          "month": "2025/03",
+          "bias": -12.47
+        },
+        {
+          "month": "2025/04",
+          "bias": 5.5
+        },
+        {
+          "month": "2025/05",
+          "bias": 1.55
+        },
+        {
+          "month": "2025/06",
+          "bias": 4.21
+        },
+        {
+          "month": "2025/07",
+          "bias": 6.14
+        },
+        {
+          "month": "2025/08",
+          "bias": 1.84
+        },
+        {
+          "month": "2025/09",
+          "bias": 5.44
+        },
+        {
+          "month": "2025/10",
+          "bias": 7.33
+        },
+        {
+          "month": "2025/11",
+          "bias": 1.7
+        },
+        {
+          "month": "2025/12",
+          "bias": 5.27
+        },
+        {
+          "month": "2026/01",
+          "bias": 4.69
+        },
+        {
+          "month": "2026/02",
+          "bias": 16.37
+        },
+        {
+          "month": "2026/03",
+          "bias": -8.38
+        },
+        {
+          "month": "2026/04",
+          "bias": 12.52
+        },
+        {
+          "month": "2026/05",
+          "bias": 14.63
+        },
+        {
+          "month": "2026/06",
+          "bias": 3.73
+        },
+        {
+          "month": "2026/07",
+          "bias": 4.4
+        }
+      ],
+      "conditional_winrates": {
+        "green": {
+          "count": 6,
+          "win_rate": 100.0,
+          "median_ret": 74.9
+        },
+        "yellow": {
+          "count": 62,
+          "win_rate": 74.2,
+          "median_ret": 51.4
+        },
+        "red": {
+          "count": 5,
+          "win_rate": 100.0,
+          "median_ret": 42.1
+        }
       }
     },
     "00685L": {
@@ -553,11 +1013,11 @@
       "data_range": "2017/03 — 2026/06",
       "sample_months": 112,
       "current": {
-        "signal": "red",
-        "label": "偏高估",
-        "bias": 14.26,
-        "latest_price": 305.9,
-        "ma20": 267.73
+        "signal": "yellow",
+        "label": "中性觀望",
+        "bias": 3.68,
+        "latest_price": 306.0,
+        "ma20": 295.13
       },
       "winrates": {
         "30d": {
@@ -679,6 +1139,121 @@
           "mean_ret": Infinity,
           "sample": 194
         }
+      },
+      "bias_history": [
+        {
+          "month": "2024/07",
+          "bias": -8.82
+        },
+        {
+          "month": "2024/08",
+          "bias": 4.69
+        },
+        {
+          "month": "2024/09",
+          "bias": 3.66
+        },
+        {
+          "month": "2024/10",
+          "bias": -1.31
+        },
+        {
+          "month": "2024/11",
+          "bias": -5.2
+        },
+        {
+          "month": "2024/12",
+          "bias": -0.67
+        },
+        {
+          "month": "2025/01",
+          "bias": 3.82
+        },
+        {
+          "month": "2025/02",
+          "bias": -1.52
+        },
+        {
+          "month": "2025/03",
+          "bias": -12.33
+        },
+        {
+          "month": "2025/04",
+          "bias": 5.46
+        },
+        {
+          "month": "2025/05",
+          "bias": 1.44
+        },
+        {
+          "month": "2025/06",
+          "bias": 4.11
+        },
+        {
+          "month": "2025/07",
+          "bias": 6.22
+        },
+        {
+          "month": "2025/08",
+          "bias": 1.88
+        },
+        {
+          "month": "2025/09",
+          "bias": 5.37
+        },
+        {
+          "month": "2025/10",
+          "bias": 7.02
+        },
+        {
+          "month": "2025/11",
+          "bias": 1.66
+        },
+        {
+          "month": "2025/12",
+          "bias": 5.18
+        },
+        {
+          "month": "2026/01",
+          "bias": 4.75
+        },
+        {
+          "month": "2026/02",
+          "bias": 16.56
+        },
+        {
+          "month": "2026/03",
+          "bias": -8.42
+        },
+        {
+          "month": "2026/04",
+          "bias": 12.76
+        },
+        {
+          "month": "2026/05",
+          "bias": 14.7
+        },
+        {
+          "month": "2026/06",
+          "bias": 3.68
+        }
+      ],
+      "conditional_winrates": {
+        "green": {
+          "count": 6,
+          "win_rate": 100.0,
+          "median_ret": 74.8
+        },
+        "yellow": {
+          "count": 59,
+          "win_rate": 72.9,
+          "median_ret": 51.6
+        },
+        "red": {
+          "count": 7,
+          "win_rate": 100.0,
+          "median_ret": 42.4
+        }
       }
     },
     "00663L": {
@@ -689,11 +1264,11 @@
       "data_range": "2016/07 — 2026/06",
       "sample_months": 120,
       "current": {
-        "signal": "red",
-        "label": "偏高估",
-        "bias": 14.3,
-        "latest_price": 111.9,
-        "ma20": 97.9
+        "signal": "yellow",
+        "label": "中性觀望",
+        "bias": 4.38,
+        "latest_price": 112.5,
+        "ma20": 107.78
       },
       "winrates": {
         "30d": {
@@ -815,6 +1390,121 @@
           "mean_ret": Infinity,
           "sample": 218
         }
+      },
+      "bias_history": [
+        {
+          "month": "2024/08",
+          "bias": 4.78
+        },
+        {
+          "month": "2024/09",
+          "bias": 4.17
+        },
+        {
+          "month": "2024/10",
+          "bias": -1.47
+        },
+        {
+          "month": "2024/11",
+          "bias": -4.72
+        },
+        {
+          "month": "2024/12",
+          "bias": -0.7
+        },
+        {
+          "month": "2025/01",
+          "bias": 3.64
+        },
+        {
+          "month": "2025/02",
+          "bias": -1.77
+        },
+        {
+          "month": "2025/03",
+          "bias": -12.38
+        },
+        {
+          "month": "2025/04",
+          "bias": 5.46
+        },
+        {
+          "month": "2025/05",
+          "bias": 1.48
+        },
+        {
+          "month": "2025/06",
+          "bias": -60.82
+        },
+        {
+          "month": "2025/07",
+          "bias": 6.12
+        },
+        {
+          "month": "2025/08",
+          "bias": 1.7
+        },
+        {
+          "month": "2025/09",
+          "bias": 5.22
+        },
+        {
+          "month": "2025/10",
+          "bias": 7.01
+        },
+        {
+          "month": "2025/11",
+          "bias": 1.78
+        },
+        {
+          "month": "2025/12",
+          "bias": 5.21
+        },
+        {
+          "month": "2026/01",
+          "bias": 4.95
+        },
+        {
+          "month": "2026/02",
+          "bias": 16.67
+        },
+        {
+          "month": "2026/03",
+          "bias": -8.25
+        },
+        {
+          "month": "2026/04",
+          "bias": 12.66
+        },
+        {
+          "month": "2026/05",
+          "bias": 14.61
+        },
+        {
+          "month": "2026/06",
+          "bias": 3.66
+        },
+        {
+          "month": "2026/07",
+          "bias": 4.38
+        }
+      ],
+      "conditional_winrates": {
+        "green": {
+          "count": 7,
+          "win_rate": 71.4,
+          "median_ret": 55.0
+        },
+        "yellow": {
+          "count": 59,
+          "win_rate": 59.3,
+          "median_ret": 33.0
+        },
+        "red": {
+          "count": 7,
+          "win_rate": 85.7,
+          "median_ret": 41.5
+        }
       }
     },
     "00632R": {
@@ -825,11 +1515,11 @@
       "data_range": "2014/10 — 2026/06",
       "sample_months": 141,
       "current": {
-        "signal": "red",
-        "label": "不建議",
-        "bias": -7.16,
-        "latest_price": 10.14,
-        "ma20": 10.92
+        "signal": "yellow",
+        "label": "中性觀望",
+        "bias": -3.22,
+        "latest_price": 9.9,
+        "ma20": 10.23
       },
       "winrates": {
         "30d": {
@@ -951,6 +1641,121 @@
           "mean_ret": -2.88,
           "sample": 260
         }
+      },
+      "bias_history": [
+        {
+          "month": "2024/08",
+          "bias": -2.64
+        },
+        {
+          "month": "2024/09",
+          "bias": -2.24
+        },
+        {
+          "month": "2024/10",
+          "bias": 0.53
+        },
+        {
+          "month": "2024/11",
+          "bias": 2.33
+        },
+        {
+          "month": "2024/12",
+          "bias": 27.23
+        },
+        {
+          "month": "2025/01",
+          "bias": -2.18
+        },
+        {
+          "month": "2025/02",
+          "bias": 0.78
+        },
+        {
+          "month": "2025/03",
+          "bias": 6.39
+        },
+        {
+          "month": "2025/04",
+          "bias": -4.24
+        },
+        {
+          "month": "2025/05",
+          "bias": -1.04
+        },
+        {
+          "month": "2025/06",
+          "bias": -2.1
+        },
+        {
+          "month": "2025/07",
+          "bias": -3.23
+        },
+        {
+          "month": "2025/08",
+          "bias": -1.02
+        },
+        {
+          "month": "2025/09",
+          "bias": -2.83
+        },
+        {
+          "month": "2025/10",
+          "bias": -3.66
+        },
+        {
+          "month": "2025/11",
+          "bias": -1.43
+        },
+        {
+          "month": "2025/12",
+          "bias": -2.61
+        },
+        {
+          "month": "2026/01",
+          "bias": -2.44
+        },
+        {
+          "month": "2026/02",
+          "bias": -7.86
+        },
+        {
+          "month": "2026/03",
+          "bias": 3.86
+        },
+        {
+          "month": "2026/04",
+          "bias": -6.61
+        },
+        {
+          "month": "2026/05",
+          "bias": -7.25
+        },
+        {
+          "month": "2026/06",
+          "bias": -3.04
+        },
+        {
+          "month": "2026/07",
+          "bias": -3.22
+        }
+      ],
+      "conditional_winrates": {
+        "green": {
+          "count": 4,
+          "win_rate": 0.0,
+          "median_ret": -25.4
+        },
+        "yellow": {
+          "count": 66,
+          "win_rate": 33.3,
+          "median_ret": -22.6
+        },
+        "red": {
+          "count": 3,
+          "win_rate": 0.0,
+          "median_ret": -18.5
+        }
       }
     },
     "00686R": {
@@ -961,11 +1766,11 @@
       "data_range": "2017/03 — 2026/06",
       "sample_months": 112,
       "current": {
-        "signal": "red",
-        "label": "不建議",
-        "bias": -6.74,
-        "latest_price": 1.01,
-        "ma20": 1.08
+        "signal": "yellow",
+        "label": "中性觀望",
+        "bias": -4.15,
+        "latest_price": 0.97,
+        "ma20": 1.01
       },
       "winrates": {
         "30d": {
@@ -1087,6 +1892,121 @@
           "mean_ret": Infinity,
           "sample": 196
         }
+      },
+      "bias_history": [
+        {
+          "month": "2024/08",
+          "bias": -2.4
+        },
+        {
+          "month": "2024/09",
+          "bias": -2.49
+        },
+        {
+          "month": "2024/10",
+          "bias": 0.07
+        },
+        {
+          "month": "2024/11",
+          "bias": 2.7
+        },
+        {
+          "month": "2024/12",
+          "bias": 0.2
+        },
+        {
+          "month": "2025/01",
+          "bias": -1.93
+        },
+        {
+          "month": "2025/02",
+          "bias": 0.52
+        },
+        {
+          "month": "2025/03",
+          "bias": 6.44
+        },
+        {
+          "month": "2025/04",
+          "bias": -4.37
+        },
+        {
+          "month": "2025/05",
+          "bias": -0.89
+        },
+        {
+          "month": "2025/06",
+          "bias": -2.39
+        },
+        {
+          "month": "2025/07",
+          "bias": -3.39
+        },
+        {
+          "month": "2025/08",
+          "bias": -1.02
+        },
+        {
+          "month": "2025/09",
+          "bias": -2.27
+        },
+        {
+          "month": "2025/10",
+          "bias": -4.15
+        },
+        {
+          "month": "2025/11",
+          "bias": -1.81
+        },
+        {
+          "month": "2025/12",
+          "bias": -2.07
+        },
+        {
+          "month": "2026/01",
+          "bias": -2.34
+        },
+        {
+          "month": "2026/02",
+          "bias": -7.32
+        },
+        {
+          "month": "2026/03",
+          "bias": 3.66
+        },
+        {
+          "month": "2026/04",
+          "bias": -6.11
+        },
+        {
+          "month": "2026/05",
+          "bias": -7.82
+        },
+        {
+          "month": "2026/06",
+          "bias": -2.41
+        },
+        {
+          "month": "2026/07",
+          "bias": -4.15
+        }
+      ],
+      "conditional_winrates": {
+        "green": {
+          "count": 3,
+          "win_rate": 0.0,
+          "median_ret": -23.3
+        },
+        "yellow": {
+          "count": 67,
+          "win_rate": 14.9,
+          "median_ret": -24.6
+        },
+        "red": {
+          "count": 3,
+          "win_rate": 0.0,
+          "median_ret": -19.1
+        }
       }
     },
     "00664R": {
@@ -1097,11 +2017,11 @@
       "data_range": "2016/07 — 2026/06",
       "sample_months": 120,
       "current": {
-        "signal": "red",
-        "label": "不建議",
-        "bias": -7.65,
-        "latest_price": 1.63,
-        "ma20": 1.76
+        "signal": "yellow",
+        "label": "中性觀望",
+        "bias": -3.15,
+        "latest_price": 1.6,
+        "ma20": 1.65
       },
       "winrates": {
         "30d": {
@@ -1222,6 +2142,121 @@
           "median_ret": -7.9,
           "mean_ret": -8.13,
           "sample": 218
+        }
+      },
+      "bias_history": [
+        {
+          "month": "2024/08",
+          "bias": -2.73
+        },
+        {
+          "month": "2024/09",
+          "bias": -2.46
+        },
+        {
+          "month": "2024/10",
+          "bias": 0.78
+        },
+        {
+          "month": "2024/11",
+          "bias": 2.46
+        },
+        {
+          "month": "2024/12",
+          "bias": 0.07
+        },
+        {
+          "month": "2025/01",
+          "bias": -1.78
+        },
+        {
+          "month": "2025/02",
+          "bias": 0.6
+        },
+        {
+          "month": "2025/03",
+          "bias": 6.1
+        },
+        {
+          "month": "2025/04",
+          "bias": -4.46
+        },
+        {
+          "month": "2025/05",
+          "bias": -1.1
+        },
+        {
+          "month": "2025/06",
+          "bias": -2.17
+        },
+        {
+          "month": "2025/07",
+          "bias": -3.35
+        },
+        {
+          "month": "2025/08",
+          "bias": -1.19
+        },
+        {
+          "month": "2025/09",
+          "bias": -2.69
+        },
+        {
+          "month": "2025/10",
+          "bias": -3.63
+        },
+        {
+          "month": "2025/11",
+          "bias": -1.14
+        },
+        {
+          "month": "2025/12",
+          "bias": -2.71
+        },
+        {
+          "month": "2026/01",
+          "bias": -2.71
+        },
+        {
+          "month": "2026/02",
+          "bias": -7.78
+        },
+        {
+          "month": "2026/03",
+          "bias": 3.99
+        },
+        {
+          "month": "2026/04",
+          "bias": -6.51
+        },
+        {
+          "month": "2026/05",
+          "bias": -7.43
+        },
+        {
+          "month": "2026/06",
+          "bias": -3.35
+        },
+        {
+          "month": "2026/07",
+          "bias": -3.15
+        }
+      ],
+      "conditional_winrates": {
+        "green": {
+          "count": 3,
+          "win_rate": 0.0,
+          "median_ret": -23.2
+        },
+        "yellow": {
+          "count": 68,
+          "win_rate": 13.2,
+          "median_ret": -24.8
+        },
+        "red": {
+          "count": 2,
+          "win_rate": 0.0,
+          "median_ret": -31.3
         }
       }
     }
