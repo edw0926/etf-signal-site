@@ -3,6 +3,9 @@ import pandas as pd
 import json
 import statistics
 from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
+
+TAIPEI = ZoneInfo('Asia/Taipei')
 
 ETF_LIST = {
     '0050':   {'name': '元大台灣50',      'type': 'base'},
@@ -37,6 +40,33 @@ def fetch_price(ticker, years=7):
         # FinMind 對停牌/無成交日可能回傳 0，會汙染均線與報酬計算
         return close[close > 0]
     return None
+
+def fetch_realtime(ticker):
+    """盤中即時價：證交所 MIS API（免金鑰）。回傳最新成交價，失敗回傳 None。"""
+    url = 'https://mis.twse.com.tw/stock/api/getStockInfo.jsp'
+    params = {'ex_ch': f'tse_{ticker}.tw', 'json': '1', 'delay': '0'}
+    try:
+        r = requests.get(url, params=params, timeout=10,
+                         headers={'User-Agent': 'Mozilla/5.0'})
+        arr = r.json().get('msgArray') or []
+        if not arr:
+            return None
+        info = arr[0]
+        # z = 最新成交價；無成交時退回買一價 b，再退回昨收 y
+        for key in ('z', 'b', 'y'):
+            v = info.get(key, '-')
+            if key == 'b':
+                v = v.split('_')[0] if v else '-'
+            if v and v not in ('-', ''):
+                try:
+                    price = float(v)
+                    if price > 0:
+                        return price
+                except ValueError:
+                    continue
+        return None
+    except Exception:
+        return None
 
 def get_signal(bias, etf_type):
     if etf_type == 'base':
@@ -131,6 +161,12 @@ for ticker, info in ETF_LIST.items():
 
     ma20 = prices.rolling(20).mean().iloc[-1]
     latest = prices.iloc[-1]
+
+    # 盤中即時價（收盤後 MIS 回傳當日收盤價，效果等同定版）
+    rt = fetch_realtime(ticker)
+    if rt is not None:
+        latest = rt
+
     bias = round((latest - ma20) / ma20 * 100, 2)
     signal, label = get_signal(bias, info['type'])
 
@@ -161,7 +197,7 @@ for ticker, info in ETF_LIST.items():
         updated += 1
         print(f'✅ {ticker} 乖離率 {bias:+.2f}% → {label}')
 
-data['updated_at'] = datetime.now().strftime('%Y/%m/%d')
+data['updated_at'] = datetime.now(TAIPEI).strftime('%Y/%m/%d %H:%M')
 
 with open('public/etf_signals.json', 'w', encoding='utf-8') as f:
     json.dump(data, f, ensure_ascii=False, indent=2)

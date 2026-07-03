@@ -98,9 +98,9 @@ export default function ETFCard({ etf, delay = 0 }: { etf: ETFData; delay?: numb
         }}
       >
         {/* 第一層：代號 + 名稱 + 訊號 badge */}
-        <div className="flex justify-between items-start mb-4">
+        <div className="flex justify-between items-start mb-6">
           <div className="flex-1 min-w-0 pr-3">
-            <div className="font-mono text-[11px] mb-1" style={{ color: 'var(--muted)' }}>
+            <div className="font-mono text-[11px] mb-1.5" style={{ color: 'var(--muted)' }}>
               {etf.ticker}
             </div>
             <div className="text-[17px] font-bold leading-tight" style={{ fontFamily: 'var(--font-noto-sans)' }}>
@@ -117,7 +117,7 @@ export default function ETFCard({ etf, delay = 0 }: { etf: ETFData; delay?: numb
         </div>
 
         {/* 第二層：乖離率 + 股價 */}
-        <div className="flex items-end justify-between mb-5">
+        <div className="flex items-end justify-between mb-6">
           <div>
             <div className="text-[11px] mb-1.5 flex items-center gap-0.5" style={{ color: 'var(--muted)' }}>
               月線乖離率
@@ -143,7 +143,7 @@ export default function ETFCard({ etf, delay = 0 }: { etf: ETFData; delay?: numb
 
         {/* 第三層：勝率統計 */}
         <div
-          className="grid gap-4 pt-4"
+          className="grid gap-4 pt-5"
           style={{ borderTop: '1px solid var(--border)', gridTemplateColumns: `repeat(${stats.length}, 1fr)` }}
         >
           {stats.map((s, i) => (
@@ -165,7 +165,7 @@ export default function ETFCard({ etf, delay = 0 }: { etf: ETFData; delay?: numb
         </div>
 
         {/* 第四層：回測範圍 */}
-        <div className="text-[10px] mt-3" style={{ color: 'var(--muted2)' }}>
+        <div className="text-[11px] mt-4" style={{ color: 'var(--muted2)' }}>
           回測 {etf.data_range} · {etf.sample_months} 個月
         </div>
 

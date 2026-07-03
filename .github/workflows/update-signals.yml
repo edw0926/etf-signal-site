@@ -1,6 +1,9 @@
-name: Daily ETF Signal Update
+name: ETF Signal Update
 on:
   schedule:
+    # 台股盤中（09:00–13:30 台北 = 01:00–05:30 UTC）每 30 分鐘更新即時價
+    - cron: '0,30 1-5 * * 1-5'
+    # 收盤後定版（14:30 台北）：FinMind 日線 + 收盤價
     - cron: '30 6 * * 1-5'
   workflow_dispatch:
 
@@ -26,5 +29,6 @@ jobs:
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add public/etf_signals.json
-          git diff --staged --quiet || git commit -m "Update ETF signals $(date +'%Y/%m/%d')"
-          git push
+          git diff --staged --quiet || git commit -m "Update ETF signals $(TZ=Asia/Taipei date +'%Y/%m/%d %H:%M')"
+          # 盤中多次執行可能與其他 run 競爭，rebase 後重試一次
+          git push || (git pull --rebase && git push)
