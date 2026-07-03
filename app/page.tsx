@@ -79,14 +79,14 @@ function Section({
   children: React.ReactNode
 }) {
   return (
-    <section style={{ marginTop: '56px' }}>
-      <div className="flex items-baseline gap-3 mb-2.5">
+    <section style={{ marginTop: '72px' }}>
+      <div className="flex items-baseline gap-3" style={{ marginBottom: '10px' }}>
         <span className="inline-block w-2 h-2 rounded-full flex-shrink-0" style={{ background: accent, transform: 'translateY(-1px)' }} />
         <h2 className="font-black leading-tight" style={{ fontSize: '1.3rem', color: 'var(--text)' }}>
           {title}
         </h2>
       </div>
-      <div className="text-[13px]" style={{ color: 'var(--muted)', paddingLeft: '20px', marginBottom: '28px' }}>
+      <div className="text-[13px]" style={{ color: 'var(--muted)', paddingLeft: '20px', marginBottom: '40px' }}>
         {desc}
       </div>
       {children}
