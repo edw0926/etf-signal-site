@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026/07/02",
+  "updated_at": "2026/07/03 17:10",
   "etfs": {
     "0050": {
       "ticker": "0050",
@@ -11,9 +11,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 3.11,
-        "latest_price": 108.8,
-        "ma20": 105.52
+        "bias": 2.58,
+        "latest_price": 108.35,
+        "ma20": 105.63
       },
       "winrates": {
         "30d": {
@@ -231,7 +231,7 @@
         },
         {
           "month": "2026/07",
-          "bias": 3.11
+          "bias": 2.58
         }
       ],
       "conditional_winrates": {
@@ -241,9 +241,9 @@
           "median_ret": 18.6
         },
         "yellow": {
-          "count": 65,
-          "win_rate": 61.5,
-          "median_ret": 10.4
+          "count": 64,
+          "win_rate": 60.9,
+          "median_ret": 9.9
         },
         "red": {
           "count": 3,
@@ -262,9 +262,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 3.19,
-        "latest_price": 252.3,
-        "ma20": 244.49
+        "bias": 2.69,
+        "latest_price": 251.35,
+        "ma20": 244.76
       },
       "winrates": {
         "30d": {
@@ -482,7 +482,7 @@
         },
         {
           "month": "2026/07",
-          "bias": 3.19
+          "bias": 2.69
         }
       ],
       "conditional_winrates": {
@@ -492,9 +492,9 @@
           "median_ret": 16.8
         },
         "yellow": {
-          "count": 66,
-          "win_rate": 78.8,
-          "median_ret": 25.3
+          "count": 65,
+          "win_rate": 78.5,
+          "median_ret": 25.2
         },
         "red": {
           "count": 3,
@@ -513,9 +513,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 4.8,
-        "latest_price": 38.88,
-        "ma20": 37.1
+        "bias": 4.51,
+        "latest_price": 38.8,
+        "ma20": 37.12
       },
       "winrates": {
         "30d": {
@@ -733,7 +733,7 @@
         },
         {
           "month": "2026/07",
-          "bias": 4.8
+          "bias": 4.51
         }
       ],
       "conditional_winrates": {
@@ -743,9 +743,9 @@
           "median_ret": 45.6
         },
         "yellow": {
-          "count": 61,
-          "win_rate": 65.6,
-          "median_ret": 48.1
+          "count": 60,
+          "win_rate": 65.0,
+          "median_ret": 45.0
         },
         "red": {
           "count": 6,
@@ -764,9 +764,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 4.4,
-        "latest_price": 340.8,
-        "ma20": 326.45
+        "bias": 4.91,
+        "latest_price": 342.7,
+        "ma20": 326.65
       },
       "winrates": {
         "30d": {
@@ -984,7 +984,7 @@
         },
         {
           "month": "2026/07",
-          "bias": 4.4
+          "bias": 4.91
         }
       ],
       "conditional_winrates": {
@@ -994,9 +994,9 @@
           "median_ret": 74.9
         },
         "yellow": {
-          "count": 62,
-          "win_rate": 74.2,
-          "median_ret": 51.4
+          "count": 61,
+          "win_rate": 73.8,
+          "median_ret": 52.4
         },
         "red": {
           "count": 5,
@@ -1245,9 +1245,9 @@
           "median_ret": 74.8
         },
         "yellow": {
-          "count": 59,
-          "win_rate": 72.9,
-          "median_ret": 51.6
+          "count": 58,
+          "win_rate": 72.4,
+          "median_ret": 52.1
         },
         "red": {
           "count": 7,
@@ -1266,9 +1266,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 4.38,
-        "latest_price": 112.5,
-        "ma20": 107.78
+        "bias": 4.61,
+        "latest_price": 112.8,
+        "ma20": 107.83
       },
       "winrates": {
         "30d": {
@@ -1486,7 +1486,7 @@
         },
         {
           "month": "2026/07",
-          "bias": 4.38
+          "bias": 4.61
         }
       ],
       "conditional_winrates": {
@@ -1496,9 +1496,9 @@
           "median_ret": 55.0
         },
         "yellow": {
-          "count": 59,
-          "win_rate": 59.3,
-          "median_ret": 33.0
+          "count": 58,
+          "win_rate": 58.6,
+          "median_ret": 31.7
         },
         "red": {
           "count": 7,
@@ -1517,9 +1517,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": -3.22,
-        "latest_price": 9.9,
-        "ma20": 10.23
+        "bias": -3.29,
+        "latest_price": 9.88,
+        "ma20": 10.22
       },
       "winrates": {
         "30d": {
@@ -1737,7 +1737,7 @@
         },
         {
           "month": "2026/07",
-          "bias": -3.22
+          "bias": -3.29
         }
       ],
       "conditional_winrates": {
@@ -1747,9 +1747,9 @@
           "median_ret": -25.4
         },
         "yellow": {
-          "count": 66,
-          "win_rate": 33.3,
-          "median_ret": -22.6
+          "count": 65,
+          "win_rate": 33.8,
+          "median_ret": -21.6
         },
         "red": {
           "count": 3,
@@ -1768,8 +1768,8 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": -4.15,
-        "latest_price": 0.97,
+        "bias": -3.02,
+        "latest_price": 0.98,
         "ma20": 1.01
       },
       "winrates": {
@@ -1988,7 +1988,7 @@
         },
         {
           "month": "2026/07",
-          "bias": -4.15
+          "bias": -3.02
         }
       ],
       "conditional_winrates": {
@@ -1998,8 +1998,8 @@
           "median_ret": -23.3
         },
         "yellow": {
-          "count": 67,
-          "win_rate": 14.9,
+          "count": 66,
+          "win_rate": 15.2,
           "median_ret": -24.6
         },
         "red": {
@@ -2019,7 +2019,7 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": -3.15,
+        "bias": -3.06,
         "latest_price": 1.6,
         "ma20": 1.65
       },
@@ -2239,7 +2239,7 @@
         },
         {
           "month": "2026/07",
-          "bias": -3.15
+          "bias": -3.06
         }
       ],
       "conditional_winrates": {
@@ -2249,9 +2249,9 @@
           "median_ret": -23.2
         },
         "yellow": {
-          "count": 68,
-          "win_rate": 13.2,
-          "median_ret": -24.8
+          "count": 67,
+          "win_rate": 13.4,
+          "median_ret": -24.7
         },
         "red": {
           "count": 2,
