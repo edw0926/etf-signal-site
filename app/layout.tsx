@@ -1,25 +1,18 @@
 import type { Metadata } from 'next'
-import { Noto_Sans_TC, Noto_Serif_TC, IBM_Plex_Mono } from 'next/font/google'
+import { Noto_Sans_TC, Fira_Code } from 'next/font/google'
 import './globals.css'
 
 const notoSansTC = Noto_Sans_TC({
-  weight: ['400', '500', '700'],
+  weight: ['400', '500', '700', '900'],
   subsets: ['latin'],
   variable: '--font-noto-sans',
   display: 'swap',
 })
 
-const notoSerifTC = Noto_Serif_TC({
-  weight: ['600', '900'],
+const firaCode = Fira_Code({
+  weight: ['400', '500', '600'],
   subsets: ['latin'],
-  variable: '--font-noto-serif',
-  display: 'swap',
-})
-
-const ibmPlexMono = IBM_Plex_Mono({
-  weight: ['400', '600'],
-  subsets: ['latin'],
-  variable: '--font-ibm-mono',
+  variable: '--font-mono',
   display: 'swap',
 })
 
@@ -36,7 +29,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="zh-TW" className={`${notoSansTC.variable} ${notoSerifTC.variable} ${ibmPlexMono.variable}`}>
+    <html lang="zh-TW" className={`${notoSansTC.variable} ${firaCode.variable}`}>
       <body className="min-h-screen" style={{ background: 'var(--bg)', color: 'var(--text)' }}>
         {/* AdSense — Header Banner (hidden until ad account is ready) */}
         <div style={{ display: 'none' }}>

@@ -12,10 +12,10 @@ function formatRet(val: number | null) {
 }
 
 const signalTheme = {
-  green:  { accent: 'var(--green)',  badgeBg: 'rgba(63,214,143,.12)',  badgeBorder: 'rgba(63,214,143,.3)',  shadow: 'rgba(63,214,143,.12)',  label: '偏低估' },
-  yellow: { accent: 'var(--yellow)', badgeBg: 'rgba(227,176,75,.12)',  badgeBorder: 'rgba(227,176,75,.3)',  shadow: 'rgba(227,176,75,.12)',  label: '中性' },
-  red:    { accent: 'var(--red)',    badgeBg: 'rgba(239,111,129,.12)', badgeBorder: 'rgba(239,111,129,.3)', shadow: 'rgba(239,111,129,.12)', label: '偏高估' },
-  inv:    { accent: 'var(--orange)', badgeBg: 'rgba(217,138,79,.12)',  badgeBorder: 'rgba(217,138,79,.3)',  shadow: 'rgba(217,138,79,.12)',  label: '不建議' },
+  green:  { accent: 'var(--green)',  badgeBg: 'rgba(34,197,94,.12)',  badgeBorder: 'rgba(34,197,94,.3)',  shadow: 'rgba(34,197,94,.12)',  label: '偏低估' },
+  yellow: { accent: 'var(--yellow)', badgeBg: 'rgba(234,179,8,.12)',  badgeBorder: 'rgba(234,179,8,.3)',  shadow: 'rgba(234,179,8,.12)',  label: '中性' },
+  red:    { accent: 'var(--red)',    badgeBg: 'rgba(239,68,68,.12)',  badgeBorder: 'rgba(239,68,68,.3)',  shadow: 'rgba(239,68,68,.12)',  label: '偏高估' },
+  inv:    { accent: 'var(--orange)', badgeBg: 'rgba(249,115,22,.12)', badgeBorder: 'rgba(249,115,22,.3)', shadow: 'rgba(249,115,22,.12)', label: '不建議' },
 }
 
 function getWarnText(etf: ETFData): { text: string; color: string } | null {
@@ -136,7 +136,7 @@ export default function ETFCard({ etf, delay = 0 }: { etf: ETFData; delay?: numb
         </div>
 
         {isInv && (
-          <div className="text-[11px] -mt-3 mb-4 leading-relaxed" style={{ color: 'var(--muted2)' }}>
+          <div className="text-[11px] -mt-2 mb-4 leading-relaxed" style={{ color: 'var(--muted)' }}>
             反向 ETF 乖離率方向與大盤相反，不作為進場判斷依據
           </div>
         )}

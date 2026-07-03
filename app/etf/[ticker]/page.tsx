@@ -58,9 +58,9 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
   const typeTag = etf.type === 'base' ? 'base' : etf.type === 'lev2' ? 'lev' : 'inv'
 
   const tagStyle = {
-    base: { color: 'var(--blue)',   background: 'rgba(110,168,247,.1)', border: '1px solid rgba(110,168,247,.25)' },
-    lev:  { color: 'var(--green)',  background: 'rgba(63,214,143,.1)',  border: '1px solid rgba(63,214,143,.25)' },
-    inv:  { color: 'var(--orange)', background: 'rgba(217,138,79,.1)',  border: '1px solid rgba(217,138,79,.25)' },
+    base: { color: 'var(--blue)',   background: 'rgba(59,130,246,.1)', border: '1px solid rgba(59,130,246,.25)' },
+    lev:  { color: 'var(--green)',  background: 'rgba(34,197,94,.1)',  border: '1px solid rgba(34,197,94,.25)' },
+    inv:  { color: 'var(--orange)', background: 'rgba(249,115,22,.1)',  border: '1px solid rgba(249,115,22,.25)' },
   }[typeTag]
 
   const threshold = etf.type === 'lev2' ? 7 : 5
@@ -86,9 +86,9 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
   const inv1WR365 = etf.winrates['365d']?.win_rate ?? null
 
   const dcaRows = [
-    { zone: 'green',  label: '偏低估', ratio: '150%', desc: '相對便宜，可考慮加碼',    active: sig === 'green',  color: 'var(--green)',  bg: 'rgba(63,214,143,.08)' },
-    { zone: 'yellow', label: '中性',   ratio: '100%', desc: '照常執行定期定額',        active: sig === 'yellow', color: 'var(--yellow)', bg: 'rgba(227,176,75,.08)' },
-    { zone: 'red',    label: '偏高估', ratio: '50%',  desc: '偏貴，建議縮減單次金額', active: sig === 'red',    color: 'var(--red)',    bg: 'rgba(239,111,129,.08)' },
+    { zone: 'green',  label: '偏低估', ratio: '150%', desc: '相對便宜，可考慮加碼',    active: sig === 'green',  color: 'var(--green)',  bg: 'rgba(34,197,94,.08)' },
+    { zone: 'yellow', label: '中性',   ratio: '100%', desc: '照常執行定期定額',        active: sig === 'yellow', color: 'var(--yellow)', bg: 'rgba(234,179,8,.08)' },
+    { zone: 'red',    label: '偏高估', ratio: '50%',  desc: '偏貴，建議縮減單次金額', active: sig === 'red',    color: 'var(--red)',    bg: 'rgba(239,68,68,.08)' },
   ]
   const currentDCA = dcaRows.find(r => r.active) ?? dcaRows[1]
 
@@ -158,7 +158,7 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
 
         {/* 反1 警示 */}
         {etf.type === 'inv1' && (
-          <div className="rounded-xl p-6" style={{ background: 'rgba(217,138,79,.06)', border: '1px solid rgba(217,138,79,.25)' }}>
+          <div className="rounded-xl p-6" style={{ background: 'rgba(249,115,22,.06)', border: '1px solid rgba(249,115,22,.25)' }}>
             <SectionTitle accent="var(--orange)">使用警示</SectionTitle>
             <div className="text-[13px] leading-relaxed" style={{ color: 'var(--text2)' }}>
               {inv1WR365 != null && (
@@ -305,9 +305,9 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
                 <div className="text-center">中位報酬</div>
               </div>
               {[
-                { key: 'green'  as const, label: `偏低估 ≤ −${threshold}%`,               color: 'var(--green)',  bg: 'rgba(63,214,143,.06)' },
+                { key: 'green'  as const, label: `偏低估 ≤ −${threshold}%`,               color: 'var(--green)',  bg: 'rgba(34,197,94,.06)' },
                 { key: 'yellow' as const, label: `中性 −${threshold}%～+${threshold}%`,   color: 'var(--yellow)', bg: 'transparent' },
-                { key: 'red'    as const, label: `偏高估 ≥ +${threshold}%`,               color: 'var(--red)',    bg: 'rgba(239,111,129,.05)' },
+                { key: 'red'    as const, label: `偏高估 ≥ +${threshold}%`,               color: 'var(--red)',    bg: 'rgba(239,68,68,.05)' },
               ].map((row, i) => {
                 const zone = etf.conditional_winrates![row.key]
                 return (
@@ -347,15 +347,15 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
             <BiasHistoryChart history={bh} etfType={etf.type} currentBias={etf.current.bias} />
             <div className="flex gap-5 mt-4 text-[11px]" style={{ color: 'var(--muted)' }}>
               <span className="flex items-center gap-1.5">
-                <span className="inline-block w-2.5 h-2.5 rounded-sm" style={{ background: 'rgba(239,111,129,.35)' }} />
+                <span className="inline-block w-2.5 h-2.5 rounded-sm" style={{ background: 'rgba(239,68,68,.35)' }} />
                 偏高估 ≥ +{threshold}%
               </span>
               <span className="flex items-center gap-1.5">
-                <span className="inline-block w-2.5 h-2.5 rounded-sm" style={{ background: 'rgba(227,176,75,.3)' }} />
+                <span className="inline-block w-2.5 h-2.5 rounded-sm" style={{ background: 'rgba(234,179,8,.3)' }} />
                 中性
               </span>
               <span className="flex items-center gap-1.5">
-                <span className="inline-block w-2.5 h-2.5 rounded-sm" style={{ background: 'rgba(63,214,143,.35)' }} />
+                <span className="inline-block w-2.5 h-2.5 rounded-sm" style={{ background: 'rgba(34,197,94,.35)' }} />
                 偏低估 ≤ −{threshold}%
               </span>
             </div>
@@ -418,7 +418,7 @@ export default async function ETFDetailPage({ params }: { params: Promise<{ tick
               const norm = maxWR === minWR ? 0.5 : (d.win_rate - minWR) / (maxWR - minWR)
               const a = 0.08 + norm * 0.55
               const isWin = d.win_rate >= 60
-              const bg = isWin ? `rgba(63,214,143,${a})` : `rgba(239,111,129,${(1 - norm) * 0.45 + 0.08})`
+              const bg = isWin ? `rgba(34,197,94,${a})` : `rgba(239,68,68,${(1 - norm) * 0.45 + 0.08})`
               return (
                 <div
                   key={m}
@@ -538,7 +538,7 @@ function BiasHistoryChart({
   const lastBias = history[history.length - 1].bias
   const lastY = bToY(lastBias)
   const dotColor =
-    lastBias <= -thr ? '#3fd68f' : lastBias >= thr ? '#ef6f81' : '#e3b04b'
+    lastBias <= -thr ? '#22c55e' : lastBias >= thr ? '#ef4444' : '#eab308'
 
   const labelIdxs = [...new Set([
     0,
@@ -552,19 +552,19 @@ function BiasHistoryChart({
       style={{ width: '100%', height: 'auto', display: 'block', overflow: 'visible' }}
     >
       {/* 背景色區 */}
-      <rect x={padL} y={padT}  width={cW} height={yTop - padT}     fill="rgba(239,111,129,.07)" />
-      <rect x={padL} y={yTop}  width={cW} height={yBot - yTop}      fill="rgba(227,176,75,.04)" />
-      <rect x={padL} y={yBot}  width={cW} height={padT + cH - yBot} fill="rgba(63,214,143,.07)" />
+      <rect x={padL} y={padT}  width={cW} height={yTop - padT}     fill="rgba(239,68,68,.07)" />
+      <rect x={padL} y={yTop}  width={cW} height={yBot - yTop}      fill="rgba(234,179,8,.04)" />
+      <rect x={padL} y={yBot}  width={cW} height={padT + cH - yBot} fill="rgba(34,197,94,.07)" />
 
       {/* 門檻虛線 */}
-      <line x1={padL} y1={yTop} x2={padL + cW} y2={yTop} stroke="rgba(239,111,129,.35)"  strokeWidth="1" strokeDasharray="3,3" />
+      <line x1={padL} y1={yTop} x2={padL + cW} y2={yTop} stroke="rgba(239,68,68,.35)"  strokeWidth="1" strokeDasharray="3,3" />
       <line x1={padL} y1={y0}   x2={padL + cW} y2={y0}   stroke="rgba(255,255,255,.09)" strokeWidth="1" />
-      <line x1={padL} y1={yBot} x2={padL + cW} y2={yBot} stroke="rgba(63,214,143,.35)"  strokeWidth="1" strokeDasharray="3,3" />
+      <line x1={padL} y1={yBot} x2={padL + cW} y2={yBot} stroke="rgba(34,197,94,.35)"  strokeWidth="1" strokeDasharray="3,3" />
 
       {/* Y 軸標籤 */}
-      <text x={padL - 5} y={yTop + 3.5} textAnchor="end" fontSize="9" fill="rgba(239,111,129,.6)"  fontFamily="var(--font-ibm-mono), monospace">+{thr}%</text>
-      <text x={padL - 5} y={y0 + 3.5}   textAnchor="end" fontSize="9" fill="rgba(255,255,255,.28)" fontFamily="var(--font-ibm-mono), monospace">0%</text>
-      <text x={padL - 5} y={yBot + 3.5} textAnchor="end" fontSize="9" fill="rgba(63,214,143,.6)"   fontFamily="var(--font-ibm-mono), monospace">-{thr}%</text>
+      <text x={padL - 5} y={yTop + 3.5} textAnchor="end" fontSize="9" fill="rgba(239,68,68,.6)"  fontFamily="var(--font-mono), monospace">+{thr}%</text>
+      <text x={padL - 5} y={y0 + 3.5}   textAnchor="end" fontSize="9" fill="rgba(255,255,255,.28)" fontFamily="var(--font-mono), monospace">0%</text>
+      <text x={padL - 5} y={yBot + 3.5} textAnchor="end" fontSize="9" fill="rgba(34,197,94,.6)"   fontFamily="var(--font-mono), monospace">-{thr}%</text>
 
       {/* 折線 */}
       <polyline
@@ -583,7 +583,7 @@ function BiasHistoryChart({
       {/* X 軸標籤 */}
       {labelIdxs.map(i =>
         i < history.length ? (
-          <text key={i} x={iToX(i)} y={H - 6} textAnchor="middle" fontSize="9" fill="rgba(255,255,255,.3)" fontFamily="var(--font-ibm-mono), monospace">
+          <text key={i} x={iToX(i)} y={H - 6} textAnchor="middle" fontSize="9" fill="rgba(255,255,255,.3)" fontFamily="var(--font-mono), monospace">
             {history[i].month}
           </text>
         ) : null

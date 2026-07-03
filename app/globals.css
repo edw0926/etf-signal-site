@@ -1,20 +1,21 @@
 @import "tailwindcss";
 
+/* Design tokens — Financial Dashboard palette (ui-ux-pro-max) */
 :root {
-  --bg: #0e131b;
-  --surface: #141b26;
-  --surface2: #1a2331;
-  --border: #232e3f;
-  --border2: #2c3a4e;
-  --text: #e8edf5;
-  --text2: #c2cddd;
-  --muted: #8593a8;
-  --muted2: #5c6a80;
-  --green: #3fd68f;
-  --yellow: #e3b04b;
-  --red: #ef6f81;
-  --blue: #6ea8f7;
-  --orange: #d98a4f;
+  --bg: #020617;
+  --surface: #0e1223;
+  --surface2: #1a1e2f;
+  --border: #263248;
+  --border2: #334155;
+  --text: #f8fafc;
+  --text2: #cbd5e1;
+  --muted: #94a3b8;
+  --muted2: #64748b;
+  --green: #22c55e;
+  --yellow: #eab308;
+  --red: #ef4444;
+  --blue: #3b82f6;
+  --orange: #f97316;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -26,8 +27,19 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* 儀表板風格：標題用無襯線粗體，不用襯線體 */
 h1, h2, h3 {
-  font-family: var(--font-noto-serif, 'Noto Serif TC', serif);
+  font-family: var(--font-noto-sans, 'Noto Sans TC', sans-serif);
+  letter-spacing: -0.01em;
+}
+
+a, button, summary { cursor: pointer; }
+
+/* 鍵盤操作可見焦點 */
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
@@ -36,8 +48,13 @@ h1, h2, h3 {
 .animate-fadeUp { animation: fadeUp .4s ease both; }
 .live-dot { animation: blink 2.4s infinite; }
 
-.font-mono { font-family: var(--font-ibm-mono, 'IBM Plex Mono', monospace); }
-.font-serif-tc { font-family: var(--font-noto-serif, 'Noto Serif TC', serif); }
+@media (prefers-reduced-motion: reduce) {
+  .animate-fadeUp { animation: none; }
+  .live-dot { animation: none; }
+  * { transition-duration: 0.01ms !important; }
+}
+
+.font-mono { font-family: var(--font-mono, 'Fira Code', monospace); }
 
 /* 收合區塊 */
 details.chevron > summary { list-style: none; }

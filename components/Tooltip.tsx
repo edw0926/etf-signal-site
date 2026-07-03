@@ -21,7 +21,7 @@ export default function Tooltip({ text }: { text: string }) {
                    opacity-0 group-hover/tip:opacity-100 group-focus/tip:opacity-100
                    transition-opacity duration-150"
         style={{
-          background: '#1c2534',
+          background: '#1a1e2f',
           border: '1px solid rgba(255,255,255,.12)',
           borderRadius: '8px',
           padding: '9px 12px',
@@ -41,7 +41,7 @@ export default function Tooltip({ text }: { text: string }) {
             width: 0, height: 0,
             borderLeft: '5px solid transparent',
             borderRight: '5px solid transparent',
-            borderTop: '5px solid #1c2534',
+            borderTop: '5px solid #1a1e2f',
           }}
         />
       </span>
