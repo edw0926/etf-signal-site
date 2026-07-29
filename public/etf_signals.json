@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026/07/28 17:18",
+  "updated_at": "2026/07/29 11:58",
   "etfs": {
     "0050": {
       "ticker": "0050",
@@ -11,8 +11,8 @@
       "current": {
         "signal": "green",
         "label": "偏低估",
-        "bias": -7.19,
-        "latest_price": 97.15,
+        "bias": -11.59,
+        "latest_price": 92.55,
         "ma20": 104.68
       },
       "winrates": {
@@ -262,8 +262,8 @@
       "current": {
         "signal": "green",
         "label": "偏低估",
-        "bias": -7.98,
-        "latest_price": 222.1,
+        "bias": -12.35,
+        "latest_price": 211.55,
         "ma20": 241.37
       },
       "winrates": {
@@ -513,8 +513,8 @@
       "current": {
         "signal": "green",
         "label": "偏低估",
-        "bias": -14.82,
-        "latest_price": 30.6,
+        "bias": -22.31,
+        "latest_price": 27.91,
         "ma20": 35.92
       },
       "winrates": {
@@ -764,8 +764,8 @@
       "current": {
         "signal": "green",
         "label": "偏低估",
-        "bias": -15.92,
-        "latest_price": 262.7,
+        "bias": -23.8,
+        "latest_price": 238.1,
         "ma20": 312.45
       },
       "winrates": {
@@ -1015,8 +1015,8 @@
       "current": {
         "signal": "green",
         "label": "偏低估",
-        "bias": -88.0,
-        "latest_price": 9.93,
+        "bias": -89.14,
+        "latest_price": 8.99,
         "ma20": 82.77
       },
       "winrates": {
@@ -1266,8 +1266,8 @@
       "current": {
         "signal": "green",
         "label": "偏低估",
-        "bias": -15.86,
-        "latest_price": 86.85,
+        "bias": -23.71,
+        "latest_price": 78.75,
         "ma20": 103.22
       },
       "winrates": {
@@ -1517,8 +1517,8 @@
       "current": {
         "signal": "green",
         "label": "空頭機會",
-        "bias": 7.54,
-        "latest_price": 11.08,
+        "bias": 12.29,
+        "latest_price": 11.57,
         "ma20": 10.3
       },
       "winrates": {
@@ -1768,8 +1768,8 @@
       "current": {
         "signal": "green",
         "label": "空頭機會",
-        "bias": 6.81,
-        "latest_price": 1.09,
+        "bias": 11.71,
+        "latest_price": 1.14,
         "ma20": 1.02
       },
       "winrates": {
@@ -2019,8 +2019,8 @@
       "current": {
         "signal": "green",
         "label": "空頭機會",
-        "bias": 7.54,
-        "latest_price": 1.79,
+        "bias": 11.75,
+        "latest_price": 1.86,
         "ma20": 1.66
       },
       "winrates": {
