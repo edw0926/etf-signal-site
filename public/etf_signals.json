@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026/08/14 15:58",
+  "updated_at": "2026/08/17 10:13",
   "etfs": {
     "0050": {
       "ticker": "0050",
@@ -262,8 +262,8 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 4.33,
-        "latest_price": 243.45,
+        "bias": 4.41,
+        "latest_price": 243.65,
         "ma20": 233.35
       },
       "winrates": {
@@ -511,10 +511,10 @@
       "data_range": "2014/10 — 2026/06",
       "sample_months": 141,
       "current": {
-        "signal": "yellow",
-        "label": "中性觀望",
-        "bias": 6.86,
-        "latest_price": 35.69,
+        "signal": "red",
+        "label": "偏高估",
+        "bias": 7.37,
+        "latest_price": 35.86,
         "ma20": 33.4
       },
       "winrates": {
@@ -764,8 +764,8 @@
       "current": {
         "signal": "red",
         "label": "偏高估",
-        "bias": 8.06,
-        "latest_price": 311.9,
+        "bias": 8.58,
+        "latest_price": 313.4,
         "ma20": 288.62
       },
       "winrates": {
@@ -1015,8 +1015,8 @@
       "current": {
         "signal": "red",
         "label": "偏高估",
-        "bias": 7.99,
-        "latest_price": 11.76,
+        "bias": 8.54,
+        "latest_price": 11.82,
         "ma20": 10.89
       },
       "winrates": {
@@ -1266,8 +1266,8 @@
       "current": {
         "signal": "red",
         "label": "偏高估",
-        "bias": 8.09,
-        "latest_price": 103.2,
+        "bias": 8.57,
+        "latest_price": 103.65,
         "ma20": 95.47
       },
       "winrates": {
@@ -1515,10 +1515,10 @@
       "data_range": "2014/10 — 2026/06",
       "sample_months": 141,
       "current": {
-        "signal": "yellow",
-        "label": "中性觀望",
-        "bias": -4.78,
-        "latest_price": 10.01,
+        "signal": "red",
+        "label": "不建議",
+        "bias": -5.07,
+        "latest_price": 9.98,
         "ma20": 10.51
       },
       "winrates": {
@@ -2017,10 +2017,10 @@
       "data_range": "2016/07 — 2026/06",
       "sample_months": 120,
       "current": {
-        "signal": "yellow",
-        "label": "中性觀望",
-        "bias": -4.68,
-        "latest_price": 1.62,
+        "signal": "red",
+        "label": "不建議",
+        "bias": -5.27,
+        "latest_price": 1.61,
         "ma20": 1.7
       },
       "winrates": {
