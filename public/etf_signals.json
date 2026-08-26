@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026/08/26 13:57",
+  "updated_at": "2026/08/26 15:27",
   "etfs": {
     "0050": {
       "ticker": "0050",
@@ -11,9 +11,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 2.77,
+        "bias": 2.17,
         "latest_price": 105.9,
-        "ma20": 103.05
+        "ma20": 103.66
       },
       "winrates": {
         "30d": {
@@ -231,7 +231,7 @@
         },
         {
           "month": "2026/08",
-          "bias": 1.31
+          "bias": 2.17
         }
       ],
       "conditional_winrates": {
@@ -262,9 +262,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 2.91,
+        "bias": 2.29,
         "latest_price": 242.85,
-        "ma20": 235.98
+        "ma20": 237.42
       },
       "winrates": {
         "30d": {
@@ -482,7 +482,7 @@
         },
         {
           "month": "2026/08",
-          "bias": 1.47
+          "bias": 2.29
         }
       ],
       "conditional_winrates": {
@@ -513,9 +513,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 5.54,
+        "bias": 4.44,
         "latest_price": 35.71,
-        "ma20": 33.83
+        "ma20": 34.19
       },
       "winrates": {
         "30d": {
@@ -733,7 +733,7 @@
         },
         {
           "month": "2026/08",
-          "bias": 2.5
+          "bias": 4.44
         }
       ],
       "conditional_winrates": {
@@ -764,9 +764,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 6.4,
+        "bias": 5.2,
         "latest_price": 311.85,
-        "ma20": 293.09
+        "ma20": 296.44
       },
       "winrates": {
         "30d": {
@@ -984,7 +984,7 @@
         },
         {
           "month": "2026/08",
-          "bias": 2.56
+          "bias": 5.2
         }
       ],
       "conditional_winrates": {
@@ -1015,9 +1015,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 6.3,
+        "bias": 5.1,
         "latest_price": 11.75,
-        "ma20": 11.05
+        "ma20": 11.18
       },
       "winrates": {
         "30d": {
@@ -1235,7 +1235,7 @@
         },
         {
           "month": "2026/08",
-          "bias": 2.59
+          "bias": 5.1
         }
       ],
       "conditional_winrates": {
@@ -1266,9 +1266,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 6.22,
+        "bias": 5.02,
         "latest_price": 102.9,
-        "ma20": 96.87
+        "ma20": 97.98
       },
       "winrates": {
         "30d": {
@@ -1486,7 +1486,7 @@
         },
         {
           "month": "2026/08",
-          "bias": 2.4
+          "bias": 5.02
         }
       ],
       "conditional_winrates": {
@@ -1517,9 +1517,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": -3.5,
+        "bias": -2.82,
         "latest_price": 9.99,
-        "ma20": 10.35
+        "ma20": 10.28
       },
       "winrates": {
         "30d": {
@@ -1737,7 +1737,7 @@
         },
         {
           "month": "2026/08",
-          "bias": -1.85
+          "bias": -2.82
         }
       ],
       "conditional_winrates": {
@@ -1768,7 +1768,7 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": -3.32,
+        "bias": -2.7,
         "latest_price": 0.99,
         "ma20": 1.02
       },
@@ -1988,7 +1988,7 @@
         },
         {
           "month": "2026/08",
-          "bias": -1.37
+          "bias": -2.7
         }
       ],
       "conditional_winrates": {
@@ -2019,9 +2019,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": -3.94,
+        "bias": -3.19,
         "latest_price": 1.61,
-        "ma20": 1.68
+        "ma20": 1.66
       },
       "winrates": {
         "30d": {
@@ -2239,7 +2239,7 @@
         },
         {
           "month": "2026/08",
-          "bias": -1.55
+          "bias": -3.19
         }
       ],
       "conditional_winrates": {
