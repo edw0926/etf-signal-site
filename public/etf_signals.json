@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026/09/07 20:56",
+  "updated_at": "2026/09/08 13:27",
   "etfs": {
     "0050": {
       "ticker": "0050",
@@ -11,8 +11,8 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 3.76,
-        "latest_price": 109.9,
+        "bias": 3.52,
+        "latest_price": 109.65,
         "ma20": 105.92
       },
       "winrates": {
@@ -262,8 +262,8 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 3.68,
-        "latest_price": 251.65,
+        "bias": 3.31,
+        "latest_price": 250.75,
         "ma20": 242.71
       },
       "winrates": {
@@ -513,8 +513,8 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 6.32,
-        "latest_price": 37.84,
+        "bias": 5.29,
+        "latest_price": 37.47,
         "ma20": 35.59
       },
       "winrates": {
@@ -762,10 +762,10 @@
       "data_range": "2016/10 — 2026/06",
       "sample_months": 117,
       "current": {
-        "signal": "red",
-        "label": "偏高估",
-        "bias": 7.14,
-        "latest_price": 332.75,
+        "signal": "yellow",
+        "label": "中性觀望",
+        "bias": 5.25,
+        "latest_price": 326.9,
         "ma20": 310.58
       },
       "winrates": {
@@ -1015,8 +1015,8 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 6.93,
-        "latest_price": 12.52,
+        "bias": 5.31,
+        "latest_price": 12.33,
         "ma20": 11.71
       },
       "winrates": {
@@ -1266,8 +1266,8 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 6.96,
-        "latest_price": 109.7,
+        "bias": 5.26,
+        "latest_price": 107.95,
         "ma20": 102.56
       },
       "winrates": {
@@ -1517,8 +1517,8 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": -3.68,
-        "latest_price": 9.64,
+        "bias": -2.98,
+        "latest_price": 9.71,
         "ma20": 10.01
       },
       "winrates": {
