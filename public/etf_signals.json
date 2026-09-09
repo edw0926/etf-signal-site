@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026/09/09 13:33",
+  "updated_at": "2026/09/09 19:45",
   "etfs": {
     "0050": {
       "ticker": "0050",
@@ -11,9 +11,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 3.28,
+        "bias": 3.06,
         "latest_price": 109.65,
-        "ma20": 106.17
+        "ma20": 106.4
       },
       "winrates": {
         "30d": {
@@ -231,7 +231,7 @@
         },
         {
           "month": "2026/09",
-          "bias": 3.28
+          "bias": 3.06
         }
       ],
       "conditional_winrates": {
@@ -262,9 +262,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 2.89,
+        "bias": 2.69,
         "latest_price": 250.3,
-        "ma20": 243.27
+        "ma20": 243.74
       },
       "winrates": {
         "30d": {
@@ -482,7 +482,7 @@
         },
         {
           "month": "2026/09",
-          "bias": 2.79
+          "bias": 2.69
         }
       ],
       "conditional_winrates": {
@@ -513,9 +513,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 5.1,
+        "bias": 4.79,
         "latest_price": 37.54,
-        "ma20": 35.72
+        "ma20": 35.82
       },
       "winrates": {
         "30d": {
@@ -733,7 +733,7 @@
         },
         {
           "month": "2026/09",
-          "bias": 4.96
+          "bias": 4.79
         }
       ],
       "conditional_winrates": {
@@ -764,9 +764,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 5.23,
+        "bias": 4.9,
         "latest_price": 328.1,
-        "ma20": 311.79
+        "ma20": 312.78
       },
       "winrates": {
         "30d": {
@@ -984,7 +984,7 @@
         },
         {
           "month": "2026/09",
-          "bias": 4.88
+          "bias": 4.9
         }
       ],
       "conditional_winrates": {
@@ -1015,9 +1015,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 5.4,
+        "bias": 5.05,
         "latest_price": 12.39,
-        "ma20": 11.75
+        "ma20": 11.79
       },
       "winrates": {
         "30d": {
@@ -1235,7 +1235,7 @@
         },
         {
           "month": "2026/09",
-          "bias": 5.06
+          "bias": 5.05
         }
       ],
       "conditional_winrates": {
@@ -1266,9 +1266,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 5.25,
+        "bias": 4.92,
         "latest_price": 108.35,
-        "ma20": 102.95
+        "ma20": 103.27
       },
       "winrates": {
         "30d": {
@@ -1486,7 +1486,7 @@
         },
         {
           "month": "2026/09",
-          "bias": 4.81
+          "bias": 4.92
         }
       ],
       "conditional_winrates": {
@@ -1517,9 +1517,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": -2.86,
+        "bias": -2.68,
         "latest_price": 9.7,
-        "ma20": 9.99
+        "ma20": 9.97
       },
       "winrates": {
         "30d": {
@@ -1737,7 +1737,7 @@
         },
         {
           "month": "2026/09",
-          "bias": -2.86
+          "bias": -2.68
         }
       ],
       "conditional_winrates": {
@@ -1768,7 +1768,7 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": -3.94,
+        "bias": -3.7,
         "latest_price": 0.95,
         "ma20": 0.99
       },
@@ -1988,7 +1988,7 @@
         },
         {
           "month": "2026/09",
-          "bias": -3.94
+          "bias": -3.7
         }
       ],
       "conditional_winrates": {
@@ -2019,9 +2019,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": -2.32,
+        "bias": -2.17,
         "latest_price": 1.58,
-        "ma20": 1.62
+        "ma20": 1.61
       },
       "winrates": {
         "30d": {
@@ -2239,7 +2239,7 @@
         },
         {
           "month": "2026/09",
-          "bias": -2.32
+          "bias": -2.17
         }
       ],
       "conditional_winrates": {
