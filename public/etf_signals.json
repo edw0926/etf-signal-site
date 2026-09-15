@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026/09/14 21:14",
+  "updated_at": "2026/09/15 13:35",
   "etfs": {
     "0050": {
       "ticker": "0050",
@@ -11,8 +11,8 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 0.28,
-        "latest_price": 106.9,
+        "bias": -0.33,
+        "latest_price": 106.25,
         "ma20": 106.6
       },
       "winrates": {
@@ -262,8 +262,8 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 0.2,
-        "latest_price": 244.65,
+        "bias": -0.27,
+        "latest_price": 243.5,
         "ma20": 244.16
       },
       "winrates": {
@@ -513,8 +513,8 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": -1.27,
-        "latest_price": 35.4,
+        "bias": -2.13,
+        "latest_price": 35.09,
         "ma20": 35.85
       },
       "winrates": {
@@ -764,8 +764,8 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": -1.08,
-        "latest_price": 309.7,
+        "bias": -2.17,
+        "latest_price": 306.3,
         "ma20": 313.08
       },
       "winrates": {
@@ -1015,8 +1015,8 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": -1.08,
-        "latest_price": 11.68,
+        "bias": -2.18,
+        "latest_price": 11.55,
         "ma20": 11.81
       },
       "winrates": {
@@ -1266,8 +1266,8 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": -1.06,
-        "latest_price": 102.25,
+        "bias": -2.27,
+        "latest_price": 101.0,
         "ma20": 103.34
       },
       "winrates": {
@@ -1517,8 +1517,8 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 0.19,
-        "latest_price": 9.97,
+        "bias": 0.79,
+        "latest_price": 10.03,
         "ma20": 9.95
       },
       "winrates": {
@@ -1768,8 +1768,8 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 0.56,
-        "latest_price": 0.99,
+        "bias": -0.46,
+        "latest_price": 0.98,
         "ma20": 0.98
       },
       "winrates": {
