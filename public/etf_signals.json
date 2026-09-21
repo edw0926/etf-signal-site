@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026/09/21 13:40",
+  "updated_at": "2026/09/21 21:12",
   "etfs": {
     "0050": {
       "ticker": "0050",
@@ -11,9 +11,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 3.74,
+        "bias": 3.38,
         "latest_price": 111.35,
-        "ma20": 107.33
+        "ma20": 107.71
       },
       "winrates": {
         "30d": {
@@ -231,7 +231,7 @@
         },
         {
           "month": "2026/09",
-          "bias": 2.34
+          "bias": 3.38
         }
       ],
       "conditional_winrates": {
@@ -262,9 +262,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 3.64,
+        "bias": 3.29,
         "latest_price": 254.7,
-        "ma20": 245.76
+        "ma20": 246.59
       },
       "winrates": {
         "30d": {
@@ -482,7 +482,7 @@
         },
         {
           "month": "2026/09",
-          "bias": 2.21
+          "bias": 3.29
         }
       ],
       "conditional_winrates": {
@@ -513,9 +513,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 6.23,
+        "bias": 5.59,
         "latest_price": 38.45,
-        "ma20": 36.2
+        "ma20": 36.41
       },
       "winrates": {
         "30d": {
@@ -733,7 +733,7 @@
         },
         {
           "month": "2026/09",
-          "bias": 4.02
+          "bias": 5.59
         }
       ],
       "conditional_winrates": {
@@ -764,9 +764,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 6.71,
+        "bias": 6.02,
         "latest_price": 337.6,
-        "ma20": 316.36
+        "ma20": 318.44
       },
       "winrates": {
         "30d": {
@@ -984,7 +984,7 @@
         },
         {
           "month": "2026/09",
-          "bias": 4.06
+          "bias": 6.02
         }
       ],
       "conditional_winrates": {
@@ -1015,9 +1015,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 6.53,
+        "bias": 5.85,
         "latest_price": 12.71,
-        "ma20": 11.93
+        "ma20": 12.01
       },
       "winrates": {
         "30d": {
@@ -1235,7 +1235,7 @@
         },
         {
           "month": "2026/09",
-          "bias": 4.1
+          "bias": 5.85
         }
       ],
       "conditional_winrates": {
@@ -1266,9 +1266,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 6.5,
+        "bias": 5.82,
         "latest_price": 111.2,
-        "ma20": 104.41
+        "ma20": 105.09
       },
       "winrates": {
         "30d": {
@@ -1486,7 +1486,7 @@
         },
         {
           "month": "2026/09",
-          "bias": 4.06
+          "bias": 5.82
         }
       ],
       "conditional_winrates": {
@@ -1517,9 +1517,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": -3.42,
+        "bias": -3.09,
         "latest_price": 9.55,
-        "ma20": 9.89
+        "ma20": 9.85
       },
       "winrates": {
         "30d": {
@@ -1737,7 +1737,7 @@
         },
         {
           "month": "2026/09",
-          "bias": -2.2
+          "bias": -3.09
         }
       ],
       "conditional_winrates": {
@@ -1768,9 +1768,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": -3.74,
+        "bias": -3.39,
         "latest_price": 0.94,
-        "ma20": 0.98
+        "ma20": 0.97
       },
       "winrates": {
         "30d": {
@@ -1988,7 +1988,7 @@
         },
         {
           "month": "2026/09",
-          "bias": -2.71
+          "bias": -3.39
         }
       ],
       "conditional_winrates": {
@@ -2019,7 +2019,7 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": -3.84,
+        "bias": -3.48,
         "latest_price": 1.54,
         "ma20": 1.6
       },
@@ -2239,7 +2239,7 @@
         },
         {
           "month": "2026/09",
-          "bias": -2.59
+          "bias": -3.48
         }
       ],
       "conditional_winrates": {
