@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026/10/19 13:28",
+  "updated_at": "2026/10/19 19:04",
   "etfs": {
     "0050": {
       "ticker": "0050",
@@ -11,9 +11,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": -3.63,
-        "latest_price": 108.1,
-        "ma20": 112.17
+        "bias": -3.64,
+        "latest_price": 108.15,
+        "ma20": 112.23
       },
       "winrates": {
         "30d": {
@@ -231,7 +231,7 @@
         },
         {
           "month": "2026/10",
-          "bias": -2.83
+          "bias": -3.64
         }
       ],
       "conditional_winrates": {
@@ -262,9 +262,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": -3.48,
-        "latest_price": 247.85,
-        "ma20": 256.8
+        "bias": -3.53,
+        "latest_price": 247.9,
+        "ma20": 256.96
       },
       "winrates": {
         "30d": {
@@ -482,7 +482,7 @@
         },
         {
           "month": "2026/10",
-          "bias": -2.51
+          "bias": -3.53
         }
       ],
       "conditional_winrates": {
@@ -513,9 +513,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": -6.56,
-        "latest_price": 36.5,
-        "ma20": 39.06
+        "bias": -6.65,
+        "latest_price": 36.51,
+        "ma20": 39.11
       },
       "winrates": {
         "30d": {
@@ -733,7 +733,7 @@
         },
         {
           "month": "2026/10",
-          "bias": -4.9
+          "bias": -6.65
         }
       ],
       "conditional_winrates": {
@@ -764,9 +764,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": -6.93,
-        "latest_price": 318.5,
-        "ma20": 342.21
+        "bias": -6.87,
+        "latest_price": 319.1,
+        "ma20": 342.62
       },
       "winrates": {
         "30d": {
@@ -984,7 +984,7 @@
         },
         {
           "month": "2026/10",
-          "bias": -4.8
+          "bias": -6.87
         }
       ],
       "conditional_winrates": {
@@ -1015,9 +1015,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": -6.92,
-        "latest_price": 12.03,
-        "ma20": 12.92
+        "bias": -6.73,
+        "latest_price": 12.07,
+        "ma20": 12.94
       },
       "winrates": {
         "30d": {
@@ -1235,7 +1235,7 @@
         },
         {
           "month": "2026/10",
-          "bias": -4.68
+          "bias": -6.73
         }
       ],
       "conditional_winrates": {
@@ -1266,9 +1266,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": -6.9,
-        "latest_price": 105.15,
-        "ma20": 112.94
+        "bias": -6.8,
+        "latest_price": 105.4,
+        "ma20": 113.09
       },
       "winrates": {
         "30d": {
@@ -1486,7 +1486,7 @@
         },
         {
           "month": "2026/10",
-          "bias": -4.73
+          "bias": -6.8
         }
       ],
       "conditional_winrates": {
@@ -1517,9 +1517,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 3.08,
-        "latest_price": 9.76,
-        "ma20": 9.47
+        "bias": 3.09,
+        "latest_price": 9.75,
+        "ma20": 9.46
       },
       "winrates": {
         "30d": {
@@ -1737,7 +1737,7 @@
         },
         {
           "month": "2026/10",
-          "bias": 1.92
+          "bias": 3.09
         }
       ],
       "conditional_winrates": {
@@ -1768,7 +1768,7 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 2.89,
+        "bias": 3.0,
         "latest_price": 0.96,
         "ma20": 0.93
       },
@@ -1988,7 +1988,7 @@
         },
         {
           "month": "2026/10",
-          "bias": 1.82
+          "bias": 3.0
         }
       ],
       "conditional_winrates": {
@@ -2019,7 +2019,7 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 2.61,
+        "bias": 2.75,
         "latest_price": 1.57,
         "ma20": 1.53
       },
@@ -2239,7 +2239,7 @@
         },
         {
           "month": "2026/10",
-          "bias": 1.96
+          "bias": 2.75
         }
       ],
       "conditional_winrates": {
