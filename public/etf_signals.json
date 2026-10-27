@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026/10/27 13:48",
+  "updated_at": "2026/10/27 20:35",
   "etfs": {
     "0050": {
       "ticker": "0050",
@@ -11,9 +11,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": -4.73,
+        "bias": -4.5,
         "latest_price": 106.6,
-        "ma20": 111.89
+        "ma20": 111.62
       },
       "winrates": {
         "30d": {
@@ -231,7 +231,7 @@
         },
         {
           "month": "2026/10",
-          "bias": -4.46
+          "bias": -4.5
         }
       ],
       "conditional_winrates": {
@@ -262,9 +262,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": -4.52,
+        "bias": -4.31,
         "latest_price": 244.6,
-        "ma20": 256.18
+        "ma20": 255.63
       },
       "winrates": {
         "30d": {
@@ -482,7 +482,7 @@
         },
         {
           "month": "2026/10",
-          "bias": -4.42
+          "bias": -4.31
         }
       ],
       "conditional_winrates": {
@@ -513,9 +513,9 @@
       "current": {
         "signal": "green",
         "label": "偏低估",
-        "bias": -8.46,
+        "bias": -8.11,
         "latest_price": 35.6,
-        "ma20": 38.89
+        "ma20": 38.74
       },
       "winrates": {
         "30d": {
@@ -733,7 +733,7 @@
         },
         {
           "month": "2026/10",
-          "bias": -8.43
+          "bias": -8.11
         }
       ],
       "conditional_winrates": {
@@ -764,9 +764,9 @@
       "current": {
         "signal": "green",
         "label": "偏低估",
-        "bias": -8.84,
+        "bias": -8.46,
         "latest_price": 310.5,
-        "ma20": 340.6
+        "ma20": 339.18
       },
       "winrates": {
         "30d": {
@@ -984,7 +984,7 @@
         },
         {
           "month": "2026/10",
-          "bias": -8.69
+          "bias": -8.46
         }
       ],
       "conditional_winrates": {
@@ -1015,9 +1015,9 @@
       "current": {
         "signal": "green",
         "label": "偏低估",
-        "bias": -8.73,
+        "bias": -8.36,
         "latest_price": 11.75,
-        "ma20": 12.87
+        "ma20": 12.82
       },
       "winrates": {
         "30d": {
@@ -1235,7 +1235,7 @@
         },
         {
           "month": "2026/10",
-          "bias": -8.49
+          "bias": -8.36
         }
       ],
       "conditional_winrates": {
@@ -1266,9 +1266,9 @@
       "current": {
         "signal": "green",
         "label": "偏低估",
-        "bias": -8.76,
+        "bias": -8.39,
         "latest_price": 102.6,
-        "ma20": 112.45
+        "ma20": 112.0
       },
       "winrates": {
         "30d": {
@@ -1486,7 +1486,7 @@
         },
         {
           "month": "2026/10",
-          "bias": -8.59
+          "bias": -8.39
         }
       ],
       "conditional_winrates": {
@@ -1517,9 +1517,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 4.14,
+        "bias": 3.94,
         "latest_price": 9.87,
-        "ma20": 9.48
+        "ma20": 9.5
       },
       "winrates": {
         "30d": {
@@ -1737,7 +1737,7 @@
         },
         {
           "month": "2026/10",
-          "bias": 4.24
+          "bias": 3.94
         }
       ],
       "conditional_winrates": {
@@ -1768,9 +1768,9 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 3.8,
+        "bias": 3.63,
         "latest_price": 0.97,
-        "ma20": 0.93
+        "ma20": 0.94
       },
       "winrates": {
         "30d": {
@@ -1988,7 +1988,7 @@
         },
         {
           "month": "2026/10",
-          "bias": 3.8
+          "bias": 3.63
         }
       ],
       "conditional_winrates": {
@@ -2019,7 +2019,7 @@
       "current": {
         "signal": "yellow",
         "label": "中性觀望",
-        "bias": 4.47,
+        "bias": 4.3,
         "latest_price": 1.6,
         "ma20": 1.53
       },
@@ -2239,7 +2239,7 @@
         },
         {
           "month": "2026/10",
-          "bias": 3.82
+          "bias": 4.3
         }
       ],
       "conditional_winrates": {
