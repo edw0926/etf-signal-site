@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026/11/10 23:09",
+  "updated_at": "2026/11/11 15:21",
   "etfs": {
     "0050": {
       "ticker": "0050",
@@ -9,11 +9,11 @@
       "data_range": "2005/01 — 2026/06",
       "sample_months": 258,
       "current": {
-        "signal": "green",
-        "label": "偏低估",
-        "bias": -5.38,
-        "latest_price": 99.7,
-        "ma20": 105.37
+        "signal": "yellow",
+        "label": "中性觀望",
+        "bias": -1.51,
+        "latest_price": 103.2,
+        "ma20": 104.79
       },
       "winrates": {
         "30d": {
@@ -231,7 +231,7 @@
         },
         {
           "month": "2026/11",
-          "bias": -5.38
+          "bias": -1.51
         }
       ],
       "conditional_winrates": {
@@ -260,11 +260,11 @@
       "data_range": "2012/07 — 2026/06",
       "sample_months": 168,
       "current": {
-        "signal": "green",
-        "label": "偏低估",
-        "bias": -5.19,
-        "latest_price": 228.9,
-        "ma20": 241.44
+        "signal": "yellow",
+        "label": "中性觀望",
+        "bias": -1.46,
+        "latest_price": 236.6,
+        "ma20": 240.12
       },
       "winrates": {
         "30d": {
@@ -482,7 +482,7 @@
         },
         {
           "month": "2026/11",
-          "bias": -5.19
+          "bias": -1.46
         }
       ],
       "conditional_winrates": {
@@ -511,11 +511,11 @@
       "data_range": "2014/10 — 2026/06",
       "sample_months": 141,
       "current": {
-        "signal": "green",
-        "label": "偏低估",
-        "bias": -12.6,
-        "latest_price": 30.25,
-        "ma20": 34.61
+        "signal": "yellow",
+        "label": "中性觀望",
+        "bias": -4.86,
+        "latest_price": 32.53,
+        "ma20": 34.19
       },
       "winrates": {
         "30d": {
@@ -733,7 +733,7 @@
         },
         {
           "month": "2026/11",
-          "bias": -12.6
+          "bias": -4.86
         }
       ],
       "conditional_winrates": {
@@ -762,11 +762,11 @@
       "data_range": "2016/10 — 2026/06",
       "sample_months": 117,
       "current": {
-        "signal": "green",
-        "label": "偏低估",
-        "bias": -13.61,
-        "latest_price": 260.3,
-        "ma20": 301.32
+        "signal": "yellow",
+        "label": "中性觀望",
+        "bias": -6.3,
+        "latest_price": 278.6,
+        "ma20": 297.32
       },
       "winrates": {
         "30d": {
@@ -984,7 +984,7 @@
         },
         {
           "month": "2026/11",
-          "bias": -13.61
+          "bias": -6.3
         }
       ],
       "conditional_winrates": {
@@ -1013,11 +1013,11 @@
       "data_range": "2017/03 — 2026/06",
       "sample_months": 112,
       "current": {
-        "signal": "green",
-        "label": "偏低估",
-        "bias": -13.65,
-        "latest_price": 9.85,
-        "ma20": 11.41
+        "signal": "yellow",
+        "label": "中性觀望",
+        "bias": -6.37,
+        "latest_price": 10.54,
+        "ma20": 11.26
       },
       "winrates": {
         "30d": {
@@ -1235,7 +1235,7 @@
         },
         {
           "month": "2026/11",
-          "bias": -13.65
+          "bias": -6.37
         }
       ],
       "conditional_winrates": {
@@ -1264,11 +1264,11 @@
       "data_range": "2016/07 — 2026/06",
       "sample_months": 120,
       "current": {
-        "signal": "green",
-        "label": "偏低估",
-        "bias": -13.48,
-        "latest_price": 86.15,
-        "ma20": 99.58
+        "signal": "yellow",
+        "label": "中性觀望",
+        "bias": -6.22,
+        "latest_price": 92.15,
+        "ma20": 98.27
       },
       "winrates": {
         "30d": {
@@ -1486,7 +1486,7 @@
         },
         {
           "month": "2026/11",
-          "bias": -13.48
+          "bias": -6.22
         }
       ],
       "conditional_winrates": {
@@ -1515,11 +1515,11 @@
       "data_range": "2014/10 — 2026/06",
       "sample_months": 141,
       "current": {
-        "signal": "green",
-        "label": "空頭機會",
-        "bias": 5.89,
-        "latest_price": 10.65,
-        "ma20": 10.06
+        "signal": "yellow",
+        "label": "中性觀望",
+        "bias": 1.49,
+        "latest_price": 10.26,
+        "ma20": 10.11
       },
       "winrates": {
         "30d": {
@@ -1737,7 +1737,7 @@
         },
         {
           "month": "2026/11",
-          "bias": 5.89
+          "bias": 1.49
         }
       ],
       "conditional_winrates": {
@@ -1766,11 +1766,11 @@
       "data_range": "2017/03 — 2026/06",
       "sample_months": 112,
       "current": {
-        "signal": "green",
-        "label": "空頭機會",
-        "bias": 5.05,
-        "latest_price": 1.04,
-        "ma20": 0.99
+        "signal": "yellow",
+        "label": "中性觀望",
+        "bias": 1.51,
+        "latest_price": 1.01,
+        "ma20": 1.0
       },
       "winrates": {
         "30d": {
@@ -1988,7 +1988,7 @@
         },
         {
           "month": "2026/11",
-          "bias": 5.05
+          "bias": 1.51
         }
       ],
       "conditional_winrates": {
@@ -2017,11 +2017,11 @@
       "data_range": "2016/07 — 2026/06",
       "sample_months": 120,
       "current": {
-        "signal": "green",
-        "label": "空頭機會",
-        "bias": 5.98,
-        "latest_price": 1.72,
-        "ma20": 1.62
+        "signal": "yellow",
+        "label": "中性觀望",
+        "bias": 1.75,
+        "latest_price": 1.66,
+        "ma20": 1.63
       },
       "winrates": {
         "30d": {
@@ -2239,7 +2239,7 @@
         },
         {
           "month": "2026/11",
-          "bias": 5.98
+          "bias": 1.75
         }
       ],
       "conditional_winrates": {
